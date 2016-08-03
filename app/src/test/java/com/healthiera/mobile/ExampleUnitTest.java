@@ -1,4 +1,4 @@
-package com.healthiera.healthieramobile;
+package com.healthiera.mobile;
 
 import org.junit.Test;
 
