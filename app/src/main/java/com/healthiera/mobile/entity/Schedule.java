@@ -1,19 +1,41 @@
 package com.healthiera.mobile.entity;
 
+import com.activeandroid.annotation.Column;
+import com.activeandroid.annotation.Table;
+import com.activeandroid.Model;
 import java.util.Date;
 
 /**
  * Created by Davit on 05.08.2016.
  */
-public class Schedule extends BaseEntity
-{
-    public Long id;
-    public Long eventId;
-    public RepeatType repeatType;
-    public Integer repeatCount;
-    public Integer interval;
-    public Date repeatTypeStart;
-    public Date repeatTypeEnd;
+@Table(name = "schedule")
+public class Schedule extends Model {
+    public Schedule()
+    {
+        super();
+    }
+
+    public Schedule(Long eventId, Integer interval, Integer repeatCount, RepeatType repeatType, Date repeatTypeEnd, Date repeatTypeStart) {
+        this.eventId = eventId;
+        this.interval = interval;
+        this.repeatCount = repeatCount;
+        this.repeatType = repeatType;
+        this.repeatTypeEnd = repeatTypeEnd;
+        this.repeatTypeStart = repeatTypeStart;
+    }
+
+        @Column(name = "event_id")
+        private Long eventId;
+        @Column(name = "repeat_type")
+        private RepeatType repeatType;
+        @Column(name = "repeat_count")
+        private Integer repeatCount;
+        @Column(name = "interval")
+        private Integer interval;
+        @Column(name = "repeat_type_start")
+        private Date repeatTypeStart;
+        @Column(name = "repeat_type_end")
+        private Date repeatTypeEnd;
 
     public Long getEventId() {
         return eventId;
@@ -21,16 +43,6 @@ public class Schedule extends BaseEntity
 
     public void setEventId(Long eventId) {
         this.eventId = eventId;
-    }
-
-    @Override
-    public Long getId() {
-        return id;
-    }
-
-    @Override
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public Integer getInterval() {

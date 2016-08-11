@@ -1,17 +1,38 @@
 package com.healthiera.mobile.entity;
 
+import com.activeandroid.annotation.Column;
+import com.activeandroid.annotation.Table;
+import com.activeandroid.Model;
 import java.util.Date;
 
 /**
  * Created by Davit on 05.08.2016.
  */
-public class Event   extends BaseEntity {
-    public Long id;
-    public String description;
-    public EventType type;
-    public Date startDateTime;
-    public Date endDateTime;
-    public String location;
+@Table(name = "event")
+public class Event   extends Model {
+
+    public Event(String description, Date endDateTime,String location, Date startDateTime, EventType type) {
+        super();
+        this.description = description;
+        this.endDateTime = endDateTime;
+        this.location = location;
+        this.startDateTime = startDateTime;
+        this.type = type;
+    }
+
+public Event() {
+    super();
+    }
+    @Column(name = "description")
+    private String description;
+    @Column(name = "type")
+    private EventType type;
+    @Column(name = "start_date_time")
+    private Date startDateTime;
+    @Column(name = "end_date_time")
+    private Date endDateTime;
+    @Column(name = "location")
+    private String location;
 
     public String getDescription() {
         return description;
@@ -27,16 +48,6 @@ public class Event   extends BaseEntity {
 
     public void setEndDateTime(Date endDateTime) {
         this.endDateTime = endDateTime;
-    }
-
-    @Override
-    public Long getId() {
-        return id;
-    }
-
-    @Override
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public String getLocation() {

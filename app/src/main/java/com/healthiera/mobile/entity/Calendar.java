@@ -1,14 +1,31 @@
 package com.healthiera.mobile.entity;
 
+import com.activeandroid.annotation.Column;
+import com.activeandroid.annotation.Table;
+import com.activeandroid.Model;
 import java.util.Date;
 
 /**
  * Created by Davit on 05.08.2016.
  */
-public class Calendar  extends BaseEntity {
-    public Long id;
-    public Long eventId;
-    public Date dateTime;
+@Table(name = "calendar")
+public class Calendar  extends Model {
+
+    public Calendar(Date dateTime, Long eventId) {
+        super();
+        this.dateTime = dateTime;
+        this.eventId = eventId;
+    }
+
+    public Calendar() {
+        super();
+    }
+    @Column(name = "id")
+    private Long id;
+    @Column(name = "event_id")
+    private Long eventId;
+    @Column(name = "date_time")
+    private Date dateTime;
 
     public Date getDateTime() {
         return dateTime;
@@ -24,15 +41,5 @@ public class Calendar  extends BaseEntity {
 
     public void setEventId(Long eventId) {
         this.eventId = eventId;
-    }
-
-    @Override
-    public Long getId() {
-        return id;
-    }
-
-    @Override
-    public void setId(Long id) {
-        this.id = id;
     }
 }

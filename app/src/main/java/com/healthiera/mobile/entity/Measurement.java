@@ -1,13 +1,29 @@
 package com.healthiera.mobile.entity;
 
+import com.activeandroid.annotation.Column;
+import com.activeandroid.annotation.Table;
+import com.activeandroid.Model;
 /**
  * Created by Davit on 05.08.2016.
  */
-public class Measurement extends BaseEntity {
-    public Long id;
-    public Long eventId;
-    public Integer medicationTemplateId;
-    public Integer medicationShapeId;
+@Table(name = "measurement")
+public class Measurement extends Model {
+    public Measurement(Long eventId, Integer medicationShapeId, Integer medicationTemplateId) {
+        super();
+        this.eventId = eventId;
+        this.medicationShapeId = medicationShapeId;
+        this.medicationTemplateId = medicationTemplateId;
+    }
+
+    public Measurement() {
+        super();
+    }
+    @Column(name = "event_id")
+    private Long eventId;
+    @Column(name = "medication_template_id")
+    private Integer medicationTemplateId;
+    @Column(name = "medication_shape_id")
+    private Integer medicationShapeId;
 
     public Long getEventId() {
         return eventId;
@@ -15,14 +31,6 @@ public class Measurement extends BaseEntity {
 
     public void setEventId(Long eventId) {
         this.eventId = eventId;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public Integer getMedicationShapeId() {
