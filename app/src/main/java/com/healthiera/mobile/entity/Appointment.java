@@ -17,25 +17,24 @@ public class Appointment extends Model {
     private Integer notification;
 
     @Column(name = "event_id")
-    private Long eventId;
+    private Event event;
 
     public Appointment() {
         super();
     }
 
-    public Appointment(Long doctorId, Long eventId, Integer notification) {
-        super();
+    public Appointment(Long doctorId, Integer notification, Event event) {
         this.doctorId = doctorId;
-        this.eventId = eventId;
         this.notification = notification;
+        this.event = event;
     }
 
-    public Long getEventId() {
-        return eventId;
+    public Event getEvent() {
+        return event;
     }
 
-    public void setEventId(Long eventId) {
-        this.eventId = eventId;
+    public void setEvent(Event event) {
+        this.event = event;
     }
 
     public Long getDoctorId() {
