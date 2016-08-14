@@ -1,30 +1,30 @@
 package com.healthiera.mobile.entity;
 
+import com.activeandroid.Model;
 import com.activeandroid.annotation.Column;
 import com.activeandroid.annotation.Table;
-import com.activeandroid.Model;
 
 /**
  * Created by Davit on 05.08.2016.
  */
 @Table(name = "settings")
-public class Settings extends Model {
+public class Setting extends Model {
 
-    public Settings() {
-    super();
-    }
-
-    public Settings(String key, String value) {
-        super();
-        this.key = key;
-        this.value = value;
-    }
-
-    @Column(name = "key",index = true)
+    @Column(name = "key", index = true)
     private String key;
 
     @Column(name = "value")
     private String value;
+
+    public Setting() {
+        super();
+    }
+
+    public Setting(String key, String value) {
+        super();
+        this.key = key;
+        this.value = value;
+    }
 
     public String getKey() {
         return key;

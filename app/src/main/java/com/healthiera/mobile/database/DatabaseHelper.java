@@ -1,13 +1,5 @@
 package com.healthiera.mobile.database;
 
-import android.content.ContentValues;
-import android.content.Context;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
-
-import com.healthiera.mobile.entity.Profile;
-
 /**
  * Created by yengibar on 8/3/16.
  */
@@ -15,7 +7,7 @@ import com.healthiera.mobile.entity.Profile;
 //public class DatabaseHelper extends SQLiteOpenHelper {
 
 
-    // Logcat tag
+// Logcat tag
 //    private static final String LOG = "DatabaseHelper";
 //
 //    // Database Version

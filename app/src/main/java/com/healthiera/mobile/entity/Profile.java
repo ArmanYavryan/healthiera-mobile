@@ -1,14 +1,42 @@
 package com.healthiera.mobile.entity;
 
+import com.activeandroid.Model;
 import com.activeandroid.annotation.Column;
 import com.activeandroid.annotation.Table;
-import com.activeandroid.Model;
 
 /**
  * Created by Davit on 05.08.2016.
  */
 @Table(name = "profile")
 public class Profile extends Model {
+
+    @Column(name = "user_name")
+    private String userName;
+
+    @Column(name = "password")
+    private String password;
+
+    @Column(name = "name")
+    private String name;
+
+    @Column(name = "last_name")
+    private String lastName;
+
+    @Column(name = "sex")
+    private Boolean sex;
+
+    @Column(name = "birthday")
+    private String birthday;
+
+    @Column(name = "zip_code")
+    private String zipCode;
+
+    @Column(name = "email")
+    private String email;
+
+    @Column(name = "image")
+    private String image;
+
     public Profile(String birthday, String email, String image, String lastName, String name, String password, Boolean sex, String userName, String zipCode) {
         super();
         this.birthday = birthday;
@@ -25,24 +53,6 @@ public class Profile extends Model {
     public Profile() {
         super();
     }
-    @Column(name = "user_name")
-    private String userName;
-    @Column(name = "password")
-    private String password;
-    @Column(name = "name")
-    private String name;
-    @Column(name = "last_name")
-    private String lastName;
-    @Column(name = "sex")
-    private Boolean sex;
-    @Column(name = "birthday")
-    private String birthday;
-    @Column(name = "zip_code")
-    private String zipCode;
-    @Column(name = "email")
-    private String email;
-    @Column(name = "image")
-    private String image;
 
     public String getBirthday() {
         return birthday;

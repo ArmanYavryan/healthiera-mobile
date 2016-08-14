@@ -1,8 +1,10 @@
 package com.healthiera.mobile.entity;
 
+import com.activeandroid.Model;
 import com.activeandroid.annotation.Column;
 import com.activeandroid.annotation.Table;
-import com.activeandroid.Model;
+import com.healthiera.mobile.entity.enumeration.RepeatType;
+
 import java.util.Date;
 
 /**
@@ -10,8 +12,26 @@ import java.util.Date;
  */
 @Table(name = "schedule")
 public class Schedule extends Model {
-    public Schedule()
-    {
+
+    @Column(name = "event_id")
+    private Long eventId;
+
+    @Column(name = "repeat_type")
+    private RepeatType repeatType;
+
+    @Column(name = "repeat_count")
+    private Integer repeatCount;
+
+    @Column(name = "interval")
+    private Integer interval;
+
+    @Column(name = "repeat_type_start")
+    private Date repeatTypeStart;
+
+    @Column(name = "repeat_type_end")
+    private Date repeatTypeEnd;
+
+    public Schedule() {
         super();
     }
 
@@ -23,19 +43,6 @@ public class Schedule extends Model {
         this.repeatTypeEnd = repeatTypeEnd;
         this.repeatTypeStart = repeatTypeStart;
     }
-
-        @Column(name = "event_id")
-        private Long eventId;
-        @Column(name = "repeat_type")
-        private RepeatType repeatType;
-        @Column(name = "repeat_count")
-        private Integer repeatCount;
-        @Column(name = "interval")
-        private Integer interval;
-        @Column(name = "repeat_type_start")
-        private Date repeatTypeStart;
-        @Column(name = "repeat_type_end")
-        private Date repeatTypeEnd;
 
     public Long getEventId() {
         return eventId;

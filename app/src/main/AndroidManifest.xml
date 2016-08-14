@@ -7,7 +7,8 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        android:name="com.activeandroid.app.Application">
         <activity android:name="com.healthiera.mobile.activity.main.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -16,13 +17,22 @@
             </intent-filter>
         </activity>
 
-        <meta-data android:name="AA_DB_NAME" android:value="healthiera.db" />
-        <meta-data android:name="AA_DB_VERSION" android:value="1" />
-
-        <!--<meta-data-->
-            <!--android:name="AA_MODELS"-->
-            <!--android:value="com.healthiera.mobile.entity.Settings" />-->
-
+        <!--DB credential-->
+        <meta-data
+            android:name="AA_DB_NAME"
+            android:value="healthiera.db" />
+        <meta-data
+            android:name="AA_DB_VERSION"
+            android:value="1" />
+        <meta-data
+            android:name="AA_MODELS"
+            android:value="com.healthiera.mobile.entity.Appointment,
+        com.healthiera.mobile.entity.Calendar,
+        com.healthiera.mobile.entity.Event,
+        com.healthiera.mobile.entity.Measurement,
+        com.healthiera.mobile.entity.Medication,
+        com.healthiera.mobile.entity.Profile,
+        com.healthiera.mobile.entity.Schedule,
+        com.healthiera.mobile.entity.Setting" />
     </application>
-
 </manifest>

@@ -1,13 +1,27 @@
 package com.healthiera.mobile.entity;
 
+import com.activeandroid.Model;
 import com.activeandroid.annotation.Column;
 import com.activeandroid.annotation.Table;
-import com.activeandroid.Model;
+
 /**
  * Created by yengibar on 8/3/16.
  */
 @Table(name = "appointment")
 public class Appointment extends Model {
+
+    @Column(name = "doctor_id")
+    private Long doctorId;
+
+    @Column(name = "notification")
+    private Integer notification;
+
+    @Column(name = "event_id")
+    private Long eventId;
+
+    public Appointment() {
+        super();
+    }
 
     public Appointment(Long doctorId, Long eventId, Integer notification) {
         super();
@@ -15,16 +29,6 @@ public class Appointment extends Model {
         this.eventId = eventId;
         this.notification = notification;
     }
-
-    public Appointment() {
-        super();
-    }
-    @Column(name = "event_id")
-    private Long eventId;
-    @Column(name = "doctor_id")
-    private Long doctorId;
-    @Column(name = "notification")
-    private Integer notification;
 
     public Long getEventId() {
         return eventId;

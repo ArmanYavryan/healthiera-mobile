@@ -9,11 +9,9 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".activity.main.MainActivity">
 
-    <com.healthiera.mobile.htComponents.htTextView
+    <com.healthiera.mobile.component.base.BaseTextView
         android:id="@+id/TextTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Hello World!" />
-
-
 </RelativeLayout>
