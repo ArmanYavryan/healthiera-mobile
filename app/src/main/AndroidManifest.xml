@@ -34,5 +34,12 @@
         com.healthiera.mobile.entity.Profile,
         com.healthiera.mobile.entity.Schedule,
         com.healthiera.mobile.entity.Setting" />
+
+        <!--AHBottomNavigation credential-->
+        <com.aurelhubert.ahbottomnavigation.AHBottomNavigation
+            android:id="@+id/bottom_navigation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
     </application>
 </manifest>

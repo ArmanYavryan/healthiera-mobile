@@ -1,7 +1,23 @@
 package com.healthiera.mobile.mFragment;
 
+import android.os.Bundle;
+import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+
+import com.healthiera.mobile.R;
+
 /**
- * Created by Meline on 19.08.2016.
+ * Created by Davit on 19.08.2016.
  */
-public class Goals {
+public class Goals extends Fragment {
+    @Nullable
+    @Override
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+
+        View rootView = inflater.inflate(R.layout.goals,container,false);
+        return rootView;
+    }
 }

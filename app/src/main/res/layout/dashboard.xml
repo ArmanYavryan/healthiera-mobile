@@ -3,4 +3,10 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <com.healthiera.mobile.component.base.BaseTextView
+        android:id="@+id/TextTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Dashboard" />
+
 </LinearLayout>
