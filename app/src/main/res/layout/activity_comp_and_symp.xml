@@ -1,0 +1,583 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:nestedScrollingEnabled="true"
+    tools:context="com.example.user.example22.CompAndSymp">
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/gradient_purple"
+            android:paddingRight="5dp">
+
+            <TextView
+                android:id="@+id/textView19"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left|center_vertical"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:padding="15dp"
+                android:shadowColor="#462449"
+                android:shadowDx="1"
+                android:shadowDy="1"
+                android:shadowRadius="1"
+                android:text="Complains / Symptoms"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="#fcfcfc"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/comp_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|right"
+                android:autoText="false"
+                android:background="@drawable/register"
+                android:linksClickable="false"
+                android:longClickable="false"
+                android:nestedScrollingEnabled="false"
+                android:paddingBottom="10dp"
+                android:paddingLeft="30dp"
+                android:paddingRight="30dp"
+                android:paddingTop="10dp"
+                android:password="false"
+                android:shadowDy="1"
+                android:shadowRadius="1"
+                android:text="Back"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="#fcfcfc"
+                android:textSize="16dp"
+                android:textStyle="bold"
+                android:onClick="onClickBack"/>
+        </TableRow>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#F5F5F5">
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="10dp">
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/background_gray"
+                    android:baselineAligned="false"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp">
+
+                    <TextView
+                        android:id="@+id/textView_obsety"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:paddingBottom="15dp"
+                        android:paddingTop="15dp"
+                        android:shadowColor="#80ffffff"
+                        android:shadowDx="2"
+                        android:shadowDy="2"
+                        android:shadowRadius="2"
+                        android:text="Obesty"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:textColor="#7d768a"
+                        android:textSize="17dp"
+                        android:textStyle="bold|italic" />
+
+                    <RelativeLayout
+                        android:id="@+id/relativeLayout"
+                        android:layout_width="68dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical|right">
+
+                        <TextView
+                            android:id="@+id/b1b"
+                            android:layout_width="65dp"
+                            android:layout_height="30dp"
+                            android:layout_centerVertical="true"
+                            android:layout_gravity="center_vertical|right"
+                            android:background="@drawable/switch_no_back"
+                            android:gravity="center_vertical|right"
+                            android:paddingLeft="10dp"
+                            android:paddingRight="10dp"
+                            android:shadowColor="#8fffffff"
+                            android:shadowDx="1"
+                            android:shadowDy="1"
+                            android:shadowRadius="2"
+                            android:text="No"
+                            android:textAllCaps="true"
+                            android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:textColor="#696969"
+                            android:textSize="15dp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/b1"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_centerVertical="true"
+                            android:background="@drawable/circle_button" />
+                    </RelativeLayout>
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/background_gray"
+                    android:baselineAligned="false"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp">
+
+                    <TextView
+                        android:id="@+id/textView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:gravity="center_vertical"
+                        android:paddingBottom="15dp"
+                        android:paddingTop="15dp"
+                        android:shadowColor="#80ffffff"
+                        android:shadowDx="2"
+                        android:shadowDy="2"
+                        android:shadowRadius="2"
+                        android:text="Thirsty"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:textColor="#7d768a"
+                        android:textSize="17dp"
+                        android:textStyle="bold|italic" />
+                    <RelativeLayout
+                        android:id="@+id/relativeLayout2"
+                        android:layout_width="68dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical|right">
+
+                        <TextView
+                            android:id="@+id/b2b"
+                            android:layout_width="65dp"
+                            android:layout_height="30dp"
+                            android:layout_centerVertical="true"
+                            android:layout_gravity="center_vertical|right"
+                            android:background="@drawable/switch_no_back"
+                            android:gravity="center_vertical|right"
+                            android:paddingLeft="10dp"
+                            android:paddingRight="10dp"
+                            android:shadowColor="#8fffffff"
+                            android:shadowDx="1"
+                            android:shadowDy="1"
+                            android:shadowRadius="2"
+                            android:text="No"
+                            android:textAllCaps="true"
+                            android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:textColor="#696969"
+                            android:textSize="15dp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/b2"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_centerVertical="true"
+                            android:background="@drawable/circle_button" />
+                    </RelativeLayout>
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/background_gray"
+                    android:baselineAligned="false"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp">
+
+                    <TextView
+                        android:id="@+id/textView2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:gravity="center_vertical"
+                        android:paddingBottom="15dp"
+                        android:paddingTop="15dp"
+                        android:shadowColor="#80ffffff"
+                        android:shadowDx="2"
+                        android:shadowDy="2"
+                        android:shadowRadius="2"
+                        android:text="Profuse sweating"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:textColor="#7d768a"
+                        android:textSize="17dp"
+                        android:textStyle="bold|italic" />
+
+                    <RelativeLayout
+                        android:id="@+id/relativeLayout3"
+                        android:layout_width="68dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical|right">
+
+                        <TextView
+                            android:id="@+id/b3b"
+                            android:layout_width="65dp"
+                            android:layout_height="30dp"
+                            android:layout_centerVertical="true"
+                            android:layout_gravity="center_vertical|right"
+                            android:background="@drawable/switch_no_back"
+                            android:gravity="center_vertical|right"
+                            android:paddingLeft="10dp"
+                            android:paddingRight="10dp"
+                            android:shadowColor="#8fffffff"
+                            android:shadowDx="1"
+                            android:shadowDy="1"
+                            android:shadowRadius="2"
+                            android:text="No"
+                            android:textAllCaps="true"
+                            android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:textColor="#696969"
+                            android:textSize="15dp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/b3"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_centerVertical="true"
+                            android:background="@drawable/circle_button" />
+                    </RelativeLayout>
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/background_gray"
+                    android:baselineAligned="false"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp">
+
+                    <TextView
+                        android:id="@+id/tvSlide_down"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:gravity="center_vertical"
+                        android:paddingBottom="15dp"
+                        android:paddingTop="15dp"
+                        android:shadowColor="#80ffffff"
+                        android:shadowDx="2"
+                        android:shadowDy="2"
+                        android:shadowRadius="2"
+                        android:text="Nocturia ­ night urination"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:textColor="#7d768a"
+                        android:textSize="17dp"
+                        android:textStyle="bold|italic" />
+
+                    <RelativeLayout
+                        android:id="@+id/relativeLayout4"
+                        android:layout_width="68dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical|right">
+
+                        <TextView
+                            android:id="@+id/b4b"
+                            android:layout_width="65dp"
+                            android:layout_height="30dp"
+                            android:layout_centerVertical="true"
+                            android:layout_gravity="center_vertical|right"
+                            android:background="@drawable/switch_no_back"
+                            android:gravity="center_vertical|right"
+                            android:paddingLeft="10dp"
+                            android:paddingRight="10dp"
+                            android:shadowColor="#8fffffff"
+                            android:shadowDx="1"
+                            android:shadowDy="1"
+                            android:shadowRadius="2"
+                            android:text="No"
+                            android:textAllCaps="true"
+                            android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:textColor="#696969"
+                            android:textSize="15dp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/b4"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_centerVertical="true"
+                            android:background="@drawable/circle_button" />
+                    </RelativeLayout>
+
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/invisible"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/background_gray"
+                    android:baselineAligned="false"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    android:visibility="gone">
+
+                    <EditText
+                        android:id="@+id/howmanytimes"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="#00ffffff"
+                        android:ems="10"
+                        android:hint="how many times ?"
+                        android:inputType="number"
+                        android:padding="10dp"
+                        android:paddingBottom="15dp"
+                        android:paddingTop="15dp"
+                        android:shadowColor="#fff"
+                        android:shadowDx="1"
+                        android:shadowDy="1"
+                        android:shadowRadius="1"
+                        android:textColor="#969696"
+                        android:textColorHint="#969696"
+                        android:textSize="17dp"
+                        android:textStyle="bold|italic" />
+
+                    <TextView
+                        android:id="@+id/comp_add"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical|right"
+                        android:layout_margin="5dp"
+                        android:background="@drawable/signin"
+                        android:linksClickable="false"
+                        android:longClickable="false"
+                        android:nestedScrollingEnabled="false"
+                        android:paddingBottom="10dp"
+                        android:paddingLeft="15dp"
+                        android:paddingRight="15dp"
+                        android:paddingTop="10dp"
+                        android:shadowDy="1"
+                        android:shadowRadius="1"
+                        android:text="Add"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="#fcfcfc"
+                        android:textSize="15dp"
+                        android:textStyle="bold" />
+
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/slide_down"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/bottom_border2"
+                    android:baselineAligned="false"
+                    android:minHeight="1dp" />
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/background_gray"
+                    android:baselineAligned="false"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp">
+
+                    <TextView
+                        android:id="@+id/textView4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:gravity="center_vertical"
+                        android:paddingBottom="15dp"
+                        android:paddingTop="15dp"
+                        android:shadowColor="#80ffffff"
+                        android:shadowDx="2"
+                        android:shadowDy="2"
+                        android:shadowRadius="2"
+                        android:text="Polyuria"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:textColor="#7d768a"
+                        android:textIsSelectable="false"
+                        android:textSize="17dp"
+                        android:textStyle="bold|italic" />
+
+                    <RelativeLayout
+                        android:id="@+id/relativeLayout5"
+                        android:layout_width="68dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical|right">
+
+                        <TextView
+                            android:id="@+id/b5b"
+                            android:layout_width="65dp"
+                            android:layout_height="30dp"
+                            android:layout_centerVertical="true"
+                            android:layout_gravity="center_vertical|right"
+                            android:background="@drawable/switch_no_back"
+                            android:gravity="center_vertical|right"
+                            android:paddingLeft="10dp"
+                            android:paddingRight="10dp"
+                            android:shadowColor="#8fffffff"
+                            android:shadowDx="1"
+                            android:shadowDy="1"
+                            android:shadowRadius="2"
+                            android:text="No"
+                            android:textAllCaps="true"
+                            android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:textColor="#696969"
+                            android:textSize="15dp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/b5"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_centerVertical="true"
+                            android:background="@drawable/circle_button" />
+                    </RelativeLayout>
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/background_gray"
+                    android:baselineAligned="false"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp">
+
+                    <TextView
+                        android:id="@+id/textView5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:gravity="center_vertical"
+                        android:paddingBottom="15dp"
+                        android:paddingTop="15dp"
+                        android:shadowColor="#80ffffff"
+                        android:shadowDx="2"
+                        android:shadowDy="2"
+                        android:shadowRadius="2"
+                        android:text="Polydipsia"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:textColor="#7d768a"
+                        android:textSize="17dp"
+                        android:textStyle="bold|italic" />
+
+                    <RelativeLayout
+                        android:id="@+id/relativeLayout6"
+                        android:layout_width="68dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical|right">
+
+                        <TextView
+                            android:id="@+id/b6b"
+                            android:layout_width="65dp"
+                            android:layout_height="30dp"
+                            android:layout_centerVertical="true"
+                            android:layout_gravity="center_vertical|right"
+                            android:background="@drawable/switch_no_back"
+                            android:gravity="center_vertical|right"
+                            android:paddingLeft="10dp"
+                            android:paddingRight="10dp"
+                            android:shadowColor="#8fffffff"
+                            android:shadowDx="1"
+                            android:shadowDy="1"
+                            android:shadowRadius="2"
+                            android:text="No"
+                            android:textAllCaps="true"
+                            android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:textColor="#696969"
+                            android:textSize="15dp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/b6"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_centerVertical="true"
+                            android:background="@drawable/circle_button" />
+                    </RelativeLayout>
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/background_gray"
+                    android:baselineAligned="false"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp">
+
+                    <TextView
+                        android:id="@+id/textView6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:paddingBottom="15dp"
+                        android:paddingTop="15dp"
+                        android:shadowColor="#80ffffff"
+                        android:shadowDx="2"
+                        android:shadowDy="2"
+                        android:shadowRadius="2"
+                        android:text="Bulimia ­ pathology appetitis"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:textColor="#7d768a"
+                        android:textSize="17dp"
+                        android:textStyle="bold|italic" />
+
+                    <RelativeLayout
+                        android:id="@+id/relativeLayout7"
+                        android:layout_width="68dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical|right">
+
+                        <TextView
+                            android:id="@+id/b7b"
+                            android:layout_width="65dp"
+                            android:layout_height="30dp"
+                            android:layout_centerVertical="true"
+                            android:layout_gravity="center_vertical|right"
+                            android:background="@drawable/switch_no_back"
+                            android:gravity="center_vertical|right"
+                            android:paddingLeft="10dp"
+                            android:paddingRight="10dp"
+                            android:shadowColor="#8fffffff"
+                            android:shadowDx="1"
+                            android:shadowDy="1"
+                            android:shadowRadius="2"
+                            android:text="No"
+                            android:textAllCaps="true"
+                            android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:textColor="#696969"
+                            android:textSize="15dp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/b7"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_centerVertical="true"
+                            android:background="@drawable/circle_button" />
+                    </RelativeLayout>
+                    />
+                </TableRow>
+
+            </TableLayout>
+        </ScrollView>
+    </TableLayout>
+
+</RelativeLayout>

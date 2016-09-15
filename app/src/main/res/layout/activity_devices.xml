@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.user.example22.DevicesActivity">
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/gradient_purple"
+            android:paddingRight="5dp" >
+
+            <TextView
+                android:id="@+id/textView7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left|center_vertical"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:shadowColor="#462449"
+                android:shadowDx="1"
+                android:shadowDy="1"
+                android:shadowRadius="1"
+                android:text="Special devices"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="#fcfcfc"
+                android:textStyle="bold"
+                android:padding="15dp" />
+
+            <TextView
+                android:id="@+id/device_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|right"
+                android:background="@drawable/register"
+                android:linksClickable="false"
+                android:longClickable="false"
+                android:nestedScrollingEnabled="false"
+                android:paddingBottom="10dp"
+                android:paddingLeft="30dp"
+                android:paddingRight="30dp"
+                android:paddingTop="10dp"
+                android:shadowDy="1"
+                android:shadowRadius="1"
+                android:text="Back"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="#fcfcfc"
+                android:textSize="16dp"
+                android:textStyle="bold" />
+        </TableRow>
+
+        <ScrollView
+            android:background="#F5F5F5"
+            android:layout_height="match_parent"
+            android:layout_width="wrap_content" >
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:padding="10dp" >
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:baselineAligned="false"
+                    android:background="@drawable/background_gray"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="5dp" >
+
+                    <TextView
+                        android:id="@+id/Device1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:gravity="center_vertical"
+                        android:paddingBottom="15dp"
+                        android:paddingTop="15dp"
+                        android:shadowColor="#a0ffffff"
+                        android:shadowDx="1"
+                        android:shadowDy="1"
+                        android:shadowRadius="1"
+                        android:text="Glucose tolerance test"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:textColor="#7d768a"
+                        android:textSize="17dp"
+                        android:textStyle="bold|italic"
+                        android:singleLine="false" />
+
+                    <TextView
+                        android:id="@+id/tv1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_vertical|right"
+                        android:gravity="center_vertical|center_horizontal"
+                        android:text="Not set"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="#969696"
+                        android:textSize="15dp"
+                        android:textStyle="bold"
+                        android:paddingRight="5dp"
+                        android:paddingLeft="5dp"
+                        android:paddingBottom="1dp" />
+
+                    <ImageView
+                        android:id="@+id/imageView10"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:adjustViewBounds="true"
+                        android:baselineAlignBottom="false"
+                        android:cropToPadding="false"
+                        android:focusableInTouchMode="false"
+                        android:forceHasOverlappingRendering="false"
+                        android:maxHeight="15dp"
+                        android:src="@drawable/arrow_right" />
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:baselineAligned="false"
+                    android:background="@drawable/background_gray"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="5dp"
+                    android:layout_marginTop="10dp" >
+
+                    <TextView
+                        android:id="@+id/Device2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:gravity="center_vertical"
+                        android:paddingBottom="15dp"
+                        android:paddingTop="15dp"
+                        android:shadowColor="#a0ffffff"
+                        android:shadowDx="2"
+                        android:shadowDy="2"
+                        android:shadowRadius="2"
+                        android:text="Glucose level in urine"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:textColor="#7d768a"
+                        android:textSize="17dp"
+                        android:textStyle="bold|italic" />
+
+                    <TextView
+                        android:id="@+id/tv2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_vertical|right"
+                        android:gravity="center_vertical|center_horizontal"
+                        android:text="Not set"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="#969696"
+                        android:textSize="15dp"
+                        android:textStyle="bold"
+                        android:paddingRight="5dp"
+                        android:paddingLeft="5dp"
+                        android:paddingBottom="1dp" />
+
+                    <ImageView
+                        android:id="@+id/imageView12"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:adjustViewBounds="true"
+                        android:baselineAlignBottom="false"
+                        android:cropToPadding="false"
+                        android:focusableInTouchMode="false"
+                        android:forceHasOverlappingRendering="false"
+                        android:maxHeight="15dp"
+                        android:src="@drawable/arrow_right" />
+
+                </TableRow>
+
+            </TableLayout>
+        </ScrollView>
+    </TableLayout>
+</RelativeLayout>

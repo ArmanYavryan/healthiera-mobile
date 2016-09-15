@@ -1,0 +1,421 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F2F2F2"
+    tools:context="com.example.user.example22.Status">
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/gradient_purple"
+            android:paddingRight="5dp">
+
+            <TextView
+                android:id="@+id/textView12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left|center_vertical"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:shadowColor="#462449"
+                android:shadowDx="1"
+                android:shadowDy="1"
+                android:shadowRadius="1"
+                android:text="Status"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="#fcfcfc"
+                android:textStyle="bold"
+                android:padding="15dp" />
+
+            <TextView
+                android:id="@+id/status_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|right"
+                android:autoText="false"
+                android:background="@drawable/register"
+                android:linksClickable="false"
+                android:longClickable="false"
+                android:nestedScrollingEnabled="false"
+                android:paddingBottom="10dp"
+                android:paddingLeft="30dp"
+                android:paddingRight="30dp"
+                android:paddingTop="10dp"
+                android:password="false"
+                android:shadowDy="1"
+                android:shadowRadius="1"
+                android:text="Back"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="#fcfcfc"
+                android:textSize="16dp"
+                android:textStyle="bold"
+                android:layout_column="10" />
+        </TableRow>
+
+        <ScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="#F5F5F5">
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:padding="10dp">
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/background_gray"
+                    android:baselineAligned="false"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="5dp">
+
+                    <TextView
+                        android:id="@+id/status1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:paddingBottom="15dp"
+                        android:paddingTop="15dp"
+                        android:shadowColor="#80ffffff"
+                        android:shadowDx="1"
+                        android:shadowDy="1"
+                        android:shadowRadius="1"
+                        android:text="Weight"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:textColor="#7d768a"
+                        android:textSize="17dp"
+                        android:textStyle="bold|italic" />
+
+                    <TextView
+                        android:id="@+id/tv1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_vertical|right"
+                        android:gravity="center_vertical|center_horizontal"
+                        android:text="Not set"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="#969696"
+                        android:textSize="15dp"
+                        android:textStyle="bold"
+                        android:paddingRight="5dp"
+                        android:paddingLeft="5dp"
+                        android:paddingBottom="1dp" />
+
+                    <ImageView
+                        android:id="@+id/imageView5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:adjustViewBounds="true"
+                        android:baselineAlignBottom="false"
+                        android:cropToPadding="false"
+                        android:focusableInTouchMode="false"
+                        android:forceHasOverlappingRendering="false"
+                        android:maxHeight="15dp"
+                        android:src="@drawable/arrow_right" />
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/background_gray"
+                    android:baselineAligned="false"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="5dp">
+
+                    <TextView
+                        android:id="@+id/status2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+
+                        android:paddingBottom="15dp"
+                        android:paddingTop="15dp"
+                        android:shadowColor="#80ffffff"
+                        android:shadowDx="1"
+                        android:shadowDy="1"
+                        android:shadowRadius="1"
+                        android:text="Height"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:textColor="#7d768a"
+                        android:textSize="17dp"
+                        android:textStyle="bold|italic" />
+
+                    <TextView
+                        android:id="@+id/tv2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_vertical|right"
+                        android:gravity="center_vertical|center_horizontal"
+                        android:text="Not set"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="#969696"
+                        android:textSize="15dp"
+                        android:textStyle="bold"
+                        android:paddingLeft="5dp"
+                        android:paddingRight="5dp"
+                        android:paddingBottom="1dp" />
+
+                    <ImageView
+                        android:id="@+id/imageView6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:adjustViewBounds="true"
+                        android:baselineAlignBottom="false"
+                        android:cropToPadding="false"
+                        android:focusableInTouchMode="false"
+                        android:forceHasOverlappingRendering="false"
+                        android:maxHeight="15dp"
+                        android:src="@drawable/arrow_right" />
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/background_gray"
+                    android:baselineAligned="false"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="5dp">
+
+                    <TextView
+                        android:id="@+id/status3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+
+                        android:paddingBottom="15dp"
+                        android:paddingTop="15dp"
+                        android:shadowColor="#80ffffff"
+                        android:shadowDx="1"
+                        android:shadowDy="1"
+                        android:shadowRadius="1"
+                        android:text="BMI (body mass index)"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:textColor="#7d768a"
+                        android:textSize="17dp"
+                        android:textStyle="bold|italic" />
+
+                    <TextView
+                        android:id="@+id/tv3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_vertical|right"
+                        android:editable="false"
+                        android:gravity="center_vertical|center_horizontal"
+                        android:text="Not set"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="#969696"
+                        android:textSize="15dp"
+                        android:textStyle="bold"
+                        android:textIsSelectable="false"
+                        android:paddingRight="5dp"
+                        android:paddingLeft="5dp"
+                        android:paddingBottom="1dp" />
+
+                    <ImageView
+                        android:id="@+id/imageView11"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:adjustViewBounds="true"
+                        android:baselineAlignBottom="false"
+                        android:cropToPadding="false"
+                        android:focusableInTouchMode="false"
+                        android:forceHasOverlappingRendering="false"
+                        android:maxHeight="15dp"
+                        android:src="@drawable/arrow_right" />
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/background_gray"
+                    android:baselineAligned="false"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="5dp">
+
+                    <TextView
+                        android:id="@+id/status4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+
+                        android:paddingBottom="15dp"
+                        android:paddingTop="15dp"
+                        android:shadowColor="#80ffffff"
+                        android:shadowDx="1"
+                        android:shadowDy="1"
+                        android:shadowRadius="1"
+                        android:text="The ratio of the volume of the thallium to the volume of hips"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:textColor="#7d768a"
+                        android:textSize="16dp"
+                        android:textStyle="bold|italic" />
+
+                    <TextView
+                        android:id="@+id/tv4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_vertical|right"
+                        android:gravity="center_vertical|center_horizontal"
+                        android:text="Not set"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="#969696"
+                        android:textIsSelectable="false"
+                        android:textSize="15dp"
+                        android:textStyle="bold"
+                        android:paddingLeft="5dp"
+                        android:paddingRight="5dp"
+                        android:paddingBottom="1dp" />
+
+                    <ImageView
+                        android:id="@+id/imageView7"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:adjustViewBounds="true"
+                        android:baselineAlignBottom="false"
+                        android:cropToPadding="false"
+                        android:focusableInTouchMode="false"
+                        android:forceHasOverlappingRendering="false"
+                        android:maxHeight="15dp"
+                        android:src="@drawable/arrow_right" />
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/background_gray"
+                    android:baselineAligned="false"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="5dp">
+
+                    <TextView
+                        android:id="@+id/status5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+
+                        android:paddingBottom="15dp"
+                        android:paddingTop="15dp"
+                        android:shadowColor="#80ffffff"
+                        android:shadowDx="1"
+                        android:shadowDy="1"
+                        android:shadowRadius="1"
+                        android:text="​ Pulse"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:textColor="#7d768a"
+                        android:textSize="17dp"
+                        android:textStyle="bold|italic" />
+
+                    <TextView
+                        android:id="@+id/tv5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_vertical|right"
+                        android:gravity="center_vertical|center_horizontal"
+                        android:text="Not set"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="#969696"
+                        android:textSize="15dp"
+                        android:textStyle="bold"
+                        android:paddingLeft="5dp"
+                        android:paddingRight="5dp"
+                        android:paddingBottom="1dp" />
+
+                    <ImageView
+                        android:id="@+id/imageView8"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:adjustViewBounds="true"
+                        android:baselineAlignBottom="false"
+                        android:cropToPadding="false"
+                        android:focusableInTouchMode="false"
+                        android:forceHasOverlappingRendering="false"
+                        android:maxHeight="15dp"
+                        android:src="@drawable/arrow_right" />
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/background_gray"
+                    android:baselineAligned="false"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="5dp">
+
+                    <TextView
+                        android:id="@+id/status6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+
+                        android:paddingBottom="15dp"
+                        android:paddingTop="15dp"
+                        android:shadowColor="#80ffffff"
+                        android:shadowDx="1"
+                        android:shadowDy="1"
+                        android:shadowRadius="1"
+                        android:text="​ Blood pressure"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:textColor="#7d768a"
+                        android:textSize="17dp"
+                        android:textStyle="bold|italic"
+                        android:textIsSelectable="false" />
+
+                    <TextView
+                        android:id="@+id/tv6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_vertical|right"
+                        android:gravity="center_vertical|center_horizontal"
+                        android:text="Not set"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="#969696"
+                        android:textSize="15dp"
+                        android:textStyle="bold"
+                        android:paddingRight="5dp"
+                        android:paddingLeft="5dp"
+                        android:paddingBottom="1dp" />
+
+                    <ImageView
+                        android:id="@+id/imageView9"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:adjustViewBounds="true"
+                        android:baselineAlignBottom="false"
+                        android:cropToPadding="false"
+                        android:focusableInTouchMode="false"
+                        android:forceHasOverlappingRendering="false"
+                        android:maxHeight="15dp"
+                        android:src="@drawable/arrow_right" />
+
+                </TableRow>
+
+            </TableLayout>
+        </ScrollView>
+    </TableLayout>
+
+</RelativeLayout>
