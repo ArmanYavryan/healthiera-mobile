@@ -4,14 +4,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-<include layout="@layout/content_main"
-    />
+<include layout="@layout/content_main"/>
 
     <com.aurelhubert.ahbottomnavigation.AHBottomNavigation
         android:id="@+id/AHBottomNavigation_id"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
-       android:layout_alignParentBottom="true"
+        android:layout_alignParentBottom="true"
         />
 </RelativeLayout>

@@ -12,7 +12,7 @@ import com.healthiera.mobile.R;
 /**
  * Created by Davit on 19.08.2016.
  */
-public class Goals extends Fragment {
+public class Goals extends BaseFragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {

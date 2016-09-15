@@ -3,4 +3,14 @@
     <string name="dashboard">Dashboard</string>
     <string name="calendar">Calendar</string>
     <string name="goals">Goals</string>
+    <string name="healthData">Health Data</string>
+    <string name="medical">Medical</string>
+    <string-array name="list">
+        <item>Unset</item>
+        <item>Type1</item>
+        <item>Type2</item>
+        <item>Gestational</item>
+        <item>Other</item>
+    </string-array>
+
 </resources>
