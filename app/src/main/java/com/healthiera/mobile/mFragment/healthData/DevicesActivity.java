@@ -49,14 +49,6 @@ public class DevicesActivity extends BaseFragment {
                     break;
             }
         }
-        TextView back = (TextView) getActivity().findViewById(R.id.device_back);
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(DevicesActivity.this.getActivity(), MainActivity.class));
-            }
-        });
-
     }
 
     private View.OnClickListener onClickListener = new View.OnClickListener() {

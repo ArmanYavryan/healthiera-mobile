@@ -9,51 +9,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/gradient_purple"
-            android:paddingRight="5dp">
-
-            <TextView
-                android:id="@+id/textView13"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="left|center_vertical"
-                android:layout_weight="1"
-                android:gravity="center_vertical"
-                android:shadowColor="#462449"
-                android:shadowDx="1"
-                android:shadowDy="1"
-                android:shadowRadius="1"
-                android:text="Family History"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textColor="#fcfcfc"
-                android:textStyle="bold"
-                android:padding="15dp" />
-
-            <TextView
-                android:id="@+id/heredity_back"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical|right"
-                android:background="@drawable/register"
-                android:linksClickable="false"
-                android:longClickable="false"
-                android:nestedScrollingEnabled="false"
-                android:paddingBottom="10dp"
-                android:paddingLeft="30dp"
-                android:paddingRight="30dp"
-                android:paddingTop="10dp"
-                android:shadowDy="1"
-                android:shadowRadius="1"
-                android:text="Back"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:textColor="#fcfcfc"
-                android:textSize="16dp"
-                android:textStyle="bold" />
-        </TableRow>
-
         <ScrollView android:background="#F5F5F5"
             android:layout_height="match_parent">
 

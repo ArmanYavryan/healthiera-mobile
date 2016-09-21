@@ -49,8 +49,8 @@ public class etValueActivity extends BaseFragment implements Animation.Animation
 
         TextView tvSource = (TextView) getActivity().findViewById(R.id.tvSource);
         tvSource.setText(sourceText);
-        TextView tvid = (TextView) getActivity().findViewById(R.id.tvid);
-        tvid.setText(sourceText);
+        // TextView tvid = (TextView) getActivity().findViewById(R.id.tvid);
+        //tvid.setText(sourceText);
 
         TextView tvDate = (TextView) getActivity().findViewById(R.id.tvDate);
         TextView tvTime = (TextView) getActivity().findViewById(R.id.tvTime);
@@ -64,17 +64,6 @@ public class etValueActivity extends BaseFragment implements Animation.Animation
         s = s.substring(11, 16);
         tvTime.setText(s);
 
-        TextView back = (TextView) getActivity().findViewById(R.id.setvalue_back);
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                if (sourceText.equals("Glucose tolerance test") || sourceText.equals("Glucose level in urine"))
-                    startActivity(new Intent(etValueActivity.this.getActivity(), DevicesActivity.class));
-                else
-                    startActivity(new Intent(etValueActivity.this.getActivity(), Status.class));
-            }
-        });
 
         final TextView add = (TextView) getActivity().findViewById(R.id.setvalue_add);
         add.setOnClickListener(new View.OnClickListener() {

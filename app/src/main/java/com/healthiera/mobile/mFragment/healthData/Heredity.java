@@ -222,14 +222,7 @@ public class Heredity extends BaseFragment implements Animation.AnimationListene
             }
         });
 
-        TextView back = (TextView) getActivity().findViewById(R.id.heredity_back);
-        back.setOnClickListener(new View.OnClickListener() {
-                                    @Override
-                                    public void onClick(View view) {
-                                        startActivity(new Intent(Heredity.this.getActivity(), MainActivity.class));
-                                    }
-                                }
-        );
+
     }
 
     private View.OnClickListener ifyesonclick = new View.OnClickListener() {

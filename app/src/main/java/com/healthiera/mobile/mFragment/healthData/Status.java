@@ -70,14 +70,6 @@ public class Status extends BaseFragment {
                     break;
             }
         }
-
-        TextView back = (TextView) getActivity().findViewById(R.id.status_back);
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(Status.this.getActivity(), MainActivity.class));
-            }
-        });
     }
 
     private View.OnClickListener onClickListener = new View.OnClickListener() {

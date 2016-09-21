@@ -229,14 +229,6 @@ public class CompAndSymp extends Fragment implements Animation.AnimationListener
         });
 
 
-        TextView back = (TextView) getActivity().findViewById(R.id.comp_back);
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                getActivity().onBackPressed();
-            }
-        });
-
         tv = (TextView) getActivity().findViewById(R.id.tvSlide_down);
         tr = (TableRow) getActivity().findViewById(R.id.invisible);
         slidedown = AnimationUtils.loadAnimation(getActivity(), R.anim.slide_down);
