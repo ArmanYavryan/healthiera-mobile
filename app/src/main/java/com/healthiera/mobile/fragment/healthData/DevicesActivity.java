@@ -1,19 +1,21 @@
-package com.healthiera.mobile.mFragment.healthData;
+package com.healthiera.mobile.fragment.healthData;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.KeyEvent;
 import android.view.View;
 import android.widget.TextView;
 
 import com.healthiera.mobile.R;
 import com.healthiera.mobile.activity.main.MainActivity;
-import com.healthiera.mobile.mFragment.BaseFragment;
+import com.healthiera.mobile.fragment.BaseFragment;
 
 public class DevicesActivity extends BaseFragment {
 
-    TextView tv1, tv2, back;
+    private TextView tv1;
+
+    private TextView tv2;
+
+    private TextView back;
 
 //    @Override
 //    public boolean onKeyDown(int keyCode, KeyEvent event) {
@@ -25,6 +27,27 @@ public class DevicesActivity extends BaseFragment {
 //
 //        return super.onKeyDown(keyCode, event);
 //    }
+private View.OnClickListener onClickListener = new View.OnClickListener() {
+    @Override
+    public void onClick(View view) {
+        final Intent intent = new Intent(DevicesActivity.this.getActivity(), EtValueActivity.class);
+        String s = "null";
+        String s2 = "null";
+        switch (view.getId()) {
+            case R.id.tv1:
+                s = "Glucose tolerance test";
+                s2 = "Integer";
+                break;
+            case R.id.tv2:
+                s = "Glucose level in urine";
+                s2 = "Integer";
+                break;
+        }
+        intent.putExtra("SourceText", s);
+        intent.putExtra("InputType", s2);
+        startActivity(intent);
+    }
+};
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -35,11 +58,11 @@ public class DevicesActivity extends BaseFragment {
         tv1.setOnClickListener(onClickListener);
         tv2.setOnClickListener(onClickListener);
 
-        Intent intent = getActivity().getIntent();
-        String sourcetext = intent.getStringExtra("SourceText");
+        final Intent intent = getActivity().getIntent();
+        final String sourceText = intent.getStringExtra("SourceText");
         String value = intent.getStringExtra("Value");
-        if (sourcetext != null) {
-            switch (sourcetext) {
+        if (sourceText != null) {
+            switch (sourceText) {
                 case "Glucose tolerance test":
                     tv1.setText(value);
                     break;
@@ -50,26 +73,4 @@ public class DevicesActivity extends BaseFragment {
             }
         }
     }
-
-    private View.OnClickListener onClickListener = new View.OnClickListener() {
-        @Override
-        public void onClick(View view) {
-            Intent intent = new Intent(DevicesActivity.this.getActivity(), etValueActivity.class);
-            String s = "null";
-            String s2 = "null";
-            switch (view.getId()) {
-                case R.id.tv1:
-                    s = "Glucose tolerance test";
-                    s2 = "Integer";
-                    break;
-                case R.id.tv2:
-                    s = "Glucose level in urine";
-                    s2 = "Integer";
-                    break;
-            }
-            intent.putExtra("SourceText", s);
-            intent.putExtra("InputType", s2);
-            startActivity(intent);
-        }
-    };
 }

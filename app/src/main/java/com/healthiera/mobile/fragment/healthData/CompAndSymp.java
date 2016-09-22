@@ -1,16 +1,10 @@
-package com.healthiera.mobile.mFragment.healthData;
-
-import android.app.Activity;
+package com.healthiera.mobile.fragment.healthData;
 
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.view.Gravity;
-import android.view.KeyEvent;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -21,9 +15,6 @@ import android.widget.TableRow;
 import android.widget.TextView;
 
 import com.healthiera.mobile.R;
-import com.healthiera.mobile.activity.main.MainActivity;
-import com.healthiera.mobile.mFragment.BaseFragment;
-import com.healthiera.mobile.mFragment.HealthData;
 
 public class CompAndSymp extends Fragment implements Animation.AnimationListener {
     Bundle b = new Bundle();
@@ -41,8 +32,7 @@ public class CompAndSymp extends Fragment implements Animation.AnimationListener
     boolean onoff1 = false, onoff2 = false, onoff3 = false, onoff4 = false, onoff5 = false, onoff6 = false, onoff7 = false;
 
 
-
-//    @Override
+    //    @Override
 //    public boolean onKeyDown(int keyCode, KeyEvent event) {
 //        if (keyCode == KeyEvent.KEYCODE_BACK) {
 //            Intent intent = new Intent(CompAndSymp.this, HealthData.class);
@@ -52,11 +42,121 @@ public class CompAndSymp extends Fragment implements Animation.AnimationListener
 //
 //        return super.onKeyDown(keyCode, event);
 //    }
+    private View.OnClickListener ifyesonclick = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            if (b4b.getText().toString() == "NO") {
+                tv.callOnClick();
+            } else {
+                //b4 switch yes
+                param4.addRule(RelativeLayout.ALIGN_PARENT_LEFT, 0);
+                param4.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
+                b4.setLayoutParams(param4);
+                b4.startAnimation(slide_left4);
+                b4b.startAnimation(fadein4);
+                howmanytimes.setText("");
+            }
+        }
 
-    public void onClickBack(View v){
+
+    };
+
+    private View.OnClickListener yesnoOnclick = new View.OnClickListener() {
+
+        @Override
+        public void onClick(View view) {
+            switch (view.getId()) {
+                case R.id.b1:
+                    if (!onoff1) {
+                        param1.addRule(RelativeLayout.ALIGN_PARENT_LEFT);
+                        param1.addRule(RelativeLayout.ALIGN_PARENT_RIGHT, 0);
+                        b1.setLayoutParams(param1);
+                        b1.startAnimation(slide_right1);
+                    } else {
+                        param1.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
+                        param1.addRule(RelativeLayout.ALIGN_PARENT_LEFT, 0);
+                        b1.setLayoutParams(param1);
+                        b1.startAnimation(slide_left1);
+                    }
+                    b1b.startAnimation(fadein1);
+                    break;
+                case R.id.b2:
+                    if (!onoff2) {
+                        param2.addRule(RelativeLayout.ALIGN_PARENT_LEFT);
+                        param2.addRule(RelativeLayout.ALIGN_PARENT_RIGHT, 0);
+                        b2.setLayoutParams(param2);
+                        b2.startAnimation(slide_right2);
+                    } else {
+                        param2.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
+                        param2.addRule(RelativeLayout.ALIGN_PARENT_LEFT, 0);
+                        b2.setLayoutParams(param2);
+                        b2.startAnimation(slide_left2);
+                    }
+                    b2b.startAnimation(fadein2);
+                    break;
+                case R.id.b3:
+                    if (!onoff3) {
+                        param3.addRule(RelativeLayout.ALIGN_PARENT_LEFT);
+                        param3.addRule(RelativeLayout.ALIGN_PARENT_RIGHT, 0);
+                        b3.setLayoutParams(param3);
+                        b3.startAnimation(slide_right3);
+                    } else {
+                        param3.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
+                        param3.addRule(RelativeLayout.ALIGN_PARENT_LEFT, 0);
+                        b3.setLayoutParams(param3);
+                        b3.startAnimation(slide_left3);
+                    }
+                    b3b.startAnimation(fadein3);
+                    break;
+                case R.id.b5:
+                    if (!onoff5) {
+                        param5.addRule(RelativeLayout.ALIGN_PARENT_LEFT);
+                        param5.addRule(RelativeLayout.ALIGN_PARENT_RIGHT, 0);
+                        b5.setLayoutParams(param5);
+                        b5.startAnimation(slide_right5);
+                    } else {
+                        param5.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
+                        param5.addRule(RelativeLayout.ALIGN_PARENT_LEFT, 0);
+                        b5.setLayoutParams(param5);
+                        b5.startAnimation(slide_left5);
+                    }
+                    b5b.startAnimation(fadein5);
+                    break;
+                case R.id.b6:
+                    if (!onoff6) {
+                        param6.addRule(RelativeLayout.ALIGN_PARENT_LEFT);
+                        param6.addRule(RelativeLayout.ALIGN_PARENT_RIGHT, 0);
+                        b6.setLayoutParams(param6);
+                        b6.startAnimation(slide_right6);
+                    } else {
+                        param6.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
+                        param6.addRule(RelativeLayout.ALIGN_PARENT_LEFT, 0);
+                        b6.setLayoutParams(param6);
+                        b6.startAnimation(slide_left6);
+                    }
+                    b6b.startAnimation(fadein6);
+                    break;
+                case R.id.b7:
+                    if (!onoff7) {
+                        param7.addRule(RelativeLayout.ALIGN_PARENT_LEFT);
+                        param7.addRule(RelativeLayout.ALIGN_PARENT_RIGHT, 0);
+                        b7.setLayoutParams(param7);
+                        b7.startAnimation(slide_right7);
+                    } else {
+                        param7.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
+                        param7.addRule(RelativeLayout.ALIGN_PARENT_LEFT, 0);
+                        b7.setLayoutParams(param7);
+                        b7.startAnimation(slide_left7);
+                    }
+                    b7b.startAnimation(fadein7);
+                    break;
+            }
+        }
+    };
+
+    public void onClickBack(View v) {
         getActivity().onBackPressed();
     }
-
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -251,120 +351,6 @@ public class CompAndSymp extends Fragment implements Animation.AnimationListener
         });
     }
 
-    private View.OnClickListener ifyesonclick = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            if (b4b.getText().toString() == "NO") {
-                tv.callOnClick();
-            } else {
-                //b4 switch yes
-                param4.addRule(RelativeLayout.ALIGN_PARENT_LEFT, 0);
-                param4.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
-                b4.setLayoutParams(param4);
-                b4.startAnimation(slide_left4);
-                b4b.startAnimation(fadein4);
-                howmanytimes.setText("");
-            }
-        }
-
-
-
-    };
-
-
-    private View.OnClickListener yesnoOnclick = new View.OnClickListener() {
-
-        @Override
-        public void onClick(View view) {
-            switch (view.getId()) {
-                case R.id.b1:
-                    if (!onoff1) {
-                        param1.addRule(RelativeLayout.ALIGN_PARENT_LEFT);
-                        param1.addRule(RelativeLayout.ALIGN_PARENT_RIGHT, 0);
-                        b1.setLayoutParams(param1);
-                        b1.startAnimation(slide_right1);
-                    } else {
-                        param1.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
-                        param1.addRule(RelativeLayout.ALIGN_PARENT_LEFT, 0);
-                        b1.setLayoutParams(param1);
-                        b1.startAnimation(slide_left1);
-                    }
-                    b1b.startAnimation(fadein1);
-                    break;
-                case R.id.b2:
-                    if (!onoff2) {
-                        param2.addRule(RelativeLayout.ALIGN_PARENT_LEFT);
-                        param2.addRule(RelativeLayout.ALIGN_PARENT_RIGHT, 0);
-                        b2.setLayoutParams(param2);
-                        b2.startAnimation(slide_right2);
-                    } else {
-                        param2.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
-                        param2.addRule(RelativeLayout.ALIGN_PARENT_LEFT, 0);
-                        b2.setLayoutParams(param2);
-                        b2.startAnimation(slide_left2);
-                    }
-                    b2b.startAnimation(fadein2);
-                    break;
-                case R.id.b3:
-                    if (!onoff3) {
-                        param3.addRule(RelativeLayout.ALIGN_PARENT_LEFT);
-                        param3.addRule(RelativeLayout.ALIGN_PARENT_RIGHT, 0);
-                        b3.setLayoutParams(param3);
-                        b3.startAnimation(slide_right3);
-                    } else {
-                        param3.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
-                        param3.addRule(RelativeLayout.ALIGN_PARENT_LEFT, 0);
-                        b3.setLayoutParams(param3);
-                        b3.startAnimation(slide_left3);
-                    }
-                    b3b.startAnimation(fadein3);
-                    break;
-                case R.id.b5:
-                    if (!onoff5) {
-                        param5.addRule(RelativeLayout.ALIGN_PARENT_LEFT);
-                        param5.addRule(RelativeLayout.ALIGN_PARENT_RIGHT, 0);
-                        b5.setLayoutParams(param5);
-                        b5.startAnimation(slide_right5);
-                    } else {
-                        param5.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
-                        param5.addRule(RelativeLayout.ALIGN_PARENT_LEFT, 0);
-                        b5.setLayoutParams(param5);
-                        b5.startAnimation(slide_left5);
-                    }
-                    b5b.startAnimation(fadein5);
-                    break;
-                case R.id.b6:
-                    if (!onoff6) {
-                        param6.addRule(RelativeLayout.ALIGN_PARENT_LEFT);
-                        param6.addRule(RelativeLayout.ALIGN_PARENT_RIGHT, 0);
-                        b6.setLayoutParams(param6);
-                        b6.startAnimation(slide_right6);
-                    } else {
-                        param6.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
-                        param6.addRule(RelativeLayout.ALIGN_PARENT_LEFT, 0);
-                        b6.setLayoutParams(param6);
-                        b6.startAnimation(slide_left6);
-                    }
-                    b6b.startAnimation(fadein6);
-                    break;
-                case R.id.b7:
-                    if (!onoff7) {
-                        param7.addRule(RelativeLayout.ALIGN_PARENT_LEFT);
-                        param7.addRule(RelativeLayout.ALIGN_PARENT_RIGHT, 0);
-                        b7.setLayoutParams(param7);
-                        b7.startAnimation(slide_right7);
-                    } else {
-                        param7.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
-                        param7.addRule(RelativeLayout.ALIGN_PARENT_LEFT, 0);
-                        b7.setLayoutParams(param7);
-                        b7.startAnimation(slide_left7);
-                    }
-                    b7b.startAnimation(fadein7);
-                    break;
-            }
-        }
-    };
-
     @Override
     public void onAnimationStart(Animation animation) {
     }
@@ -451,8 +437,7 @@ public class CompAndSymp extends Fragment implements Animation.AnimationListener
                 b3b.setGravity(Gravity.CENTER_VERTICAL | Gravity.RIGHT);
                 b3b.setBackgroundResource(R.drawable.switch_no_back);
             }
-        }
-        else if (animation == slide_right4) {
+        } else if (animation == slide_right4) {
             param4.addRule(RelativeLayout.ALIGN_PARENT_LEFT, 0);
             param4.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
             b4.setLayoutParams(param4);

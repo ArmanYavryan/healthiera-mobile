@@ -3,37 +3,45 @@ package com.healthiera.mobile.activity.main;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigation;
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigationItem;
 import com.healthiera.mobile.R;
-import com.healthiera.mobile.entity.Doctor;
-import com.healthiera.mobile.mFragment.Calendar;
-import com.healthiera.mobile.mFragment.Dashboard;
-import com.healthiera.mobile.mFragment.Goals;
-import com.healthiera.mobile.mFragment.HealthData;
+import com.healthiera.mobile.fragment.Calendar;
+import com.healthiera.mobile.fragment.Dashboard;
+import com.healthiera.mobile.fragment.Goals;
+import com.healthiera.mobile.fragment.HealthData;
 
 public class MainActivity extends AppCompatActivity implements AHBottomNavigation.OnTabSelectedListener {
 
     private AHBottomNavigation bottomNavigation;
+
+//    private EventService eventService = new EventService();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-//        Doctor doc1 =new Doctor("Andranik","Ortoped","099112233","andrani@gmail.com");
-//        Doctor doc2 =new Doctor("Karen","Ginekolog","099569874","Karen@gmail.com");
-//        Doctor doc3 =new Doctor("Hayk","Dentist","055693214","Hayk@gmail.com");
-//        Doctor doc4 =new Doctor("Anahit","Ortoped","098159753","Anahit@gmail.com");
+//        final Event event = new Event();
+//        event.setStartDateTime(new Date());
+//        final Long eventId = eventService.createAppointment(event);
+//        final Event foundEvent = eventService.findEventById(eventId);
 //
-//        doc1.save();
+//        final Doctor doc1 = new Doctor("Andranik", "Ortoped", "099112233", "andrani@gmail.com");
+//        Doctor doc2 = new Doctor("Karen", "Ginekolog", "099569874", "Karen@gmail.com");
+//        Doctor doc3 = new Doctor("Hayk", "Dentist", "055693214", "Hayk@gmail.com");
+//        Doctor doc4 = new Doctor("Anahit", "Ortoped", "098159753", "Anahit@gmail.com");
+//
+//        final Long doctorId = doc1.save();
 //        doc2.save();
 //        doc3.save();
 //        doc4.save();
+//        final Doctor doctor1 = Doctor.load(Doctor.class, doctorId);
 
         bottomNavigation = (AHBottomNavigation) findViewById(R.id.AHBottomNavigation_id);
         bottomNavigation.setOnTabSelectedListener(this);
-        this.createNavItems();
+        createNavItems();
     }
 
     private void createNavItems() {
@@ -51,7 +59,7 @@ public class MainActivity extends AppCompatActivity implements AHBottomNavigatio
         bottomNavigation.addItem(goals);
         bottomNavigation.addItem(calendar);
         bottomNavigation.addItem(medical);
-       // bottomNavigation.addItem(medications);
+        // bottomNavigation.addItem(medications);
 
         // Set background color
         bottomNavigation.setDefaultBackgroundColor(Color.parseColor("#FEFEFE"));

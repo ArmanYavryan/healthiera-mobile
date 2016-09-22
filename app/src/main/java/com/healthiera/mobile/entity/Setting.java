@@ -7,7 +7,7 @@ import com.activeandroid.annotation.Table;
 /**
  * Created by Davit on 05.08.2016.
  */
-@Table(name = "settings")
+@Table(name = "setting")
 public class Setting extends Model {
 
     @Column(name = "key", index = true)

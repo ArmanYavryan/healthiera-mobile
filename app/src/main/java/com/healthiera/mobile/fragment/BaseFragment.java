@@ -1,4 +1,4 @@
-package com.healthiera.mobile.mFragment;
+package com.healthiera.mobile.fragment;
 
 import android.support.v4.app.Fragment;
 

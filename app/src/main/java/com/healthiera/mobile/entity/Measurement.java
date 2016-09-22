@@ -19,15 +19,15 @@ public class Measurement extends Model {
     @Column(name = "medication_shape_id")
     private Integer medicationShapeId;
 
+    public Measurement() {
+        super();
+    }
+
     public Measurement(Long eventId, Integer medicationShapeId, Integer medicationTemplateId) {
         super();
         this.eventId = eventId;
         this.medicationShapeId = medicationShapeId;
         this.medicationTemplateId = medicationTemplateId;
-    }
-
-    public Measurement() {
-        super();
     }
 
     public Long getEventId() {

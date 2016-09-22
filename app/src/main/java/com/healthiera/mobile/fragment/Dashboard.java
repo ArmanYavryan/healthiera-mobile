@@ -1,4 +1,4 @@
-package com.healthiera.mobile.mFragment;
+package com.healthiera.mobile.fragment;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -26,20 +26,15 @@ import java.util.List;
  */
 public class Dashboard extends BaseFragment {
 
-    private LineGraphSeries<DataPoint> series;
     BaseEditText sText;
     ListView pListView;
     List<Doctor> doctors;
-
     LinearLayout linearLayoutStatus;
     LinearLayout linearLayoutSearch;
     LinearLayout linearLayoutStatusProvider;
     LinearLayout linearLayoutMessageCenter;
-
     BaseEditText searchProvider;
-
-
-
+    private LineGraphSeries<DataPoint> series;
 
     @Nullable
     @Override

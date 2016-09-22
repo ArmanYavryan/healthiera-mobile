@@ -1,140 +1,139 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:weightSum="4"
     android:background="#EFF0F1"
-    >
+    android:orientation="vertical"
+    android:weightSum="4">
 
-        <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#FFFFFF"
-            android:id="@+id/linearLayoutStatus"
-            android:layout_marginLeft="10px"
-            android:layout_marginTop="10px"
-            android:layout_marginRight="10px"
-            android:layout_marginBottom="5px"
-            android:transitionGroup="false">
+    <LinearLayout
+        android:id="@+id/linearLayoutStatus"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5px"
+        android:layout_marginLeft="10px"
+        android:layout_marginRight="10px"
+        android:layout_marginTop="10px"
+        android:background="#FFFFFF"
+        android:orientation="vertical"
+        android:transitionGroup="false">
 
         <com.healthiera.mobile.component.base.BaseTextView
+            android:id="@+id/healthStatus"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
+            android:text="Health status"
             android:textColor="#008490"
-            android:textSize="11pt"
-            android:id="@+id/healthStatus"
-            android:text="Health status" />
+            android:textSize="11pt" />
 
 
-                <com.jjoe64.graphview.GraphView
-                    android:layout_width="match_parent"
-                    android:layout_height="100dp"
-                    android:id="@+id/gvHealthStatus" />
+        <com.jjoe64.graphview.GraphView
+            android:id="@+id/gvHealthStatus"
+            android:layout_width="match_parent"
+            android:layout_height="100dp" />
 
 
-        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayoutSearch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5px"
+        android:layout_marginLeft="10px"
+        android:layout_marginRight="10px"
+        android:layout_marginTop="5px"
+        android:background="#FFFFFF"
+        android:orientation="vertical">
+
+        <com.healthiera.mobile.component.base.BaseTextView
+            android:id="@+id/tvQuestionsSearch"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:text="Questions/search"
+            android:textColor="#008490"
+            android:textSize="11pt" />
+
         <LinearLayout
-            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#FFFFFF"
-            android:id="@+id/linearLayoutSearch"
-            android:layout_marginLeft="10px"
-            android:layout_marginTop="5px"
-            android:layout_marginRight="10px"
-            android:layout_marginBottom="5px">
-
-                <com.healthiera.mobile.component.base.BaseTextView
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
-                    android:textColor="#008490"
-                    android:textSize="11pt"
-                    android:id="@+id/tvQuestionsSearch"
-                    android:text="Questions/search"
-                    />
-
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:weightSum="1">
-
-                        <com.healthiera.mobile.component.base.BaseEditText
-                            android:layout_width="255dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="0.40" />
-
-                        <com.healthiera.mobile.component.base.BaseSearchButton
-                            android:layout_width="wrap_content"
-                            android:layout_height="fill_parent"
-                            android:text="Search"
-                            android:layout_gravity="center_horizontal"
-                            android:layout_weight="0.56" />
-                </LinearLayout>
-        </LinearLayout>
-        <LinearLayout
-            android:orientation="vertical"
-            android:id="@+id/linearLayoutSearchProvider"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#FFFFFF"
-            android:layout_marginLeft="10px"
-            android:layout_marginTop="5px"
-            android:layout_marginRight="10px"
-            android:layout_marginBottom="10px">
-
-                <com.healthiera.mobile.component.base.BaseTextView
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
-                    android:textColor="#008490"
-                    android:textSize="11pt"
-                    android:id="@+id/searchProvider"
-                    android:text="Search for a provider"
-                    />
-                        <com.healthiera.mobile.component.base.BaseEditText
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/etSearchProvider"
-                            />
-
-                        <ListView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/lvSearchProvider"
-                            android:layout_alignParentLeft="true"
-                            android:layout_below="@+id/etSearchProvider"
-                            android:visibility="gone"
-
-                            />
-        </LinearLayout>
-        <LinearLayout
-            android:orientation="vertical"
-            android:id="@+id/linearLayoutMessageCenter"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="#FFFFFF"
-            android:layout_marginLeft="10px"
-            android:layout_marginTop="5px"
-            android:layout_marginRight="10px"
-            android:layout_marginBottom="10px"
+            android:orientation="horizontal"
             android:weightSum="1">
 
-                <com.healthiera.mobile.component.base.BaseTextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
-                    android:textColor="#008490"
-                    android:textSize="11pt"
-                    android:id="@+id/tvMessageCenter"
-                    android:text="Message Center"
-                    />
+            <com.healthiera.mobile.component.base.BaseEditText
+                android:layout_width="255dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.40" />
 
-
-
+            <com.healthiera.mobile.component.base.BaseSearchButton
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="0.56"
+                android:text="Search" />
         </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayoutSearchProvider"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10px"
+        android:layout_marginLeft="10px"
+        android:layout_marginRight="10px"
+        android:layout_marginTop="5px"
+        android:background="#FFFFFF"
+        android:orientation="vertical">
+
+        <com.healthiera.mobile.component.base.BaseTextView
+            android:id="@+id/searchProvider"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:text="Search for a provider"
+            android:textColor="#008490"
+            android:textSize="11pt" />
+
+        <com.healthiera.mobile.component.base.BaseEditText
+            android:id="@+id/etSearchProvider"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <ListView
+            android:id="@+id/lvSearchProvider"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/etSearchProvider"
+            android:visibility="gone"
+
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayoutMessageCenter"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="10px"
+        android:layout_marginLeft="10px"
+        android:layout_marginRight="10px"
+        android:layout_marginTop="5px"
+        android:background="#FFFFFF"
+        android:orientation="vertical"
+        android:weightSum="1">
+
+        <com.healthiera.mobile.component.base.BaseTextView
+            android:id="@+id/tvMessageCenter"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:text="Message Center"
+            android:textColor="#008490"
+            android:textSize="11pt" />
+
+
+    </LinearLayout>
 
 </LinearLayout>

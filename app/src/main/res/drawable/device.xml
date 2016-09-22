@@ -10,9 +10,8 @@
 
     <path
         android:fillColor="#F0EEF1"
-        android:pathData="M 12 4 Q 12 2 14 2 L 26 2 Q 28 2 28 4 L 28 23 L    12 23 Z"
-        />
+        android:pathData="M 12 4 Q 12 2 14 2 L 26 2 Q 28 2 28 4 L 28 23 L    12 23 Z" />
     <path
         android:fillColor="#fff"
-        android:pathData="M 18 25 L 22 25 L 22 27 L 18 27 Z"/>
+        android:pathData="M 18 25 L 22 25 L 22 27 L 18 27 Z" />
 </vector>

@@ -9,22 +9,27 @@ import java.io.Serializable;
 /**
  * Created by Davit on 01.09.2016.
  */
-@Table(name = "profile")
+@Table(name = "doctor")
 public class Doctor extends Model implements Serializable {
+
     @Column(name = "specification")
     private String specification;
+
     @Column(name = "name")
     private String name;
+
     @Column(name = "phone")
     private String phone;
+
     @Column(name = "email")
     private String email;
 
     public Doctor() {
-
+        super();
     }
 
     public Doctor(String name, String specification, String email, String phone) {
+        super();
         this.email = email;
         this.name = name;
         this.phone = phone;

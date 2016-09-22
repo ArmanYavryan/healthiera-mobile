@@ -6,8 +6,8 @@ import android.util.AttributeSet;
 /**
  * Created by Davit on 31.08.2016.
  */
-public class BaseSearchButton extends BaseButton
-{
+public class BaseSearchButton extends BaseButton {
+
     public BaseSearchButton(Context context) {
         super(context);
     }

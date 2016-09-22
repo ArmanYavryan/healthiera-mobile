@@ -19,15 +19,15 @@ public class Medication extends Model {
     @Column(name = "medication_shape_id")
     private Integer medicationShapeId;
 
+    public Medication() {
+        super();
+    }
+
     public Medication(Long eventId, Integer medicationListId, Integer medicationShapeId) {
         super();
         this.eventId = eventId;
         this.medicationListId = medicationListId;
         this.medicationShapeId = medicationShapeId;
-    }
-
-    public Medication() {
-        super();
     }
 
     public Long getEventId() {

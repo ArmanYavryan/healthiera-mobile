@@ -15,7 +15,7 @@ import android.widget.Toast;
 import com.healthiera.mobile.R;
 import com.healthiera.mobile.activity.main.ProviderDescription;
 import com.healthiera.mobile.entity.Doctor;
-import com.healthiera.mobile.mFragment.Dashboard;
+import com.healthiera.mobile.fragment.Dashboard;
 
 import java.util.ArrayList;
 
@@ -30,7 +30,10 @@ public class BaseEditText extends EditText {
 
     public BaseEditText(Context context, AttributeSet attrs) {
         super(context, attrs);
+    }
 
+    public BaseEditText(Context context, AttributeSet attrs, int defStyle) {
+        super(context, attrs, defStyle);
     }
 
     @Override
@@ -38,22 +41,22 @@ public class BaseEditText extends EditText {
         super.onTextChanged(text, start, lengthBefore, lengthAfter);
     }
 
-    public BaseEditText(Context context, AttributeSet attrs, int defStyle) {
-        super(context, attrs, defStyle);
-
-    }
-
     public static class CustomAdapter extends BaseAdapter {
-        ArrayList<Doctor> doctors;
-        Context context;
-        private static LayoutInflater inflater=null;
+
+        private static LayoutInflater inflater = null;
+
+        private ArrayList<Doctor> doctors;
+
+        private Context context;
+
         public CustomAdapter(Dashboard mainActivity, ArrayList<Doctor> doctors1) {
             // TODO Auto-generated constructor stub
-            doctors=doctors1;
-            context= mainActivity.getActivity();
-            inflater = ( LayoutInflater )context.
+            doctors = doctors1;
+            context = mainActivity.getActivity();
+            inflater = (LayoutInflater) context.
                     getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         }
+
         @Override
         public int getCount() {
             // TODO Auto-generated method stub
@@ -72,21 +75,14 @@ public class BaseEditText extends EditText {
             return position;
         }
 
-        public class Holder
-        {
-            TextView textViewName;
-            TextView textViewSpecification;
-            ImageView img;
-        }
         @Override
         public View getView(final int position, View convertView, ViewGroup parent) {
             // TODO Auto-generated method stub
-            Holder holder=new Holder();
-            final View rowView;
-            rowView = inflater.inflate(R.layout.provideritem, null);
-            holder.textViewName=(TextView) rowView.findViewById(R.id.tvProviderName);
-            holder.textViewSpecification=(TextView) rowView.findViewById(R.id.tvProviderSpecification);
-            holder.img=(ImageView) rowView.findViewById(R.id.ivImage);
+            final Holder holder = new Holder();
+            final View rowView = inflater.inflate(R.layout.provideritem, null);
+            holder.textViewName = (TextView) rowView.findViewById(R.id.tvProviderName);
+            holder.textViewSpecification = (TextView) rowView.findViewById(R.id.tvProviderSpecification);
+            holder.img = (ImageView) rowView.findViewById(R.id.ivImage);
             holder.textViewName.setText(doctors.get(position).getName());
             holder.textViewSpecification.setText(doctors.get(position).getSpecification());
             holder.img.setImageResource(R.drawable.provider_icon);
@@ -94,7 +90,7 @@ public class BaseEditText extends EditText {
                 @Override
                 public void onClick(View v) {
                     // TODO Auto-generated method stub
-                    Toast.makeText(context, "You Clicked "+doctors.get(position).getName()+"doctor", Toast.LENGTH_LONG).show();
+                    Toast.makeText(context, "You Clicked " + doctors.get(position).getName() + "doctor", Toast.LENGTH_LONG).show();
 
                     Intent myIntent = new Intent(context, ProviderDescription.class);
                     myIntent.putExtra("CurrentProvider", doctors.get(position)); //Optional parameters
@@ -104,5 +100,10 @@ public class BaseEditText extends EditText {
             return rowView;
         }
 
+        class Holder {
+            TextView textViewName;
+            TextView textViewSpecification;
+            ImageView img;
+        }
     }
 }

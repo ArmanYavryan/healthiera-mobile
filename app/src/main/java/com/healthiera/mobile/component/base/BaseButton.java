@@ -8,6 +8,7 @@ import android.widget.Button;
  * Created by Davit on 31.08.2016.
  */
 public class BaseButton extends Button {
+
     public BaseButton(Context context) {
         super(context);
     }

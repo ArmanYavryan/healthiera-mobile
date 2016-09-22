@@ -37,6 +37,10 @@ public class Profile extends Model {
     @Column(name = "image")
     private String image;
 
+    public Profile() {
+        super();
+    }
+
     public Profile(String birthday, String email, String image, String lastName, String name, String password, Boolean sex, String userName, String zipCode) {
         super();
         this.birthday = birthday;
@@ -48,10 +52,6 @@ public class Profile extends Model {
         this.sex = sex;
         this.userName = userName;
         this.zipCode = zipCode;
-    }
-
-    public Profile() {
-        super();
     }
 
     public String getBirthday() {

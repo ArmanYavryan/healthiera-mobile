@@ -1,13 +1,11 @@
-package com.healthiera.mobile.mFragment.healthData;
+package com.healthiera.mobile.fragment.healthData;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
-import android.support.v4.content.ContextCompat;
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
 import android.view.Gravity;
-import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.Animation;
@@ -27,7 +25,7 @@ import android.widget.TextView;
 
 import com.healthiera.mobile.R;
 import com.healthiera.mobile.activity.main.MainActivity;
-import com.healthiera.mobile.mFragment.BaseFragment;
+import com.healthiera.mobile.fragment.BaseFragment;
 
 public class Heredity extends BaseFragment implements Animation.AnimationListener, View.OnFocusChangeListener, AdapterView.OnItemSelectedListener, View.OnTouchListener {
     TextView b1, b2, b3, b4, b1b, b2b, b3b, b4b;
@@ -48,6 +46,80 @@ public class Heredity extends BaseFragment implements Animation.AnimationListene
     EditText Mage, Fage, GMage, GFage;
     Spinner spinnerF, spinnerM, spinnerGF, spinnerGM;
     ArrayAdapter<CharSequence> arrayAdapter;
+    private View.OnClickListener ifyesonclick = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            switch (v.getId()) {
+                case R.id.b1:
+                    if (b1b.getText().toString() == "NO") {
+                        tv.callOnClick();
+                    } else {
+                        param1.addRule(RelativeLayout.ALIGN_PARENT_LEFT, 0);
+                        param1.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
+                        b1.setLayoutParams(param1);
+                        b1.startAnimation(slide_left1);
+                        b1b.startAnimation(fadein1);
+                        c1.setChecked(false);
+                        c2.setChecked(false);
+                        c3.setChecked(false);
+                        c4.setChecked(false);
+                    }
+                    break;
+                case R.id.b2:
+                    if (b2b.getText().toString() == "NO") {
+                        tv2.callOnClick();
+                    } else {
+                        param2.addRule(RelativeLayout.ALIGN_PARENT_LEFT, 0);
+                        param2.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
+                        b2.setLayoutParams(param2);
+                        b2.startAnimation(slide_left2);
+                        b2b.startAnimation(fadein2);
+                    }
+                    break;
+            }
+        }
+    };
+    private CompoundButton.OnCheckedChangeListener changelistener = new CompoundButton.OnCheckedChangeListener() {
+        @Override
+        public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+            if (!c1.isChecked() && !c2.isChecked() && !c3.isChecked() && !c4.isChecked()) {
+                param1.addRule(RelativeLayout.ALIGN_PARENT_LEFT, 0);
+                param1.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
+                b1.setLayoutParams(param1);
+                b1.startAnimation(slide_left1);
+                b1b.startAnimation(fadein1);
+            } else {
+                if (b1b.getText().toString() == "YES") return;
+                param1.addRule(RelativeLayout.ALIGN_PARENT_LEFT);
+                param1.addRule(RelativeLayout.ALIGN_PARENT_RIGHT, 0);
+                b1.setLayoutParams(param1);
+                b1.startAnimation(slide_right1);
+                b1b.startAnimation(fadein1);
+            }
+        }
+    };
+    private View.OnClickListener yesnoOnclick = new View.OnClickListener() {
+
+        @Override
+        public void onClick(View view) {
+            switch (view.getId()) {
+                case R.id.b4:
+                    if (!onoff4) {
+                        param4.addRule(RelativeLayout.ALIGN_PARENT_LEFT);
+                        param4.addRule(RelativeLayout.ALIGN_PARENT_RIGHT, 0);
+                        b4.setLayoutParams(param4);
+                        b4.startAnimation(slide_right4);
+                    } else {
+                        param4.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
+                        param4.addRule(RelativeLayout.ALIGN_PARENT_LEFT, 0);
+                        b4.setLayoutParams(param4);
+                        b4.startAnimation(slide_left4);
+                    }
+                    b4b.startAnimation(fadein4);
+                    break;
+            }
+        }
+    };
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -224,83 +296,6 @@ public class Heredity extends BaseFragment implements Animation.AnimationListene
 
 
     }
-
-    private View.OnClickListener ifyesonclick = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            switch (v.getId()) {
-                case R.id.b1:
-                    if (b1b.getText().toString() == "NO") {
-                        tv.callOnClick();
-                    } else {
-                        param1.addRule(RelativeLayout.ALIGN_PARENT_LEFT, 0);
-                        param1.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
-                        b1.setLayoutParams(param1);
-                        b1.startAnimation(slide_left1);
-                        b1b.startAnimation(fadein1);
-                        c1.setChecked(false);
-                        c2.setChecked(false);
-                        c3.setChecked(false);
-                        c4.setChecked(false);
-                    }
-                    break;
-                case R.id.b2:
-                    if (b2b.getText().toString() == "NO") {
-                        tv2.callOnClick();
-                    } else {
-                        param2.addRule(RelativeLayout.ALIGN_PARENT_LEFT, 0);
-                        param2.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
-                        b2.setLayoutParams(param2);
-                        b2.startAnimation(slide_left2);
-                        b2b.startAnimation(fadein2);
-                    }
-                    break;
-            }
-        }
-    };
-
-    private CompoundButton.OnCheckedChangeListener changelistener = new CompoundButton.OnCheckedChangeListener() {
-        @Override
-        public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-            if (!c1.isChecked() && !c2.isChecked() && !c3.isChecked() && !c4.isChecked()) {
-                param1.addRule(RelativeLayout.ALIGN_PARENT_LEFT, 0);
-                param1.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
-                b1.setLayoutParams(param1);
-                b1.startAnimation(slide_left1);
-                b1b.startAnimation(fadein1);
-            } else {
-                if (b1b.getText().toString() == "YES") return;
-                param1.addRule(RelativeLayout.ALIGN_PARENT_LEFT);
-                param1.addRule(RelativeLayout.ALIGN_PARENT_RIGHT, 0);
-                b1.setLayoutParams(param1);
-                b1.startAnimation(slide_right1);
-                b1b.startAnimation(fadein1);
-            }
-        }
-    };
-
-    private View.OnClickListener yesnoOnclick = new View.OnClickListener() {
-
-        @Override
-        public void onClick(View view) {
-            switch (view.getId()) {
-                case R.id.b4:
-                    if (!onoff4) {
-                        param4.addRule(RelativeLayout.ALIGN_PARENT_LEFT);
-                        param4.addRule(RelativeLayout.ALIGN_PARENT_RIGHT, 0);
-                        b4.setLayoutParams(param4);
-                        b4.startAnimation(slide_right4);
-                    } else {
-                        param4.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
-                        param4.addRule(RelativeLayout.ALIGN_PARENT_LEFT, 0);
-                        b4.setLayoutParams(param4);
-                        b4.startAnimation(slide_left4);
-                    }
-                    b4b.startAnimation(fadein4);
-                    break;
-            }
-        }
-    };
 
     @Override
     public void onAnimationStart(Animation animation) {
