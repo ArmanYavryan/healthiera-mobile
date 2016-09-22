@@ -1,6 +1,5 @@
 package com.healthiera.mobile.fragment.healthData;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -82,18 +81,6 @@ public class EtValueActivity extends BaseFragment implements Animation.Animation
         s = c.getTime().toString();
         s = s.substring(11, 16);
         tvTime.setText(s);
-
-        TextView back = (TextView) getActivity().findViewById(R.id.setvalue_back);
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                if (sourceText.equals("Glucose tolerance test") || sourceText.equals("Glucose level in urine"))
-                    startActivity(new Intent(EtValueActivity.this.getActivity(), DevicesActivity.class));
-                else
-                    startActivity(new Intent(EtValueActivity.this.getActivity(), Status.class));
-            }
-        });
 
         final TextView add = (TextView) getActivity().findViewById(R.id.setvalue_add);
         add.setOnClickListener(new View.OnClickListener() {
