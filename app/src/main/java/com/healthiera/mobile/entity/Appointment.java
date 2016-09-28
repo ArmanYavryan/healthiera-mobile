@@ -24,6 +24,7 @@ public class Appointment extends Model {
     }
 
     public Appointment(Long doctorId, Integer notification, Event event) {
+        super();
         this.doctorId = doctorId;
         this.notification = notification;
         this.event = event;

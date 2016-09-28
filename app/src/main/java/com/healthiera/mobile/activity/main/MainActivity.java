@@ -2,11 +2,16 @@ package com.healthiera.mobile.activity.main;
 
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.ImageButton;
+import android.widget.TextView;
 
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigation;
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigationItem;
 import com.healthiera.mobile.R;
+import com.healthiera.mobile.entity.Doctor;
 import com.healthiera.mobile.fragment.Calendar;
 import com.healthiera.mobile.fragment.Dashboard;
 import com.healthiera.mobile.fragment.Goals;
@@ -15,6 +20,8 @@ import com.healthiera.mobile.fragment.HealthData;
 public class MainActivity extends AppCompatActivity implements AHBottomNavigation.OnTabSelectedListener {
 
     private AHBottomNavigation bottomNavigation;
+    private TextView toolbarText;
+
 
 //    private EventService eventService = new EventService();
 
@@ -23,21 +30,24 @@ public class MainActivity extends AppCompatActivity implements AHBottomNavigatio
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        toolbarText=(TextView) findViewById(R.id.toolbarText);
+
+
 //        final Event event = new Event();
 //        event.setStartDateTime(new Date());
 //        final Long eventId = eventService.createAppointment(event);
 //        final Event foundEvent = eventService.findEventById(eventId);
 //
-//        final Doctor doc1 = new Doctor("Andranik", "Ortoped", "099112233", "andrani@gmail.com");
-//        Doctor doc2 = new Doctor("Karen", "Ginekolog", "099569874", "Karen@gmail.com");
-//        Doctor doc3 = new Doctor("Hayk", "Dentist", "055693214", "Hayk@gmail.com");
-//        Doctor doc4 = new Doctor("Anahit", "Ortoped", "098159753", "Anahit@gmail.com");
-//
-//        final Long doctorId = doc1.save();
-//        doc2.save();
-//        doc3.save();
-//        doc4.save();
-//        final Doctor doctor1 = Doctor.load(Doctor.class, doctorId);
+        final Doctor doc1 = new Doctor("Andranik", "Ortoped", "099112233", "andrani@gmail.com");
+        Doctor doc2 = new Doctor("Karen", "Ginekolog", "099569874", "Karen@gmail.com");
+        Doctor doc3 = new Doctor("Hayk", "Dentist", "055693214", "Hayk@gmail.com");
+        Doctor doc4 = new Doctor("Anahit", "Ortoped", "098159753", "Anahit@gmail.com");
+
+        final Long doctorId = doc1.save();
+        doc2.save();
+        doc3.save();
+        doc4.save();
+        final Doctor doctor1 = Doctor.load(Doctor.class, doctorId);
 
         bottomNavigation = (AHBottomNavigation) findViewById(R.id.AHBottomNavigation_id);
         bottomNavigation.setOnTabSelectedListener(this);
@@ -81,20 +91,30 @@ public class MainActivity extends AppCompatActivity implements AHBottomNavigatio
         if (position == 0) {
             Dashboard dashboard = new Dashboard();
             getSupportFragmentManager().beginTransaction().replace(R.id.Content_id_, dashboard).commit();
+            toolbarText.setText("Dashboard");
         } else if (position == 1) {
             HealthData healthData = new HealthData();
             getSupportFragmentManager().beginTransaction().replace(R.id.Content_id_, healthData).commit();
+            toolbarText.setText("HealthData");
         } else if (position == 2) {
             Goals goals = new Goals();
             getSupportFragmentManager().beginTransaction().replace(R.id.Content_id_, goals).commit();
+            toolbarText.setText("Goals");
         } else if (position == 3) {
             Calendar calendar = new Calendar();
             getSupportFragmentManager().beginTransaction().replace(R.id.Content_id_, calendar).commit();
+            toolbarText.setText("Calendar");
         } else if (position == 4) {
             Calendar calendar = new Calendar();
             getSupportFragmentManager().beginTransaction().replace(R.id.Content_id_, calendar).commit();
+            toolbarText.setText("Calendar");
         }
 
         return true;
+    }
+
+    public void imageButtonBackEffect(View view){
+        FragmentManager fm = getSupportFragmentManager();
+        fm.popBackStack();
     }
 }

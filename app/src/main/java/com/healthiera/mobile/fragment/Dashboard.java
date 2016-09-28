@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 
+import com.activeandroid.query.Select;
 import com.healthiera.mobile.R;
 import com.healthiera.mobile.component.base.BaseEditText;
 import com.healthiera.mobile.entity.Doctor;
@@ -89,7 +90,6 @@ public class Dashboard extends BaseFragment {
         doctors.add(new Doctor("Karen","Ginekolog","099569874","Karen@gmail.com"));
         doctors.add(new Doctor("Hayk","Dentist","055693214","Hayk@gmail.com"));
         doctors.add(new Doctor("Anahit","Ortoped","098159753","Anahit@gmail.com"));
-        //doctors=new List<Doctor>();
 //        doctors=new Select()
 //                .from(Doctor.class)
 //                .execute();

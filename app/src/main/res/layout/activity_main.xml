@@ -4,12 +4,62 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-    <FrameLayout
-        android:orientation="vertical" android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/Content_id_">
-    </FrameLayout>
 
+    <android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:contentInsetEnd="0dp"
+        android:contentInsetLeft="0dp"
+        android:contentInsetRight="0dp"
+        android:contentInsetStart="0dp"
+        android:gravity="center"
+        app:contentInsetEnd="0dp"
+        app:contentInsetLeft="0dp"
+        app:contentInsetRight="0dp"
+        app:contentInsetStart="0dp"
+        android:layout_height="56dp"
+        android:background="#5771ce"
+        android:paddingEnd="20px"
+        android:paddingStart="20px">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageView13"
+            android:src="@android:drawable/ic_menu_gallery" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:gravity="center"
+            android:text="Dashboard"
+            android:id="@+id/toolbarText"
+            android:textColor="#ffffff"
+            android:textSize="10pt"
+            android:textIsSelectable="true"
+            android:paddingLeft="10px" />
+
+        <ImageButton
+            android:id="@+id/imageButtonBackEffect"
+            android:layout_width="wrap_content"
+            android:layout_height="80px"
+            android:layout_gravity="right"
+            android:background="@drawable/back"
+            android:onClick="imageButtonBackEffect" />
+
+
+    </android.support.v7.widget.Toolbar>
+    <FrameLayout
+        android:orientation="vertical" android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/Content_id_"
+        android:layout_below="@+id/toolbar"
+        android:layout_alignParentLeft="true"
+        android:background="#FFF"
+        android:layout_alignParentStart="true">
+    </FrameLayout>
     <com.aurelhubert.ahbottomnavigation.AHBottomNavigation
         android:id="@+id/AHBottomNavigation_id"
         android:layout_width="match_parent"
@@ -17,4 +67,5 @@
         android:layout_gravity="bottom"
         android:layout_alignParentBottom="true"
         />
+
 </RelativeLayout>

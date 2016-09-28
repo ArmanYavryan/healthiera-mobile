@@ -17,10 +17,10 @@ public class Goals extends Model {
     private Integer height;
 
     @Column(name = "bim")
-    private Float bim;
+    private Integer bim;
 
     @Column(name = "ratio_thallium_hips")
-    private Float ratioThalliumHips;
+    private Integer ratioThalliumHips;
 
     @Column(name = "pulse")
     private Integer pulse;
@@ -31,7 +31,13 @@ public class Goals extends Model {
     @Column(name = "blood_pressure_dia")
     private Integer bloodPressureDia;
 
-    public Goals(Float bim, Integer bloodPressureDia, Integer bloodPressureSys, Integer height, Integer pulse, Float ratioThalliumHips, Integer weight) {
+    public Goals()
+    {
+        super();
+    }
+
+    public Goals(Integer bim, Integer bloodPressureDia, Integer bloodPressureSys, Integer height, Integer pulse, Integer ratioThalliumHips, Integer weight) {
+        super();
         this.bim = bim;
         this.bloodPressureDia = bloodPressureDia;
         this.bloodPressureSys = bloodPressureSys;
@@ -41,11 +47,11 @@ public class Goals extends Model {
         this.weight = weight;
     }
 
-    public Float getBim() {
+    public Integer getBim() {
         return bim;
     }
 
-    public void setBim(Float bim) {
+    public void setBim(Integer bim) {
         this.bim = bim;
     }
 
@@ -81,11 +87,11 @@ public class Goals extends Model {
         this.pulse = pulse;
     }
 
-    public Float getRatioThalliumHips() {
+    public Integer getRatioThalliumHips() {
         return ratioThalliumHips;
     }
 
-    public void setRatioThalliumHips(Float ratioThalliumHips) {
+    public void setRatioThalliumHips(Integer ratioThalliumHips) {
         this.ratioThalliumHips = ratioThalliumHips;
     }
 
