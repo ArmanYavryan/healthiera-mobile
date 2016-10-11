@@ -4,11 +4,26 @@
     android:height="40dp"
     android:viewportHeight="40"
     android:viewportWidth="45">
-    <path
-        android:fillColor="#008490"
-        android:pathData="M 20 40 L 35 25 C 50 10 30 0 20 10 Z" />
 
-    <path
-        android:fillColor="#008490"
-        android:pathData="M 21 40 L 6 25 C -10 10 11 0 21 10 Z" />
+
+    <group android:translateX="1">
+        <path android:fillColor="#60000000"
+            android:pathData="M 22.5 35 Q 40 25 43 15 A 9 9 0 1,0 22.5 9
+            A 9 9 0 1,0 2.5 15 Q 3.5 25 22.5 35"/>
+    </group>
+
+    <group android:translateY="-1">
+        <path android:fillColor="#60000000"
+            android:pathData="M 22.5 35 Q 40 25 43 15 A 9 9 0 1,0 22.5 9
+            A 9 9 0 1,0 2.5 15 Q 3.5 25 22.5 35"/>
+    </group>
+
+    <group>
+        <path android:fillColor="#f0ccb0"
+            android:pathData="M 22.5 35 Q 40 25 43 15 A 9 9 0 1,0 22.5 9
+            A 9 9 0 1,0 2.5 15 Q 3.5 25 22.5 35"/>
+    </group>
+
+
+
 </vector>

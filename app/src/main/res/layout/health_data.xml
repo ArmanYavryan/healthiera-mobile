@@ -1,260 +1,284 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.healthiera.mobile.activity.main.MainActivity">
 
-    <TableLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:background="#F5F5F5">
 
-        <TableRow
+        <TableLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-
-        </TableRow>
-
-        <ScrollView
             android:layout_height="match_parent"
-            android:background="#F5F5F5">
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:padding="5dp">
 
-            <TableLayout
+            <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                android:padding="10dp">
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp">
 
-                <TableRow
+                <android.support.v7.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginBottom="10dp"
-                    android:background="@drawable/background_gray"
-                    android:paddingRight="5dp">
+                    android:layout_weight="1"
+                    android:elevation="2dp"
+                    android:paddingRight="5dp"
+                    app:cardBackgroundColor="#ffffff"
+                    app:cardCornerRadius="3dp">
 
-                    <ImageView
-                        android:id="@+id/imageView"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginBottom="2dp"
-                        android:adjustViewBounds="true"
-                        android:baselineAlignBottom="false"
-                        android:contextClickable="false"
-                        android:cropToPadding="false"
-                        android:focusable="false"
-                        android:focusableInTouchMode="false"
-                        android:forceHasOverlappingRendering="false"
-                        android:maxHeight="30dp"
-                        android:nestedScrollingEnabled="false"
-                        android:padding="1dp"
-                        android:src="@drawable/complains" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:paddingRight="5dp">
 
-                    <TextView
-                        android:id="@+id/tv1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:layout_weight="1"
-                        android:paddingBottom="15dp"
-                        android:paddingTop="15dp"
-                        android:shadowColor="#a0ffffff"
-                        android:shadowDx="1"
-                        android:shadowDy="1"
-                        android:shadowRadius="1"
-                        android:text="Complains and Symptoms"
-                        android:textAppearance="?android:attr/textAppearanceMedium"
-                        android:textColor="#008490"
-                        android:textSize="17dp"
-                        android:textStyle="bold|italic" />
+                        <ImageView
+                            android:id="@+id/imageView1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="bottom"
+                            android:layout_marginRight="15dp"
+                            android:adjustViewBounds="true"
+                            android:baselineAlignBottom="true"
+                            android:focusable="false"
+                            android:paddingBottom="10dp"
+                            android:paddingTop="10dp"
+                            android:src="@drawable/complains" />
 
-                    <ImageView
-                        android:id="@+id/iv1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:adjustViewBounds="true"
-                        android:baselineAlignBottom="false"
-                        android:cropToPadding="false"
-                        android:focusableInTouchMode="false"
-                        android:forceHasOverlappingRendering="false"
-                        android:maxHeight="15dp"
-                        android:src="@drawable/arrow_right" />
+                        <TextView
+                            android:id="@+id/tv1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight="1"
+                            android:paddingBottom="15dp"
+                            android:paddingTop="15dp"
+                            android:shadowColor="#a0ffffff"
+                            android:shadowDx="1"
+                            android:shadowDy="1"
+                            android:shadowRadius="1"
+                            android:text="Complains and Symptoms"
+                            android:textColor="#666666"
+                            android:textSize="17dp" />
 
-                </TableRow>
+                        <ImageView
+                            android:id="@+id/iv1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:adjustViewBounds="true"
+                            android:baselineAlignBottom="false"
+                            android:cropToPadding="false"
+                            android:focusableInTouchMode="false"
+                            android:forceHasOverlappingRendering="false"
+                            android:maxHeight="15dp"
+                            android:src="@drawable/arrow_right" />
+                    </LinearLayout>
+                </android.support.v7.widget.CardView>
+            </TableRow>
 
-                <TableRow
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp">
+
+                <android.support.v7.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginBottom="10dp"
-                    android:background="@drawable/background_gray"
-                    android:paddingRight="5dp">
+                    android:layout_weight="1"
+                    android:elevation="2dp"
+                    app:cardBackgroundColor="#ffffff"
+                    app:cardCornerRadius="3dp">
 
-                    <ImageView
-                        android:id="@+id/imageView2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginTop="2dp"
-                        android:adjustViewBounds="true"
-                        android:baselineAlignBottom="false"
-                        android:contextClickable="false"
-                        android:cropToPadding="false"
-                        android:focusable="false"
-                        android:focusableInTouchMode="false"
-                        android:forceHasOverlappingRendering="false"
-                        android:maxHeight="30dp"
-                        android:nestedScrollingEnabled="false"
-                        android:src="@drawable/heredity" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:paddingRight="5dp">
 
-                    <TextView
-                        android:id="@+id/tv2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:layout_weight="1"
-                        android:paddingBottom="15dp"
-                        android:paddingTop="15dp"
-                        android:shadowColor="#a0ffffff"
-                        android:shadowDx="1"
-                        android:shadowDy="1"
-                        android:shadowRadius="1"
-                        android:text="Heredity (Family History)"
-                        android:textAppearance="?android:attr/textAppearanceMedium"
-                        android:textColor="#008490"
-                        android:textSize="17dp"
-                        android:textStyle="bold|italic" />
+                        <ImageView
+                            android:id="@+id/imageView2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="bottom"
+                            android:layout_marginRight="15dp"
+                            android:adjustViewBounds="true"
+                            android:baselineAlignBottom="true"
+                            android:focusable="false"
+                            android:paddingBottom="10dp"
+                            android:paddingTop="10dp"
+                            android:src="@drawable/heredity" />
 
-                    <ImageView
-                        android:id="@+id/iv2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:adjustViewBounds="true"
-                        android:baselineAlignBottom="false"
-                        android:cropToPadding="false"
-                        android:focusableInTouchMode="false"
-                        android:forceHasOverlappingRendering="false"
-                        android:maxHeight="15dp"
-                        android:src="@drawable/arrow_right" />
-                </TableRow>
+                        <TextView
+                            android:id="@+id/tv2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight="1"
+                            android:paddingBottom="15dp"
+                            android:paddingTop="15dp"
+                            android:shadowColor="#a0ffffff"
+                            android:shadowDx="1"
+                            android:shadowDy="1"
+                            android:shadowRadius="1"
+                            android:text="Heredity ( family history )"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:textColor="#666666"
+                            android:textSize="17dp" />
 
-                <TableRow
+                        <ImageView
+                            android:id="@+id/iv2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:adjustViewBounds="true"
+                            android:baselineAlignBottom="false"
+                            android:cropToPadding="false"
+                            android:focusableInTouchMode="false"
+                            android:forceHasOverlappingRendering="false"
+                            android:maxHeight="15dp"
+                            android:src="@drawable/arrow_right" />
+                    </LinearLayout>
+                </android.support.v7.widget.CardView>
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp">
+
+                <android.support.v7.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginBottom="10dp"
-                    android:background="@drawable/background_gray"
-                    android:paddingRight="5dp">
+                    android:layout_weight="1"
+                    android:elevation="2dp"
+                    app:cardBackgroundColor="#ffffff"
+                    app:cardCornerRadius="3dp">
 
-                    <ImageView
-                        android:id="@+id/imageView3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginTop="3dp"
-                        android:adjustViewBounds="true"
-                        android:baselineAlignBottom="false"
-                        android:contextClickable="false"
-                        android:cropToPadding="false"
-                        android:focusable="false"
-                        android:focusableInTouchMode="false"
-                        android:forceHasOverlappingRendering="false"
-                        android:maxHeight="30dp"
-                        android:nestedScrollingEnabled="false"
-                        android:src="@drawable/status" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:paddingRight="5dp">
 
-                    <TextView
-                        android:id="@+id/tv3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:layout_weight="1"
-                        android:paddingBottom="15dp"
-                        android:paddingTop="15dp"
-                        android:shadowColor="#a0ffffff"
-                        android:shadowDx="1"
-                        android:shadowDy="1"
-                        android:shadowRadius="1"
-                        android:text="Status"
-                        android:textAppearance="?android:attr/textAppearanceMedium"
-                        android:textColor="#008490"
-                        android:textSize="17dp"
-                        android:textStyle="bold|italic" />
+                        <ImageView
+                            android:id="@+id/imageView3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="bottom"
+                            android:layout_marginRight="15dp"
+                            android:adjustViewBounds="true"
+                            android:baselineAlignBottom="true"
+                            android:focusable="false"
+                            android:paddingBottom="10dp"
+                            android:paddingTop="10dp"
+                            android:src="@drawable/status" />
 
-                    <ImageView
-                        android:id="@+id/iv3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:adjustViewBounds="true"
-                        android:baselineAlignBottom="false"
-                        android:cropToPadding="false"
-                        android:focusableInTouchMode="false"
-                        android:forceHasOverlappingRendering="false"
-                        android:maxHeight="15dp"
-                        android:src="@drawable/arrow_right" />
-                </TableRow>
+                        <TextView
+                            android:id="@+id/tv3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight="1"
+                            android:paddingBottom="15dp"
+                            android:paddingTop="15dp"
+                            android:shadowColor="#a0ffffff"
+                            android:shadowDx="1"
+                            android:shadowDy="1"
+                            android:shadowRadius="1"
+                            android:text="Status"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:textColor="#666666"
+                            android:textSize="17dp" />
 
-                <TableRow
+                        <ImageView
+                            android:id="@+id/iv3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:adjustViewBounds="true"
+                            android:baselineAlignBottom="false"
+                            android:cropToPadding="false"
+                            android:focusableInTouchMode="false"
+                            android:forceHasOverlappingRendering="false"
+                            android:maxHeight="15dp"
+                            android:src="@drawable/arrow_right" />
+                    </LinearLayout>
+                </android.support.v7.widget.CardView>
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp">
+
+                <android.support.v7.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@drawable/background_gray"
-                    android:paddingRight="5dp">
+                    android:layout_weight="1"
+                    android:elevation="2dp"
+                    app:cardBackgroundColor="#ffffff"
+                    app:cardCornerRadius="3dp">
 
-                    <ImageView
-                        android:id="@+id/imageView4"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginTop="5dp"
-                        android:adjustViewBounds="true"
-                        android:baselineAlignBottom="false"
-                        android:contextClickable="false"
-                        android:cropToPadding="false"
-                        android:focusable="false"
-                        android:focusableInTouchMode="false"
-                        android:forceHasOverlappingRendering="false"
-                        android:maxHeight="40dp"
-                        android:nestedScrollingEnabled="false"
-                        android:src="@drawable/device" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:paddingRight="5dp">
 
-                    <TextView
-                        android:id="@+id/tv4"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:layout_weight="1"
-                        android:paddingBottom="15dp"
-                        android:paddingTop="15dp"
-                        android:shadowColor="#a0ffffff"
-                        android:shadowDx="1"
-                        android:shadowDy="1"
-                        android:shadowRadius="1"
-                        android:text="Special devices"
-                        android:textAppearance="?android:attr/textAppearanceMedium"
-                        android:textColor="#008490"
-                        android:textSize="17dp"
-                        android:textStyle="bold|italic" />
+                        <ImageView
+                            android:id="@+id/imageView4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="bottom"
+                            android:layout_marginRight="15dp"
+                            android:adjustViewBounds="true"
+                            android:baselineAlignBottom="true"
+                            android:focusable="false"
+                            android:paddingBottom="10dp"
+                            android:paddingTop="10dp"
+                            android:src="@drawable/device" />
 
-                    <ImageView
-                        android:id="@+id/iv4"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:adjustViewBounds="true"
-                        android:baselineAlignBottom="false"
-                        android:cropToPadding="false"
-                        android:focusableInTouchMode="false"
-                        android:forceHasOverlappingRendering="false"
-                        android:maxHeight="15dp"
-                        android:src="@drawable/arrow_right" />
-                </TableRow>
+                        <TextView
+                            android:id="@+id/tv4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight="1"
+                            android:paddingBottom="15dp"
+                            android:paddingTop="15dp"
+                            android:shadowColor="#a0ffffff"
+                            android:shadowDx="1"
+                            android:shadowDy="1"
+                            android:shadowRadius="1"
+                            android:text="Special Devices"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:textColor="#666666"
+                            android:textSize="17dp" />
 
-            </TableLayout>
-        </ScrollView>
-    </TableLayout>
+                        <ImageView
+                            android:id="@+id/iv4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:adjustViewBounds="true"
+                            android:baselineAlignBottom="false"
+                            android:cropToPadding="false"
+                            android:focusableInTouchMode="false"
+                            android:forceHasOverlappingRendering="false"
+                            android:maxHeight="15dp"
+                            android:src="@drawable/arrow_right" />
+                    </LinearLayout>
+                </android.support.v7.widget.CardView>
+            </TableRow>
+
+        </TableLayout>
+    </ScrollView>
 
 </RelativeLayout>

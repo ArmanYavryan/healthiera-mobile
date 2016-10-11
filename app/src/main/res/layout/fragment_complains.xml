@@ -1,0 +1,337 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.healthiera.mobile.fragment.healthData.Complains">
+
+    <!-- TODO: Update blank fragment layout -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#F5F5F5">
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="5dp">
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/background_gray"
+                android:baselineAligned="false"
+                app:cardBackgroundColor="#ffffff"
+                app:cardCornerRadius="5dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1"
+                        android:text="Obesty"
+                        android:textColor="#458495"
+                        android:textSize="18dp" />
+
+                    <FrameLayout
+                        android:id="@+id/chkState"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:id="@+id/track"
+                            android:layout_width="60dp"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/switch_track" />
+
+                        <ImageView
+                            android:id="@+id/thumb"
+                            android:layout_width="20dp"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/switch_thumb" />
+                    </FrameLayout>
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/background_gray"
+                android:baselineAligned="false"
+                app:cardBackgroundColor="#ffffff"
+                app:cardCornerRadius="5dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1"
+                        android:text="Thirsty"
+                        android:textColor="#458495"
+                        android:textSize="18dp" />
+
+                    <FrameLayout
+                        android:id="@+id/chkState2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:id="@+id/track2"
+                            android:layout_width="60dp"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/switch_track" />
+
+                        <ImageView
+                            android:id="@+id/thumb2"
+                            android:layout_width="20dp"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/switch_thumb" />
+                    </FrameLayout>
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/background_gray"
+                android:baselineAligned="false"
+                app:cardBackgroundColor="#ffffff"
+                app:cardCornerRadius="5dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1"
+                        android:text="Profuse Sweating"
+                        android:textColor="#458495"
+                        android:textSize="18dp" />
+
+                    <FrameLayout
+                        android:id="@+id/chkState3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:id="@+id/track3"
+                            android:layout_width="60dp"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/switch_track" />
+
+                        <ImageView
+                            android:id="@+id/thumb3"
+                            android:layout_width="20dp"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/switch_thumb" />
+                    </FrameLayout>
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/background_gray"
+                android:baselineAligned="false"
+                app:cardBackgroundColor="#ffffff"
+                app:cardCornerRadius="5dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1"
+                        android:text="Nocturia - Night Urination"
+                        android:textColor="#458495"
+                        android:textSize="18dp" />
+
+                    <FrameLayout
+                        android:id="@+id/chkState4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:id="@+id/track4"
+                            android:layout_width="60dp"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/switch_track" />
+
+                        <ImageView
+                            android:id="@+id/thumb4"
+                            android:layout_width="20dp"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/switch_thumb" />
+                    </FrameLayout>
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/background_gray"
+                android:baselineAligned="false"
+                app:cardBackgroundColor="#ffffff"
+                app:cardCornerRadius="5dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1"
+                        android:text="Polyuria"
+                        android:textColor="#458495"
+                        android:textSize="18dp" />
+
+                    <FrameLayout
+                        android:id="@+id/chkState5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:id="@+id/track5"
+                            android:layout_width="60dp"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/switch_track" />
+
+                        <ImageView
+                            android:id="@+id/thumb5"
+                            android:layout_width="20dp"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/switch_thumb" />
+                    </FrameLayout>
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/background_gray"
+                android:baselineAligned="false"
+                app:cardBackgroundColor="#ffffff"
+                app:cardCornerRadius="5dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1"
+                        android:text="Polydipsia"
+                        android:textColor="#458495"
+                        android:textSize="18dp" />
+
+                    <FrameLayout
+                        android:id="@+id/chkState6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:id="@+id/track6"
+                            android:layout_width="60dp"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/switch_track" />
+
+                        <ImageView
+                            android:id="@+id/thumb6"
+                            android:layout_width="20dp"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/switch_thumb" />
+                    </FrameLayout>
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/background_gray"
+                android:baselineAligned="false"
+                app:cardBackgroundColor="#ffffff"
+                app:cardCornerRadius="5dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1"
+                        android:text="Bulimia - Pathology Appetitis"
+                        android:textColor="#458495"
+                        android:textSize="18dp" />
+
+                    <FrameLayout
+                        android:id="@+id/chkState7"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:id="@+id/track7"
+                            android:layout_width="60dp"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/switch_track" />
+
+                        <ImageView
+                            android:id="@+id/thumb7"
+                            android:layout_width="20dp"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/switch_thumb" />
+                    </FrameLayout>
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+        </TableLayout>
+    </ScrollView>
+</FrameLayout>
