@@ -2,9 +2,13 @@ package com.healthiera.mobile.fragment;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.view.animation.TranslateAnimation;
 import android.widget.TextView;
 
 import com.healthiera.mobile.R;
@@ -22,16 +26,17 @@ public class HealthData extends BaseFragment {
         public void onClick(View view) {
             switch (view.getId()) {
                 case R.id.tv1:
-                    getFragmentManager().beginTransaction().replace(R.id.Content_id_,new Complains()).commit();
+                    FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                    transaction.replace(R.id.Content_id_, new Complains()).addToBackStack("HD-C").commit();
                     break;
                 case R.id.tv2:
-                    getFragmentManager().beginTransaction().replace(R.id.Content_id_,new Heredity()).commit();
+                    getFragmentManager().beginTransaction().replace(R.id.Content_id_, new Heredity()).addToBackStack("HD-H").commit();
                     break;
                 case R.id.tv3:
-                    getFragmentManager().beginTransaction().replace(R.id.Content_id_,new Status()).commit();
+                    getFragmentManager().beginTransaction().replace(R.id.Content_id_, new Status()).addToBackStack("HD-S").commit();
                     break;
                 case R.id.tv4:
-                    getFragmentManager().beginTransaction().replace(R.id.Content_id_,new Devices()).commit();
+                    getFragmentManager().beginTransaction().replace(R.id.Content_id_, new Devices()).addToBackStack("HD-D").commit();
                     break;
             }
         }

@@ -29,216 +29,197 @@
                 app:cardCornerRadius="5dp">
 
                 <LinearLayout
-                    android:id="@+id/ln1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:paddingLeft="10dp"
-                    android:paddingRight="10dp">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:layout_weight="1"
-                        android:text="Bulimia - Pathology Appetitis"
-                        android:textColor="#458495"
-                        android:textSize="18dp" />
-                </LinearLayout>
-            </android.support.v7.widget.CardView>
-
-            <TableRow
-                android:id="@+id/invisible"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/input"
-                android:paddingLeft="20dp"
-                android:visibility="gone">
-
-                <TableLayout
-                    android:id="@+id/tl"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/background_gray"
+                    android:orientation="vertical"
                     android:padding="5dp">
 
-                    <TableRow
-                        android:id="@+id/tr1"
+                    <LinearLayout
+                        android:id="@+id/ln1"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginBottom="5dp"
-                        android:baselineAligned="false">
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
 
                         <TextView
-                            android:id="@+id/textView3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight="1"
+                            android:padding="5dp"
+                            android:text="Bulimia - Pathology Appetitis"
+                            android:textColor="#458495"
+                            android:textSize="18dp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/bulimia"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:visibility="gone">
+
+                        <TableLayout
+                            android:id="@+id/tl"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_weight="2"
-                            android:padding="10dp"
-                            android:shadowColor="#ffffff"
-                            android:shadowDx="1"
-                            android:shadowDy="1"
-                            android:shadowRadius="1"
-                            android:text="Father"
-                            android:textAppearance="?android:attr/textAppearanceMedium"
-                            android:textColor="#969696"
-                            android:textSize="17dp"
-                            android:textStyle="bold|italic" />
+                            android:layout_marginLeft="20dp"
+                            android:layout_weight="1"
+                            android:padding="5dp">
 
-                        <CheckBox
-                            android:id="@+id/checkBoxF"
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:alpha="0.6"
-                            android:checked="false" />
-                    </TableRow>
+                            <LinearLayout
+                                android:id="@+id/tr1"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="5dp"
+                                android:orientation="horizontal">
+
+                                <CheckBox
+                                    android:id="@+id/checkBoxF"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:button="@drawable/checkbox"
+                                    android:checked="false" />
+
+                                <TextView
+                                    android:id="@+id/textView3"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:padding="10dp"
+                                    android:shadowColor="#ffffff"
+                                    android:shadowDx="1"
+                                    android:shadowDy="1"
+                                    android:shadowRadius="1"
+                                    android:text="Father"
+                                    android:textColor="#969696"
+                                    android:textSize="17dp"
+                                    android:textStyle="bold|italic" />
+                            </LinearLayout>
+
+                            <TableRow
+                                android:layout_width="match_parent"
+                                android:layout_height="2dp"
+                                android:layout_marginLeft="5dp"
+                                android:background="#969696"
+                                android:baselineAligned="false"
+                                android:minHeight="1dp" />
+
+                            <LinearLayout
+                                android:id="@+id/tr2"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginBottom="5dp"
+                                android:orientation="horizontal">
 
 
-                    <TableRow
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginLeft="5dp"
-                        android:background="#969696"
-                        android:baselineAligned="false"
-                        android:minHeight="1dp" />
+                                <CheckBox
+                                    android:id="@+id/checkBoxM"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:layout_gravity="center_vertical"
+                                    android:button="@drawable/checkbox"
+                                    android:checked="false" />
 
-                    <TableRow
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginBottom="5dp"
-                        android:layout_marginLeft="5dp"
-                        android:background="#fff"
-                        android:baselineAligned="false"
-                        android:minHeight="1dp" />
+                                <TextView
+                                    android:id="@+id/textView14"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:padding="10dp"
+                                    android:shadowColor="#ffffff"
+                                    android:shadowDx="1"
+                                    android:shadowDy="1"
+                                    android:shadowRadius="1"
+                                    android:text="Mother"
+                                    android:textColor="#969696"
+                                    android:textSize="17dp"
+                                    android:textStyle="bold|italic" />
 
-                    <TableRow
-                        android:id="@+id/tr2"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginBottom="5dp"
-                        android:baselineAligned="false">
+                            </LinearLayout>
 
-                        <TextView
-                            android:id="@+id/textView14"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="2"
-                            android:padding="10dp"
-                            android:shadowColor="#ffffff"
-                            android:shadowDx="1"
-                            android:shadowDy="1"
-                            android:shadowRadius="1"
-                            android:text="Mother"
-                            android:textAppearance="?android:attr/textAppearanceMedium"
-                            android:textColor="#969696"
-                            android:textSize="17dp"
-                            android:textStyle="bold|italic" />
+                            <TableRow
+                                android:layout_width="match_parent"
+                                android:layout_height="2dp"
+                                android:layout_marginLeft="5dp"
+                                android:background="#969696"
+                                android:baselineAligned="false"
+                                android:minHeight="1dp" />
 
-                        <CheckBox
-                            android:id="@+id/checkBoxM"
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:alpha="0.6"
-                            android:checked="false" />
-                    </TableRow>
+                            <LinearLayout
+                                android:id="@+id/tr3"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="5dp"
+                                android:baselineAligned="false"
+                                android:orientation="horizontal">
 
-                    <TableRow
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginLeft="5dp"
-                        android:background="#969696"
-                        android:baselineAligned="false"
-                        android:minHeight="1dp" />
+                                <CheckBox
+                                    android:id="@+id/checkBoxGM"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:layout_gravity="center_vertical"
+                                    android:button="@drawable/checkbox"
+                                    android:checked="false" />
 
-                    <TableRow
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginBottom="5dp"
-                        android:layout_marginLeft="5dp"
-                        android:background="#fff"
-                        android:baselineAligned="false"
-                        android:minHeight="1dp" />
+                                <TextView
+                                    android:id="@+id/textView15"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:padding="10dp"
+                                    android:shadowColor="#ffffff"
+                                    android:shadowDx="1"
+                                    android:shadowDy="1"
+                                    android:shadowRadius="1"
+                                    android:text="Grandmother"
+                                    android:textColor="#969696"
+                                    android:textSize="17dp"
+                                    android:textStyle="bold|italic" />
 
-                    <TableRow
-                        android:id="@+id/tr3"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginBottom="5dp"
-                        android:baselineAligned="false">
+                            </LinearLayout>
 
-                        <TextView
-                            android:id="@+id/textView15"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="2"
-                            android:padding="10dp"
-                            android:shadowColor="#ffffff"
-                            android:shadowDx="1"
-                            android:shadowDy="1"
-                            android:shadowRadius="1"
-                            android:text="Grandmother"
-                            android:textAppearance="?android:attr/textAppearanceMedium"
-                            android:textColor="#969696"
-                            android:textSize="17dp"
-                            android:textStyle="bold|italic" />
+                            <TableRow
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginLeft="5dp"
+                                android:background="#969696"
+                                android:baselineAligned="false"
+                                android:minHeight="1dp" />
 
-                        <CheckBox
-                            android:id="@+id/checkBoxGM"
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:alpha="0.6"
-                            android:checked="false" />
-                    </TableRow>
+                            <LinearLayout
+                                android:id="@+id/tr4"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="5dp"
+                                android:baselineAligned="false"
+                                android:orientation="horizontal">
 
-                    <TableRow
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginLeft="5dp"
-                        android:background="#969696"
-                        android:baselineAligned="false"
-                        android:minHeight="1dp" />
+                                <CheckBox
+                                    android:id="@+id/checkBoxGF"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:layout_gravity="center_vertical"
+                                    android:button="@drawable/checkbox"
+                                    android:checked="false" />
 
-                    <TableRow
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginBottom="5dp"
-                        android:layout_marginLeft="5dp"
-                        android:background="#fff"
-                        android:baselineAligned="false"
-                        android:minHeight="1dp" />
+                                <TextView
+                                    android:id="@+id/textView20"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:padding="10dp"
+                                    android:shadowColor="#ffffff"
+                                    android:shadowDx="1"
+                                    android:shadowDy="1"
+                                    android:shadowRadius="1"
+                                    android:text="Grandfather"
+                                    android:textColor="#969696"
+                                    android:textSize="17dp"
+                                    android:textStyle="bold|italic" />
 
-                    <TableRow
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:baselineAligned="false">
+                            </LinearLayout>
+                        </TableLayout>
 
-                        <TextView
-                            android:id="@+id/textView20"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="2"
-                            android:padding="10dp"
-                            android:shadowColor="#ffffff"
-                            android:shadowDx="1"
-                            android:shadowDy="1"
-                            android:shadowRadius="1"
-                            android:text="Grandfather"
-                            android:textAppearance="?android:attr/textAppearanceMedium"
-                            android:textColor="#969696"
-                            android:textSize="17dp"
-                            android:textStyle="bold|italic" />
+                    </LinearLayout>
+                </LinearLayout>
 
-                        <CheckBox
-                            android:id="@+id/checkBoxGF"
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:alpha="0.6"
-                            android:checked="false" />
-                    </TableRow>
-                </TableLayout>
-            </TableRow>
+            </android.support.v7.widget.CardView>
 
             <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
@@ -248,23 +229,188 @@
                 app:cardCornerRadius="5dp">
 
                 <LinearLayout
-                    android:id="@+id/ln2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:paddingLeft="10dp"
-                    android:paddingRight="10dp">
+                    android:orientation="vertical"
+                    android:padding="5dp">
 
-                    <TextView
+                    <LinearLayout
+                        android:id="@+id/ln2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:layout_weight="1"
-                        android:text="Diabetes Melitus"
-                        android:textColor="#458495"
-                        android:textSize="18dp" />
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight="1"
+                            android:padding="5dp"
+                            android:text="Diabetes Melitus"
+                            android:textColor="#458495"
+                            android:textSize="18dp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/diabetes_melitus"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:visibility="gone">
+
+                        <TableLayout
+                            android:id="@+id/t2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:layout_weight="1"
+                            android:padding="5dp">
+
+                            <TableRow
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginBottom="5dp"
+                                android:baselineAligned="false">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="2"
+                                    android:padding="10dp"
+                                    android:shadowColor="#ffffff"
+                                    android:shadowDx="1"
+                                    android:shadowDy="1"
+                                    android:shadowRadius="1"
+                                    android:text="Father"
+                                    android:textAppearance="?android:attr/textAppearanceMedium"
+                                    android:textColor="#969696"
+                                    android:textSize="17dp"
+                                    android:textStyle="bold|italic" />
+
+                                <CheckBox
+                                    android:id="@+id/checkBoxF2"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:button="@drawable/checkbox"
+                                    android:checked="false" />
+                            </TableRow>
+
+                            <TableRow
+                                android:layout_width="match_parent"
+                                android:layout_height="2dp"
+                                android:layout_marginLeft="5dp"
+                                android:background="#969696"
+                                android:baselineAligned="false"
+                                android:minHeight="1dp" />
+
+                            <TableRow
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginBottom="5dp"
+                                android:baselineAligned="false">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="2"
+                                    android:padding="10dp"
+                                    android:shadowColor="#ffffff"
+                                    android:shadowDx="1"
+                                    android:shadowDy="1"
+                                    android:shadowRadius="1"
+                                    android:text="Mother"
+                                    android:textAppearance="?android:attr/textAppearanceMedium"
+                                    android:textColor="#969696"
+                                    android:textSize="17dp"
+                                    android:textStyle="bold|italic" />
+
+                                <CheckBox
+                                    android:id="@+id/checkBoxM2"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:button="@drawable/checkbox"
+                                    android:checked="false" />
+                            </TableRow>
+
+                            <TableRow
+                                android:layout_width="match_parent"
+                                android:layout_height="2dp"
+                                android:layout_marginLeft="5dp"
+                                android:background="#969696"
+                                android:baselineAligned="false"
+                                android:minHeight="1dp" />
+
+                            <TableRow
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginBottom="5dp"
+                                android:baselineAligned="false">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="2"
+                                    android:padding="10dp"
+                                    android:shadowColor="#ffffff"
+                                    android:shadowDx="1"
+                                    android:shadowDy="1"
+                                    android:shadowRadius="1"
+                                    android:text="Grandmother"
+                                    android:textAppearance="?android:attr/textAppearanceMedium"
+                                    android:textColor="#969696"
+                                    android:textSize="17dp"
+                                    android:textStyle="bold|italic" />
+
+                                <CheckBox
+                                    android:id="@+id/checkBoxGM2"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:button="@drawable/checkbox"
+                                    android:checked="false" />
+                            </TableRow>
+
+                            <TableRow
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginLeft="5dp"
+                                android:background="#969696"
+                                android:baselineAligned="false"
+                                android:minHeight="1dp" />
+
+                            <TableRow
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:baselineAligned="false">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="2"
+                                    android:padding="10dp"
+                                    android:shadowColor="#ffffff"
+                                    android:shadowDx="1"
+                                    android:shadowDy="1"
+                                    android:shadowRadius="1"
+                                    android:text="Grandfather"
+                                    android:textAppearance="?android:attr/textAppearanceMedium"
+                                    android:textColor="#969696"
+                                    android:textSize="17dp"
+                                    android:textStyle="bold|italic" />
+
+                                <CheckBox
+                                    android:id="@+id/checkBoxGF2"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:button="@drawable/checkbox"
+                                    android:checked="false" />
+                            </TableRow>
+                        </TableLayout>
+
+                    </LinearLayout>
 
                 </LinearLayout>
+
+
             </android.support.v7.widget.CardView>
 
             <TableRow
@@ -575,14 +721,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:paddingLeft="10dp"
-                    android:paddingRight="10dp">
+                    android:padding="5dp">
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
                         android:layout_weight="1"
+                        android:padding="5dp"
                         android:text="Glucocorticoids intake for a prolonoged period"
                         android:textColor="#458495"
                         android:textSize="18dp" />
@@ -747,14 +893,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:paddingLeft="10dp"
-                    android:paddingRight="10dp">
+                    android:padding="5dp">
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
                         android:layout_weight="1"
+                        android:padding="5dp"
                         android:text="Hypertension"
                         android:textColor="#458495"
                         android:textSize="18dp" />

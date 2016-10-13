@@ -15,7 +15,7 @@ import com.healthiera.mobile.R;
  */
 public class Status extends Fragment implements View.OnClickListener {
 
-    TextView tv1, tv2, tv3, tv4;
+    TextView tv1, tv2, tv3, tv4, tv5;
 
     public Status() {
         // Required empty public constructor
@@ -31,16 +31,34 @@ public class Status extends Fragment implements View.OnClickListener {
         tv2 = (TextView) view.findViewById(R.id.tv2);
         tv3 = (TextView) view.findViewById(R.id.tv3);
         tv4 = (TextView) view.findViewById(R.id.tv4);
+        tv5 = (TextView) view.findViewById(R.id.tv5);
 
         tv1.setOnClickListener(this);
         tv2.setOnClickListener(this);
         tv3.setOnClickListener(this);
         tv4.setOnClickListener(this);
+        tv5.setOnClickListener(this);
         return view;
     }
 
     @Override
     public void onClick(View v) {
-
+        switch (v.getId()) {
+            case R.id.tv1:
+                getFragmentManager().beginTransaction().replace(R.id.Content_id_, new ValueSet()).commit();
+                break;
+            case R.id.tv2:
+                getFragmentManager().beginTransaction().replace(R.id.Content_id_, new ValueSet()).commit();
+                break;
+            case R.id.tv3:
+                getFragmentManager().beginTransaction().replace(R.id.Content_id_, new ValueSet()).commit();
+                break;
+            case R.id.tv4:
+                getFragmentManager().beginTransaction().replace(R.id.Content_id_, new ValueSet()).commit();
+                break;
+            case R.id.tv5:
+                getFragmentManager().beginTransaction().replace(R.id.Content_id_, new ValueSet()).commit();
+                break;
+        }
     }
 }

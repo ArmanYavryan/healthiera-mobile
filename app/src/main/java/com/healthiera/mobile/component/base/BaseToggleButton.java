@@ -21,9 +21,9 @@ import com.healthiera.mobile.R;
  */
 
 public class BaseToggleButton extends FrameLayout implements View.OnClickListener, Animation.AnimationListener {
-    ImageView thumb, track;
+    public ImageView thumb, track;
     Animation toggle_on, toggle_off;
-    Boolean selected = false;
+    public Boolean selected = false;
 
     public BaseToggleButton(Context context) {
         super(context);
@@ -33,15 +33,16 @@ public class BaseToggleButton extends FrameLayout implements View.OnClickListene
     private void init(Context context) {
 
         int px1 = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 1, context.getResources().getDisplayMetrics());
-
-        setLayoutParams(new LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+        layoutParams.gravity = Gravity.CENTER_VERTICAL;
+        setLayoutParams(layoutParams);
 
         track = new ImageView(context);
         track.setLayoutParams(new LayoutParams(px1 * 60, LinearLayout.LayoutParams.WRAP_CONTENT));
-        track.setImageResource(R.drawable.switch_track);
+        track.setImageResource(R.drawable.switch_track_off);
         thumb = new ImageView(context);
-        thumb.setLayoutParams(new LayoutParams(px1 * 20, LinearLayout.LayoutParams.WRAP_CONTENT));
-        thumb.setImageResource(R.drawable.switch_thumb);
+        thumb.setLayoutParams(new LayoutParams(px1 * 30, LinearLayout.LayoutParams.WRAP_CONTENT));
+        thumb.setImageResource(R.drawable.switch_thumb_off);
         track.setOnClickListener(this);
         thumb.setOnClickListener(this);
 
@@ -67,19 +68,26 @@ public class BaseToggleButton extends FrameLayout implements View.OnClickListene
         init(context);
     }
 
-    @Override
-    public void onClick(View v) {
+    public void switchToggle() {
         if (!selected)
             thumb.startAnimation(toggle_on);
         else
             thumb.startAnimation(toggle_off);
         selected = !selected;
+
     }
 
     @Override
     public void onAnimationStart(Animation animation) {
         thumb.setClickable(false);
         track.setClickable(false);
+        if (animation == toggle_on) {
+            thumb.setImageResource(R.drawable.switch_thumb);
+            track.setImageResource(R.drawable.switch_track);
+        } else {
+            thumb.setImageResource(R.drawable.switch_thumb_off);
+            track.setImageResource(R.drawable.switch_track_off);
+        }
     }
 
     @Override
@@ -105,5 +113,10 @@ public class BaseToggleButton extends FrameLayout implements View.OnClickListene
     @Override
     public void onAnimationRepeat(Animation animation) {
 
+    }
+
+    @Override
+    public void onClick(View v) {
+        switchToggle();
     }
 }

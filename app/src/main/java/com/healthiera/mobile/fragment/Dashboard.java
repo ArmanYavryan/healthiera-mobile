@@ -29,6 +29,7 @@ import android.widget.AutoCompleteTextView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.activeandroid.query.Select;
 import com.healthiera.mobile.R;
@@ -51,7 +52,7 @@ import java.util.List;
 /**
  * Created by Davit on 19.08.2016.
  */
-public class Dashboard extends BaseFragment {
+public class Dashboard extends BaseFragment implements View.OnClickListener {
 
     AutoCompleteTextView sText;
     ListView pListView;
@@ -61,14 +62,15 @@ public class Dashboard extends BaseFragment {
     LinearLayout linearLayoutStatusProvider;
     LinearLayout linearLayoutMessageCenter;
     BaseEditText searchProvider;
-    private LineGraphSeries<DataPoint> series;
+    private TextView showAdvanced;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.dashboard, null);
-
+        showAdvanced = (TextView) view.findViewById(R.id.show_advanced);
+        showAdvanced.setOnClickListener(this);
         linearLayoutStatus = (LinearLayout) view.findViewById(R.id.linearLayoutStatus);
         //linearLayoutSearch=(LinearLayout) view.findViewById(R.id.linearLayoutSearch);
         //linearLayoutStatusProvider = (LinearLayout) view.findViewById(R.id.linearLayoutSearchProvider);
@@ -89,20 +91,7 @@ public class Dashboard extends BaseFragment {
     private View healthStatus(View view) {
         float[] values = new float[]{0.2f, 0.6f, 0.8f, 0.5f, 0.1f, 0.3f, 0.6f, 0.8f, 0.7f, 0.4f, 0.1f};
         GraphView healthStatusGraph = (GraphView) view.findViewById(R.id.gvHealthStatus);
-        MakeGraph makeHealthStatusGraphGraph = new MakeGraph(healthStatusGraph, "Running", view.getContext(), values,"#FF3020");
-
-        float[] values2 = new float[]{20f, 15f, 18f, 17f, 9.5f, 7.1f, 23f};
-        GraphView healthStatusGraph2 = (GraphView) view.findViewById(R.id.gvHealthStatus2);
-        MakeGraph makeHealthStatusGraphGraph2 = new MakeGraph(healthStatusGraph2, "Eating", view.getContext(), values2,"#23b04c");
-
-
-        GraphView healthStatusGraph3 = (GraphView) view.findViewById(R.id.gvHealthStatus3);
-
-        BarGraphSeries<DataPoint> barGraphSeries = new BarGraphSeries<DataPoint>();
-
-        for (int i = 0; i < values.length; i++) {
-            barGraphSeries.appendData(new DataPoint(i, values[i]), true, values.length);
-        }
+        MakeGraph makeHealthStatusGraphGraph = new MakeGraph(healthStatusGraph, "Running", view.getContext(), values, "#FF3020");
 
         return view;
     }
@@ -178,4 +167,8 @@ public class Dashboard extends BaseFragment {
         return view;
     }
 
+    @Override
+    public void onClick(View v) {
+        getFragmentManager().beginTransaction().replace(R.id.Content_id_, new StatusGraph()).commit();
+    }
 }
