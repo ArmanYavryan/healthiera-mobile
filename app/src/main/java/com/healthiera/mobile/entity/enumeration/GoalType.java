@@ -1,8 +1,12 @@
 package com.healthiera.mobile.entity.enumeration;
 
 /**
- * Created by Meline on 14.10.2016.
+ * @author Davit Ter-Arakelyan
+ * @date 14.10.2016
  */
 
-public class GoalType {
+public enum GoalType {
+    Type1,
+    Type2,
+    Type3
 }

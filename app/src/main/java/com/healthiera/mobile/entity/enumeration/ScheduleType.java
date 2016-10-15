@@ -1,8 +1,12 @@
 package com.healthiera.mobile.entity.enumeration;
 
 /**
- * Created by Meline on 04.10.2016.
+ * @author Davit Ter-Arakelyan
+ * @date 04.10.2016
  */
 
-public class ScheduleType {
+public enum ScheduleType {
+    Type1,
+    Type2,
+    Type3
 }

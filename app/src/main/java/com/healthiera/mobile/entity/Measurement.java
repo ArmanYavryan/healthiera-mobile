@@ -3,9 +3,12 @@ package com.healthiera.mobile.entity;
 import com.activeandroid.Model;
 import com.activeandroid.annotation.Column;
 import com.activeandroid.annotation.Table;
+import com.activeandroid.query.Select;
+import com.healthiera.mobile.entity.enumeration.GoalType;
 
 /**
- * Created by Davit on 05.08.2016.
+ * @author Davit Ter-Arakelyan
+ * @date 05.08.2016
  */
 @Table(name = "measurement")
 public class Measurement extends Model {
@@ -13,21 +16,38 @@ public class Measurement extends Model {
     @Column(name = "event_id")
     private Long eventId;
 
-    @Column(name = "medication_template_id")
-    private Integer medicationTemplateId;
+    @Column(name = "goal_id")
+    private Long goalId;
 
-    @Column(name = "medication_shape_id")
-    private Integer medicationShapeId;
+    @com.healthiera.mobile.Annotation.EventField(isViewable = true, name = "Goal Name")
+    private String goalName;
+
+    @Column(name = "value")
+    private String value;
+
+    @Column(name = "desc")
+    @com.healthiera.mobile.Annotation.EventField(isViewable = true, name = "Description")
+    private String desc;
+
+    @Column(name = "name")
+    @com.healthiera.mobile.Annotation.EventField(isViewable = true, name = "Name")
+    private String name;
+
+    @Column(name = "type")
+    private GoalType type;
+
+    public Measurement(Long eventId, Long goalId, String value, String desc, String name, GoalType type) {
+        super();
+        this.eventId = eventId;
+        this.goalId = goalId;
+        this.value = value;
+        this.desc = desc;
+        this.name = name;
+        this.type = type;
+    }
 
     public Measurement() {
         super();
-    }
-
-    public Measurement(Long eventId, Integer medicationShapeId, Integer medicationTemplateId) {
-        super();
-        this.eventId = eventId;
-        this.medicationShapeId = medicationShapeId;
-        this.medicationTemplateId = medicationTemplateId;
     }
 
     public Long getEventId() {
@@ -38,19 +58,48 @@ public class Measurement extends Model {
         this.eventId = eventId;
     }
 
-    public Integer getMedicationShapeId() {
-        return medicationShapeId;
+    public Long getGoalId() {
+        return goalId;
     }
 
-    public void setMedicationShapeId(Integer medicationShapeId) {
-        this.medicationShapeId = medicationShapeId;
+    public void setGoalId(Long goal) {
+        this.goalId = goal;
     }
 
-    public Integer getMedicationTemplateId() {
-        return medicationTemplateId;
+    public String getGoalName() {
+        Goals g = new Select().from(Goals.class).executeSingle();
+        return g.getName();
     }
 
-    public void setMedicationTemplateId(Integer medicationTemplateId) {
-        this.medicationTemplateId = medicationTemplateId;
+    public String getValue() {
+        return value;
+    }
+
+    public void setValue(String value) {
+        this.value = value;
+    }
+
+    public String getDesc() {
+        return desc;
+    }
+
+    public void setDesc(String desc) {
+        this.desc = desc;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public GoalType getType() {
+        return type;
+    }
+
+    public void setType(GoalType type) {
+        this.type = type;
     }
 }

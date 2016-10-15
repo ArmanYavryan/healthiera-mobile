@@ -5,7 +5,8 @@ import com.activeandroid.annotation.Column;
 import com.activeandroid.annotation.Table;
 
 /**
- * Created by Davit on 05.08.2016.
+ * @author Davit Ter-Arakelyan
+ * @date 05.08.2016
  */
 @Table(name = "medication")
 public class Medication extends Model {
@@ -13,21 +14,33 @@ public class Medication extends Model {
     @Column(name = "event_id")
     private Long eventId;
 
-    @Column(name = "medication_list_id")
-    private Integer medicationListId;
+    @Column(name = "dose")
+    @com.healthiera.mobile.Annotation.EventField(isViewable = true, name = "Dose")
+    private Integer dose;
 
-    @Column(name = "medication_shape_id")
-    private Integer medicationShapeId;
+    @Column(name = "manufacturer")
+    @com.healthiera.mobile.Annotation.EventField(isViewable = true, name = "Manufacturer")
+    private String manufacturer;
+
+    @Column(name = "name")
+    @com.healthiera.mobile.Annotation.EventField(isViewable = true, name = "Name")
+    private String name;
+
+    @Column(name = "code")
+    @com.healthiera.mobile.Annotation.EventField(isViewable = true, name = "Code")
+    private String code;
+
+    public Medication(Long eventId, Integer dose, String manufacturer, String name, String code) {
+        super();
+        this.eventId = eventId;
+        this.dose = dose;
+        this.manufacturer = manufacturer;
+        this.name = name;
+        this.code = code;
+    }
 
     public Medication() {
         super();
-    }
-
-    public Medication(Long eventId, Integer medicationListId, Integer medicationShapeId) {
-        super();
-        this.eventId = eventId;
-        this.medicationListId = medicationListId;
-        this.medicationShapeId = medicationShapeId;
     }
 
     public Long getEventId() {
@@ -38,19 +51,35 @@ public class Medication extends Model {
         this.eventId = eventId;
     }
 
-    public Integer getMedicationListId() {
-        return medicationListId;
+    public Integer getDose() {
+        return dose;
     }
 
-    public void setMedicationListId(Integer medicationListId) {
-        this.medicationListId = medicationListId;
+    public void setDose(Integer dose) {
+        this.dose = dose;
     }
 
-    public Integer getMedicationShapeId() {
-        return medicationShapeId;
+    public String getManufacturer() {
+        return manufacturer;
     }
 
-    public void setMedicationShapeId(Integer medicationShapeId) {
-        this.medicationShapeId = medicationShapeId;
+    public void setManufacturer(String manufacturer) {
+        this.manufacturer = manufacturer;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
     }
 }

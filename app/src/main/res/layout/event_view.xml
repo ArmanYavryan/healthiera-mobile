@@ -3,4 +3,33 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/tvEventRowName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="false"
+                android:gravity="center"
+                android:textColor="#626262"
+                android:textSize="20sp"
+                android:text="Name"/>
+
+            <TextView
+                android:id="@+id/tvEventRowValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="false"
+                android:gravity="center"
+                android:textColor="#626262"
+                android:textSize="20sp"
+                android:text="Value"/>
+
+        </LinearLayout>
+
+
+
 </LinearLayout>

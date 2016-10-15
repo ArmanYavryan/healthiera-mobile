@@ -1,6 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingLeft="30dp"
+    android:paddingRight="30dp"
+    android:paddingBottom="10dp"
+    android:paddingTop="10dp">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp">
+
+            <TextView
+                android:id="@+id/tvEventListItemTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="false"
+                android:gravity="center"
+                android:textColor="#626262"
+                android:textSize="20sp"
+                android:text="Time"/>
+
+            <TextView
+                android:id="@+id/tvEventListItemRemainedTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="false"
+                android:gravity="center"
+                android:textColor="#626262"
+                android:textSize="15sp"
+                android:text="remained"/>
 
 </LinearLayout>
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/tvEventListItemName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="false"
+                android:gravity="center"
+                android:textColor="#626262"
+                android:textSize="20sp"
+                android:text="tvEventListItemName"/>
+
+            <TextView
+                android:id="@+id/tvEventListItemDesc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="false"
+                android:gravity="center"
+                android:textColor="#626262"
+                android:textSize="16sp"
+                android:text="tvEventListItemDesc"/>
+
+        </LinearLayout>
+
+    </LinearLayout>

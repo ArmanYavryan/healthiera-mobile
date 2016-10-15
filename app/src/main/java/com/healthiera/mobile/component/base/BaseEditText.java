@@ -13,14 +13,15 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.healthiera.mobile.R;
-import com.healthiera.mobile.activity.main.ProviderDescription;
 import com.healthiera.mobile.entity.Doctor;
+import com.healthiera.mobile.fragment.BaseFragment;
 import com.healthiera.mobile.fragment.Dashboard;
 
 import java.util.ArrayList;
 
 /**
- * Created by Davit on 12.08.2016.
+ * @author Davit Ter-Arakelyan
+ * @date 12.08.2016
  */
 public class BaseEditText extends EditText {
 
@@ -92,7 +93,7 @@ public class BaseEditText extends EditText {
                     // TODO Auto-generated method stub
                     Toast.makeText(context, "You Clicked " + doctors.get(position).getName() + "doctor", Toast.LENGTH_LONG).show();
 
-                    Intent myIntent = new Intent(context, ProviderDescription.class);
+                    Intent myIntent = new Intent(context, BaseFragment.ProviderDescription.class);
                     myIntent.putExtra("CurrentProvider", doctors.get(position)); //Optional parameters
                     context.startActivity(myIntent);
                 }
