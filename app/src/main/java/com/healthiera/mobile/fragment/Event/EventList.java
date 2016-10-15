@@ -46,8 +46,8 @@ public class EventList extends BaseFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getActivity().setContentView(R.layout.event_list);
-        View view = inflater.inflate(R.layout.event_list, null);
+       // getActivity().setContentView(R.layout.event_list);
+        View view = inflater.inflate(R.layout.event_list, container, false);
         bundle = getArguments();
 
         eventList = getEventlistitems(bundle.getString("EventType"), new Date());
@@ -66,7 +66,7 @@ public class EventList extends BaseFragment {
                 args.putLong("EventId", eventId);
                 EventItemVew eventItemVew = new EventItemVew();
                 eventItemVew.setArguments(args);
-                getActivity().getSupportFragmentManager().beginTransaction().replace(android.R.id.content, eventItemVew).commit();
+                getFragmentManager().beginTransaction().replace(R.id.Content_id_, eventItemVew).commit();
             }
         });
         tvDate = (TextView) view.findViewById(R.id.tvDate);

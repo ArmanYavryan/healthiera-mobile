@@ -12,6 +12,7 @@ import android.view.MenuItem;
 import android.widget.TextView;
 
 import com.healthiera.mobile.R;
+import com.healthiera.mobile.fragment.CarePlan;
 import com.healthiera.mobile.fragment.Dashboard;
 import com.healthiera.mobile.fragment.Goals;
 import com.healthiera.mobile.fragment.HealthData;
@@ -115,7 +116,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             getSupportFragmentManager().beginTransaction().replace(R.id.Content_id_, new Goals()).commit();
 
         } else if (id == R.id.care_plan) {
-            //getSupportFragmentManager().beginTransaction().replace(R.id.Content_id_, new CarePlan()).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.Content_id_, new CarePlan()).commit();
 
         } else if (id == R.id.medical_id) {
             //getSupportFragmentManager().beginTransaction().replace(R.id.Content_id_, new MedicalId()).commit();

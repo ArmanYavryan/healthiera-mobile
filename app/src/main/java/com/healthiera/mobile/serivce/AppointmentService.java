@@ -14,7 +14,7 @@ public class AppointmentService {
         assertThat(procedure).isNotNull();
         assertThat(procedure.getId()).isNull();
         assertThat(procedure.getDoctorId()).isNotNull();
-        assertThat(procedure.getEvent()).isNotNull();
+        //assertThat(procedure.getEvent()).isNotNull();
 
         final Long createdAppointmentId = procedure.save();
 
