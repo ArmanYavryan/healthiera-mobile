@@ -1,6 +1,6 @@
 package com.healthiera.mobile.serivce;
 
-import com.healthiera.mobile.entity.Appointment;
+import com.healthiera.mobile.entity.Procedure;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -10,24 +10,24 @@ import static org.assertj.core.api.Assertions.assertThat;
  */
 public class AppointmentService {
 
-    public Long createAppointment(Appointment appointment) {
-        assertThat(appointment).isNotNull();
-        assertThat(appointment.getId()).isNull();
-        assertThat(appointment.getDoctorId()).isNotNull();
-        assertThat(appointment.getEvent()).isNotNull();
+    public Long createAppointment(Procedure procedure) {
+        assertThat(procedure).isNotNull();
+        assertThat(procedure.getId()).isNull();
+        assertThat(procedure.getDoctorId()).isNotNull();
+        assertThat(procedure.getEvent()).isNotNull();
 
-        final Long createdAppointmentId = appointment.save();
+        final Long createdAppointmentId = procedure.save();
 
         assertThat(createdAppointmentId).isGreaterThan(0L);
 
         return createdAppointmentId;
     }
 
-    public Appointment findAppointmentById(Long id) {
+    public Procedure findAppointmentById(Long id) {
         assertThat(id).isNotNull().isGreaterThan(0);
-        final Appointment appointment = Appointment.load(Appointment.class, id);
-        assertThat(appointment).isNotNull();
+        final Procedure procedure = Procedure.load(Procedure.class, id);
+        assertThat(procedure).isNotNull();
 
-        return appointment;
+        return procedure;
     }
 }

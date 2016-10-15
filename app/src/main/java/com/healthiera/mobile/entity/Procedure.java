@@ -7,8 +7,8 @@ import com.activeandroid.annotation.Table;
 /**
  * Created by yengibar on 8/3/16.
  */
-@Table(name = "appointment")
-public class Appointment extends Model {
+@Table(name = "procedure")
+public class Procedure extends Model {
 
     @Column(name = "doctor_id")
     private Long doctorId;
@@ -19,11 +19,11 @@ public class Appointment extends Model {
     @Column(name = "event_id")
     private Event event;
 
-    public Appointment() {
+    public Procedure() {
         super();
     }
 
-    public Appointment(Long doctorId, Integer notification, Event event) {
+    public Procedure(Long doctorId, Integer notification, Event event) {
         super();
         this.doctorId = doctorId;
         this.notification = notification;
