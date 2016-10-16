@@ -12,7 +12,6 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * Created by Davit on 01.10.2016.
  * @author Davit Ter-Arakelyan
  * @date 01.10.2016
  */

@@ -46,7 +46,6 @@ public class EventList extends BaseFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-       // getActivity().setContentView(R.layout.event_list);
         View view = inflater.inflate(R.layout.event_list, container, false);
         bundle = getArguments();
 

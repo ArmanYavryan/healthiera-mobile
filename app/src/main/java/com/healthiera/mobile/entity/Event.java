@@ -5,6 +5,7 @@ import com.activeandroid.annotation.Column;
 import com.activeandroid.annotation.Table;
 import com.healthiera.mobile.entity.enumeration.EventType;
 import com.healthiera.mobile.entity.enumeration.ScheduleType;
+import com.healthiera.mobile.entity.enumeration.StatusType;
 
 import java.util.Date;
 
@@ -15,7 +16,7 @@ import java.util.Date;
 @Table(name = "event")
 public class Event extends Model {
 
-    public Event(String description, String title, String status, EventType type, Date startDateTime, Date endDateTime, String location, ScheduleType scheduleType, int remindeBeforeMinutes) {
+    public Event(String description, String title, StatusType status, EventType type, Date startDateTime, Date endDateTime, String location, ScheduleType scheduleType, int remindeBeforeMinutes) {
         super();
         this.description = description;
         this.title = title;
@@ -39,7 +40,7 @@ public class Event extends Model {
     private String title;
 
     @Column(name = "status")
-    private String status;
+    private StatusType status;
 
     @Column(name = "type")
     private EventType type;
@@ -83,11 +84,11 @@ public class Event extends Model {
         this.title = title;
     }
 
-    public String getStatus() {
+    public StatusType getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(StatusType status) {
         this.status = status;
     }
 

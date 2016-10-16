@@ -36,7 +36,6 @@ public class EventItemVew extends BaseFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //getActivity().setContentView(R.layout.event_item_vew);
         View view = inflater.inflate(R.layout.event_item_vew, container, false);
         Bundle bundle = getArguments();
         ListView listview = (ListView) view.findViewById(R.id.lvEventItemVew);

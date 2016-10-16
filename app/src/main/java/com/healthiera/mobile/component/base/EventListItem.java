@@ -1,17 +1,21 @@
 package com.healthiera.mobile.component.base;
 
 import android.content.Context;
+import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 import com.healthiera.mobile.R;
 import com.healthiera.mobile.entity.Event;
+import com.healthiera.mobile.entity.enumeration.StatusType;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Created by Davit on 04.10.2016.
@@ -63,9 +67,38 @@ public class EventListItem extends BaseAdapter {
         TextView tvEventListItemTime = (TextView) vi.findViewById(R.id.tvEventListItemTime);
         tvEventListItemTime.setText(df.format(data[position].getStartDateTime()));
         TextView tvEventListItemRemainedTime = (TextView) vi.findViewById(R.id.tvEventListItemRemainedTime);
-        if(data[position].getStartDateTime().after(new Date()))
-        tvEventListItemRemainedTime.setText(data[position].getTitle());
+        if(data[position].getStartDateTime().before(new Date()))
+        {
+            tvEventListItemRemainedTime.setText(getDateDiff(data[position].getStartDateTime(),new Date()));
+        }
+        ImageView ivEventStatus = (ImageView) vi.findViewById(R.id.ivEventStatus);
+
+        switch (data[position].getStatus())
+        {
+            case Active:
+               // ivEventStatus.setImageBitmap(BitmapFactory.decodeResource(vi.getResources(), 10));
+                break;
+            case Done:
+                break;
+            case Deleted:
+                break;
+            case Delayed:
+                break;
+            case Cancelled:
+                break;
+
+        }
 
         return vi;
+    }
+
+    public static String getDateDiff(Date date1, Date date2) {
+        TimeUnit timeUnit=TimeUnit.MINUTES;
+        long diffInMillies = date2.getTime() - date1.getTime();
+        Long t=timeUnit.convert(diffInMillies, TimeUnit.MILLISECONDS);
+        if(t<60)
+            return t.toString()+" min";
+        else
+            return new Long(t/60-2).toString()+" hr";
     }
 }
