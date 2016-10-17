@@ -10,94 +10,55 @@ import com.healthiera.mobile.entity.enumeration.StatusType;
 import java.util.Date;
 
 /**
- * @author Davit Ter-Arakelyan
- * @date 05.08.2016
+ * @author Yengibar Manasyan
+ * @date 17.10.2016
  */
 @Table(name = "event")
 public class Event extends Model {
 
-    public Event(String description, String title, StatusType status, EventType type, Date startDateTime, Date endDateTime, String location, ScheduleType scheduleType, int remindeBeforeMinutes) {
-        super();
-        this.description = description;
-        this.title = title;
-        this.status = status;
-        this.type = type;
-        this.startDateTime = startDateTime;
-        this.endDateTime = endDateTime;
-        this.location = location;
-        this.scheduleType = scheduleType;
-        this.remindeBeforeMinutes =remindeBeforeMinutes;
-    }
+    @Column(name = "start_date_time", notNull = true)
+    private Date startDateTime;
+
+    @Column(name = "end_date_time", notNull = true)
+    private Date endDateTime;
+
+    @Column(name = "type")
+    private EventType type;
+
+    @Column(name = "schedule_type")
+    private ScheduleType scheduleType;
+
+    @Column(name = "title")
+    private String title;
+
+    @Column(name = "description")
+    private String description;
+
+    @Column(name = "status")
+    private StatusType status;
+
+    @Column(name = "location")
+    private String location;
+
+    @Column(name = "remind_before_minutes")
+    private Integer remindBeforeMinutes;
 
     public Event() {
         super();
     }
 
-    @Column(name = "description")
-    private String description;
-
-    @Column(name = "title")
-    private String title;
-
-    @Column(name = "status")
-    private StatusType status;
-
-    @Column(name = "type")
-    private EventType type;
-
-    @Column(name = "start_date_time")
-    private Date startDateTime;
-
-    @Column(name = "end_date_time")
-    private Date endDateTime;
-
-    @Column(name = "location")
-    private String location;
-
-    @Column(name = "schedule_type")
-    private ScheduleType scheduleType;
-
-    @Column(name = "reminde_before_minutes")
-    private int remindeBeforeMinutes;
-
-    public int getRemindeBeforeMinutes() {
-        return remindeBeforeMinutes;
-    }
-
-    public void setRemindeBeforeMinutes(int remindeBeforeMinutes) {
-        this.remindeBeforeMinutes = remindeBeforeMinutes;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public StatusType getStatus() {
-        return status;
-    }
-
-    public void setStatus(StatusType status) {
-        this.status = status;
-    }
-
-    public EventType getType() {
-        return type;
-    }
-
-    public void setType(EventType type) {
+    public Event(Date startDateTime, Date endDateTime, EventType type, ScheduleType scheduleType,
+                 String title, String description, StatusType status, String location, Integer remindBeforeMinutes) {
+        super();
+        this.startDateTime = startDateTime;
+        this.endDateTime = endDateTime;
         this.type = type;
+        this.scheduleType = scheduleType;
+        this.title = title;
+        this.description = description;
+        this.status = status;
+        this.location = location;
+        this.remindBeforeMinutes = remindBeforeMinutes;
     }
 
     public Date getStartDateTime() {
@@ -116,12 +77,12 @@ public class Event extends Model {
         this.endDateTime = endDateTime;
     }
 
-    public String getLocation() {
-        return location;
+    public EventType getType() {
+        return type;
     }
 
-    public void setLocation(String location) {
-        this.location = location;
+    public void setType(EventType type) {
+        this.type = type;
     }
 
     public ScheduleType getScheduleType() {
@@ -130,5 +91,45 @@ public class Event extends Model {
 
     public void setScheduleType(ScheduleType scheduleType) {
         this.scheduleType = scheduleType;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public StatusType getStatus() {
+        return status;
+    }
+
+    public void setStatus(StatusType status) {
+        this.status = status;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
+    public Integer getRemindBeforeMinutes() {
+        return remindBeforeMinutes;
+    }
+
+    public void setRemindBeforeMinutes(Integer remindBeforeMinutes) {
+        this.remindBeforeMinutes = remindBeforeMinutes;
     }
 }

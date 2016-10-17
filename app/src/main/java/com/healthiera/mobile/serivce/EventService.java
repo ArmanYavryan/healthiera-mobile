@@ -2,30 +2,29 @@ package com.healthiera.mobile.serivce;
 
 import com.healthiera.mobile.entity.Event;
 
+import java.util.Date;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
+
 /**
- * Created by yengibar on 8/14/16.
+ * @author Yengibar Manasyan
+ * @date 10/16/16
  */
+
 public class EventService {
 
-    public Long createAppointment(Event event) {
+    public Long createEvent(Event event) {
+        final Date currentDate = new Date();
         assertThat(event).isNotNull();
-        assertThat(event.getId()).isNull();
-        assertThat(event.getStartDateTime()).isNotNull();
+        assertThat(event.getStartDateTime()).isNotNull().isAfter(currentDate);
+        assertThat(event.getEndDateTime()).isNotNull().isAfter(currentDate).isAfter(event.getStartDateTime());
+        assertThat(event.getType()).isNotNull();
+        assertThat(event.getScheduleType()).isNotNull();
+        assertThat(event.getRemindBeforeMinutes()).isNotNull();
+        final Long eventId = event.save();
+        assertThat(eventId).isNotNull().isGreaterThan(0L);
 
-        final Long createdEventId = event.save();
-
-        assertThat(createdEventId).isGreaterThan(0L);
-
-        return createdEventId;
-    }
-
-    public Event findEventById(Long id) {
-        assertThat(id).isNotNull().isGreaterThan(0);
-        final Event event = Event.load(Event.class, id);
-        assertThat(event).isNotNull();
-
-        return event;
+        return eventId;
     }
 }

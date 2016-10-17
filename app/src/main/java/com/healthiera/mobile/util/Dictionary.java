@@ -1,4 +1,4 @@
-package com.healthiera.mobile.serivce;
+package com.healthiera.mobile.util;
 
 /**
  * Created by Davit on 01.10.2016.

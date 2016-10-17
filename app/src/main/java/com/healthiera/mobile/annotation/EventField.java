@@ -1,4 +1,4 @@
-package com.healthiera.mobile.Annotation;
+package com.healthiera.mobile.annotation;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -13,6 +13,8 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.FIELD) //can use in method only.
 public @interface EventField {
-    public boolean isViewable() default false;
-    public String name();
+
+    boolean isViewable() default false;
+
+    String name();
 }

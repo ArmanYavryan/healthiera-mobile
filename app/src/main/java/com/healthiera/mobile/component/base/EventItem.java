@@ -2,18 +2,16 @@ package com.healthiera.mobile.component.base;
 
 import android.content.Context;
 import android.graphics.BitmapFactory;
-import android.graphics.Canvas;
-import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-import com.healthiera.mobile.entity.Model.EventItemModel;
-import com.healthiera.mobile.serivce.Dictionary;
 
 import com.healthiera.mobile.R;
+import com.healthiera.mobile.entity.model.EventItemModel;
+import com.healthiera.mobile.util.Dictionary;
 
 /**
  * Created by Davit on 01.10.2016.
@@ -23,9 +21,9 @@ import com.healthiera.mobile.R;
 
 public class EventItem extends BaseAdapter {
 
+    private static LayoutInflater inflater = null;
     Context context;
     EventItemModel[] data;
-    private static LayoutInflater inflater = null;
 
     public EventItem(Context context, EventItemModel[] data) {
         // TODO Auto-generated constructor stub

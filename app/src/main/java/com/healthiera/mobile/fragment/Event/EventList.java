@@ -1,6 +1,5 @@
 package com.healthiera.mobile.fragment.Event;
 
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -11,13 +10,10 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.activeandroid.Model;
 import com.activeandroid.query.Select;
 import com.healthiera.mobile.R;
 import com.healthiera.mobile.component.base.EventListItem;
 import com.healthiera.mobile.entity.Event;
-import com.healthiera.mobile.entity.Measurement;
-import com.healthiera.mobile.entity.enumeration.EventType;
 import com.healthiera.mobile.fragment.BaseFragment;
 
 import java.text.DateFormat;
@@ -27,20 +23,19 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * Created by Davit on 02.10.2016.
  * @author Davit Ter-Arakelyan
  * @date 02.10.2016
  */
 
 public class EventList extends BaseFragment {
-    public EventList() {
-    }
-
     Bundle bundle;
     ListView listview;
     Event[] eventList;
     TextView tvDate;
     DateFormat df = new SimpleDateFormat("EEE, d MMM yyyy");
+
+    public EventList() {
+    }
 
     @Nullable
     @Override
@@ -49,7 +44,7 @@ public class EventList extends BaseFragment {
         View view = inflater.inflate(R.layout.event_list, container, false);
         bundle = getArguments();
 
-        eventList = getEventlistitems(bundle.getString("EventType"), new Date());
+        eventList = getEventListItems(bundle.getString("EventType"), new Date());
 
         listview = (ListView) view.findViewById(R.id.lvEventList);
         listview.setAdapter(new EventListItem(getContext(), eventList));
@@ -78,7 +73,7 @@ public class EventList extends BaseFragment {
             public void onClick(View v) {
                 Date d =new Date();
                 tvDate.setText(df.format(d));
-                eventList=getEventlistitems(bundle.getString("EventType"), d);
+                eventList = getEventListItems(bundle.getString("EventType"), d);
                 listview.setAdapter(new EventListItem(getContext(), eventList));
             }
         });
@@ -88,7 +83,7 @@ public class EventList extends BaseFragment {
             public void onClick(View v) {
                 Date d =new Date((new Date()).getTime() + (1000 * 60 * 60 * 24));
                 tvDate.setText(df.format(d));
-                eventList=getEventlistitems(bundle.getString("EventType"), d);
+                eventList = getEventListItems(bundle.getString("EventType"), d);
                 listview.setAdapter(new EventListItem(getContext(),eventList));
             }
         });
@@ -96,7 +91,7 @@ public class EventList extends BaseFragment {
         return view;
     }
 
-    private Event[] getEventlistitems(String e, Date d) {
+    private Event[] getEventListItems(String e, Date d) {
         DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
         List<Event> el = new Select()
                 .from(Event.class)
@@ -106,9 +101,10 @@ public class EventList extends BaseFragment {
                 .execute();
         List<Event> evByDate = new ArrayList<>();
         for (Event ev : el) {
-            if (dateFormat.format(ev.getStartDateTime()).equals(dateFormat.format(d))) {
-                evByDate.add(ev);
-            }
+            // TODO replace the logic
+//            if (dateFormat.format(ev.getStartDateTime()).equals(dateFormat.format(d))) {
+//                evByDate.add(ev);
+//            }
         }
         return evByDate.toArray(new Event[evByDate.size()]);
     }

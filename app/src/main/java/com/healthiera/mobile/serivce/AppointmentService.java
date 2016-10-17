@@ -6,21 +6,20 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 
 /**
- * Created by yengibar on 8/14/16.
+ * @author Yengibar Manasyan
+ * @date 8/14/16
  */
 public class AppointmentService {
 
     public Long createAppointment(Procedure procedure) {
         assertThat(procedure).isNotNull();
         assertThat(procedure.getId()).isNull();
-        assertThat(procedure.getDoctorId()).isNotNull();
-        //assertThat(procedure.getEvent()).isNotNull();
+        assertThat(procedure.getDoctor()).isNotNull();
+        assertThat(procedure.getEvent()).isNotNull();
+        final Long id = procedure.save();
+        assertThat(id).isGreaterThan(0L);
 
-        final Long createdAppointmentId = procedure.save();
-
-        assertThat(createdAppointmentId).isGreaterThan(0L);
-
-        return createdAppointmentId;
+        return id;
     }
 
     public Procedure findAppointmentById(Long id) {

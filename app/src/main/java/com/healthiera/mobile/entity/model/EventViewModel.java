@@ -1,4 +1,4 @@
-package com.healthiera.mobile.entity.Model;
+package com.healthiera.mobile.entity.model;
 
 /**
  * @author Davit Ter-Arakelyan

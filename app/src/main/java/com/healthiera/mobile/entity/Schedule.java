@@ -5,18 +5,17 @@ import com.activeandroid.annotation.Column;
 import com.activeandroid.annotation.Table;
 import com.healthiera.mobile.entity.enumeration.RepeatType;
 
-import java.util.Date;
-
 /**
- * Created by Davit on 05.08.2016.
+ * @author Yengibar Manasyan
+ * @date 05.08.2016
  */
 @Table(name = "schedule")
 public class Schedule extends Model {
 
-    @Column(name = "event_id")
-    private Long eventId;
+    @Column(name = "event_id", notNull = true)
+    private Event event;
 
-    @Column(name = "repeat_type")
+    @Column(name = "repeat_type", notNull = true)
     private RepeatType repeatType;
 
     @Column(name = "repeat_count")
@@ -25,47 +24,33 @@ public class Schedule extends Model {
     @Column(name = "interval")
     private Integer interval;
 
-    @Column(name = "repeat_type_start")
-    private Date repeatTypeStart;
+    @Column(name = "time")
+    private Integer time;
 
-    @Column(name = "repeat_type_end")
-    private Date repeatTypeEnd;
+    @Column(name = "weekdays")
+    private String weekdays;
 
     public Schedule() {
         super();
     }
 
-    public Schedule(Long eventId, Integer interval, Integer repeatCount, RepeatType repeatType, Date repeatTypeEnd, Date repeatTypeStart) {
-        this.eventId = eventId;
-        this.interval = interval;
-        this.repeatCount = repeatCount;
+    public Schedule(Event event, RepeatType repeatType, Integer repeatCount, Integer interval,
+                    Integer time, String weekdays) {
+        super();
+        this.event = event;
         this.repeatType = repeatType;
-        this.repeatTypeEnd = repeatTypeEnd;
-        this.repeatTypeStart = repeatTypeStart;
-    }
-
-    public Long getEventId() {
-        return eventId;
-    }
-
-    public void setEventId(Long eventId) {
-        this.eventId = eventId;
-    }
-
-    public Integer getInterval() {
-        return interval;
-    }
-
-    public void setInterval(Integer interval) {
-        this.interval = interval;
-    }
-
-    public Integer getRepeatCount() {
-        return repeatCount;
-    }
-
-    public void setRepeatCount(Integer repeatCount) {
         this.repeatCount = repeatCount;
+        this.interval = interval;
+        this.time = time;
+        this.weekdays = weekdays;
+    }
+
+    public Event getEvent() {
+        return event;
+    }
+
+    public void setEvent(Event event) {
+        this.event = event;
     }
 
     public RepeatType getRepeatType() {
@@ -76,19 +61,35 @@ public class Schedule extends Model {
         this.repeatType = repeatType;
     }
 
-    public Date getRepeatTypeEnd() {
-        return repeatTypeEnd;
+    public Integer getRepeatCount() {
+        return repeatCount;
     }
 
-    public void setRepeatTypeEnd(Date repeatTypeEnd) {
-        this.repeatTypeEnd = repeatTypeEnd;
+    public void setRepeatCount(Integer repeatCount) {
+        this.repeatCount = repeatCount;
     }
 
-    public Date getRepeatTypeStart() {
-        return repeatTypeStart;
+    public Integer getInterval() {
+        return interval;
     }
 
-    public void setRepeatTypeStart(Date repeatTypeStart) {
-        this.repeatTypeStart = repeatTypeStart;
+    public void setInterval(Integer interval) {
+        this.interval = interval;
+    }
+
+    public Integer getTime() {
+        return time;
+    }
+
+    public void setTime(Integer time) {
+        this.time = time;
+    }
+
+    public String getWeekdays() {
+        return weekdays;
+    }
+
+    public void setWeekdays(String weekdays) {
+        this.weekdays = weekdays;
     }
 }

@@ -6,7 +6,6 @@ package com.healthiera.mobile.entity.enumeration;
  */
 
 public enum ScheduleType {
-    Type1,
-    Type2,
-    Type3
+
+    CONTINOUS, NUMBER_OF_DAYS
 }

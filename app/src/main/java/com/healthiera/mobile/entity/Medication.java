@@ -12,43 +12,39 @@ import com.activeandroid.annotation.Table;
 public class Medication extends Model {
 
     @Column(name = "event_id")
-    private Long eventId;
+    private Event event;
 
     @Column(name = "dose")
-    @com.healthiera.mobile.Annotation.EventField(isViewable = true, name = "Dose")
     private Integer dose;
 
     @Column(name = "manufacturer")
-    @com.healthiera.mobile.Annotation.EventField(isViewable = true, name = "Manufacturer")
     private String manufacturer;
 
     @Column(name = "name")
-    @com.healthiera.mobile.Annotation.EventField(isViewable = true, name = "Name")
     private String name;
 
     @Column(name = "code")
-    @com.healthiera.mobile.Annotation.EventField(isViewable = true, name = "Code")
     private String code;
 
-    public Medication(Long eventId, Integer dose, String manufacturer, String name, String code) {
+    public Medication() {
         super();
-        this.eventId = eventId;
+    }
+
+    public Medication(Event event, Integer dose, String manufacturer, String name, String code) {
+        super();
+        this.event = event;
         this.dose = dose;
         this.manufacturer = manufacturer;
         this.name = name;
         this.code = code;
     }
 
-    public Medication() {
-        super();
+    public Event getEvent() {
+        return event;
     }
 
-    public Long getEventId() {
-        return eventId;
-    }
-
-    public void setEventId(Long eventId) {
-        this.eventId = eventId;
+    public void setEvent(Event event) {
+        this.event = event;
     }
 
     public Integer getDose() {

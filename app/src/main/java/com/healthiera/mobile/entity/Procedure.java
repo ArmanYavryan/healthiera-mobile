@@ -3,74 +3,52 @@ package com.healthiera.mobile.entity;
 import com.activeandroid.Model;
 import com.activeandroid.annotation.Column;
 import com.activeandroid.annotation.Table;
-import com.activeandroid.query.Select;
 
 /**
- * @author Davit Ter-Arakelyan
- * @date 8/3/16
+ * @author Yengibar Manasyan
+ * @date 17.10.2016
  */
 @Table(name = "procedure")
 public class Procedure extends Model {
 
-    @Column(name = "doctor_id")
-    private Long doctorId;
-
-    @com.healthiera.mobile.Annotation.EventField(isViewable = true, name = "Doctor Name")
-    private String doctorName;
-
-    @Column(name = "notification")
-    private int notification;
-
     @Column(name = "event_id")
-    private Long eventId;
+    private Event event;
+
+    @Column(name = "doctor_id")
+    private Doctor doctor;
 
     @Column(name = "code")
     private String code;
 
-    @Column(name = "desc")
-    @com.healthiera.mobile.Annotation.EventField(isViewable = true, name = "Description")
-    private String desc;
-
-    public Procedure(Long eventId, Long doctorId, int notification, String code, String desc) {
-        super();
-        this.doctorId = doctorId;
-        this.notification = notification;
-        this.eventId = eventId;
-        this.code = code;
-        this.desc = desc;
-    }
+    @Column(name = "description")
+    private String description;
 
     public Procedure() {
         super();
     }
-    public Long getDoctorId() {
-        return doctorId;
+
+    public Procedure(Event event, Doctor doctor, String code, String description) {
+        super();
+        this.event = event;
+        this.doctor = doctor;
+        this.code = code;
+        this.description = description;
     }
 
-    public void setDoctorId(Long doctorId) {
-        this.doctorId = doctorId;
+    public Event getEvent() {
+        return event;
     }
 
-    public String getDoctorName() {
-
-        Doctor g = new Select().from(Doctor.class).executeSingle();
-        return g.getName();
+    public void setEvent(Event event) {
+        this.event = event;
     }
 
-    public Integer getNotification() {
-        return notification;
+    public Doctor getDoctor() {
+        return doctor;
     }
 
-    public void setNotification(Integer notification) {
-        this.notification = notification;
-    }
-
-    public Long getEventId() {
-        return eventId;
-    }
-
-    public void setEventId(Long eventId) {
-        this.eventId = eventId;
+    public void setDoctor(Doctor doctor) {
+        this.doctor = doctor;
     }
 
     public String getCode() {
@@ -81,11 +59,11 @@ public class Procedure extends Model {
         this.code = code;
     }
 
-    public String getDesc() {
-        return desc;
+    public String getDescription() {
+        return description;
     }
 
-    public void setDesc(String desc) {
-        this.desc = desc;
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

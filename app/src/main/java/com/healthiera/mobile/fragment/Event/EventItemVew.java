@@ -12,8 +12,8 @@ import com.healthiera.mobile.R;
 import com.healthiera.mobile.component.base.EventItemView;
 import com.healthiera.mobile.entity.Measurement;
 import com.healthiera.mobile.entity.Medication;
-import com.healthiera.mobile.entity.Model.EventViewModel;
 import com.healthiera.mobile.entity.Procedure;
+import com.healthiera.mobile.entity.model.EventViewModel;
 import com.healthiera.mobile.fragment.BaseFragment;
 
 import java.lang.annotation.Annotation;
@@ -22,14 +22,36 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Logger;
 
 /**
- * Created by Davit on 05.10.2016.
+ * @author Davit
+ * @date 05.10.2016
  */
 
 public class EventItemVew extends BaseFragment {
     public EventItemVew() {
+    }
+
+    public static Object runGetter(Field field, Object m) {
+        // MZ: Find the correct method
+        Class o;
+        o = m.getClass();
+        for (Method method : o.getMethods()) {
+            if ((method.getName().startsWith("get")) && (method.getName().length() == (field.getName().length() + 3))) {
+                if (method.getName().toLowerCase().endsWith(field.getName().toLowerCase())) {
+                    // MZ: Method found, run it
+                    try {
+                        return method.invoke(m);
+                    } catch (IllegalAccessException e) {
+                        // Logger.fatal("Could not determine method: " + method.getName());
+                    } catch (InvocationTargetException e) {
+                        // Logger.fatal("Could not determine method: " + method.getName());
+                    }
+
+                }
+            }
+        }
+        return null;
     }
 
     @Nullable
@@ -46,7 +68,7 @@ public class EventItemVew extends BaseFragment {
 
     private List<EventViewModel> getEventView(String s, Long eventId) {
 
-        List<EventViewModel> e = new ArrayList<EventViewModel>();
+        List<EventViewModel> e = new ArrayList<>();
 
         switch (s)
         {
@@ -58,10 +80,10 @@ public class EventItemVew extends BaseFragment {
                     Class proc = Procedure.class;
                     for (Field field : proc.getDeclaredFields()) {
 
-                        if (field.isAnnotationPresent(com.healthiera.mobile.Annotation.EventField.class)) {
+                        if (field.isAnnotationPresent(com.healthiera.mobile.annotation.EventField.class)) {
 
-                            Annotation ann = field.getAnnotation(com.healthiera.mobile.Annotation.EventField.class);
-                            com.healthiera.mobile.Annotation.EventField eventfild = (com.healthiera.mobile.Annotation.EventField) ann;
+                            Annotation ann = field.getAnnotation(com.healthiera.mobile.annotation.EventField.class);
+                            com.healthiera.mobile.annotation.EventField eventfild = (com.healthiera.mobile.annotation.EventField) ann;
 
                             if (eventfild.isViewable()) {
                                 EventViewModel ev = new EventViewModel(eventfild.name(),runGetter(field, m).toString());
@@ -81,10 +103,10 @@ public class EventItemVew extends BaseFragment {
                     Class proc = Measurement.class;
                     for (Field field : proc.getDeclaredFields()) {
 
-                        if (field.isAnnotationPresent(com.healthiera.mobile.Annotation.EventField.class)) {
+                        if (field.isAnnotationPresent(com.healthiera.mobile.annotation.EventField.class)) {
 
-                            Annotation ann = field.getAnnotation(com.healthiera.mobile.Annotation.EventField.class);
-                            com.healthiera.mobile.Annotation.EventField eventfild = (com.healthiera.mobile.Annotation.EventField) ann;
+                            Annotation ann = field.getAnnotation(com.healthiera.mobile.annotation.EventField.class);
+                            com.healthiera.mobile.annotation.EventField eventfild = (com.healthiera.mobile.annotation.EventField) ann;
 
                             if (eventfild.isViewable()) {
                                 EventViewModel ev = new EventViewModel(eventfild.name(),runGetter(field, m).toString());
@@ -102,10 +124,10 @@ public class EventItemVew extends BaseFragment {
                     Class proc = Medication.class;
                     for (Field field : proc.getDeclaredFields()) {
 
-                        if (field.isAnnotationPresent(com.healthiera.mobile.Annotation.EventField.class)) {
+                        if (field.isAnnotationPresent(com.healthiera.mobile.annotation.EventField.class)) {
 
-                            Annotation ann = field.getAnnotation(com.healthiera.mobile.Annotation.EventField.class);
-                            com.healthiera.mobile.Annotation.EventField eventfild = (com.healthiera.mobile.Annotation.EventField) ann;
+                            Annotation ann = field.getAnnotation(com.healthiera.mobile.annotation.EventField.class);
+                            com.healthiera.mobile.annotation.EventField eventfild = (com.healthiera.mobile.annotation.EventField) ann;
 
                             if (eventfild.isViewable()) {
                                 EventViewModel ev = new EventViewModel(eventfild.name(),runGetter(field, m).toString());
@@ -120,36 +142,5 @@ public class EventItemVew extends BaseFragment {
                 break;
         }
         return e;
-    }
-
-    public static Object runGetter(Field field, Object m)
-    {
-        // MZ: Find the correct method
-        Class o;
-        o=m.getClass();
-        for (Method method :o.getMethods())
-        {
-            if ((method.getName().startsWith("get")) && (method.getName().length() == (field.getName().length() + 3)))
-            {
-                if (method.getName().toLowerCase().endsWith(field.getName().toLowerCase()))
-                {
-                    // MZ: Method found, run it
-                    try
-                    {
-                        return method.invoke(m);
-                    }
-                    catch (IllegalAccessException e)
-                    {
-                       // Logger.fatal("Could not determine method: " + method.getName());
-                    }
-                    catch (InvocationTargetException e)
-                    {
-                        // Logger.fatal("Could not determine method: " + method.getName());
-                    }
-
-                }
-            }
-        }
-        return null;
     }
 }

@@ -94,7 +94,7 @@ public class BaseEditText extends EditText {
                     Toast.makeText(context, "You Clicked " + doctors.get(position).getName() + "doctor", Toast.LENGTH_LONG).show();
 
                     Intent myIntent = new Intent(context, BaseFragment.ProviderDescription.class);
-                    myIntent.putExtra("CurrentProvider", doctors.get(position)); //Optional parameters
+                    myIntent.putExtra("CurrentProvider", doctors.get(position).getName()); //Optional parameters
                     context.startActivity(myIntent);
                 }
             });

@@ -3,88 +3,65 @@ package com.healthiera.mobile.entity;
 import com.activeandroid.Model;
 import com.activeandroid.annotation.Column;
 import com.activeandroid.annotation.Table;
-import com.activeandroid.query.Select;
 import com.healthiera.mobile.entity.enumeration.GoalType;
 
 /**
- * @author Davit Ter-Arakelyan
- * @date 05.08.2016
+ * @author Yengibar Manasyan
+ * @date 17.10.2016
  */
 @Table(name = "measurement")
 public class Measurement extends Model {
 
     @Column(name = "event_id")
-    private Long eventId;
+    private Event event;
 
     @Column(name = "goal_id")
-    private Long goalId;
-
-    @com.healthiera.mobile.Annotation.EventField(isViewable = true, name = "Goal Name")
-    private String goalName;
-
-    @Column(name = "value")
-    private String value;
-
-    @Column(name = "desc")
-    @com.healthiera.mobile.Annotation.EventField(isViewable = true, name = "Description")
-    private String desc;
-
-    @Column(name = "name")
-    @com.healthiera.mobile.Annotation.EventField(isViewable = true, name = "Name")
-    private String name;
+    private Goal goal;
 
     @Column(name = "type")
     private GoalType type;
 
-    public Measurement(Long eventId, Long goalId, String value, String desc, String name, GoalType type) {
-        super();
-        this.eventId = eventId;
-        this.goalId = goalId;
-        this.value = value;
-        this.desc = desc;
-        this.name = name;
-        this.type = type;
-    }
+    @Column(name = "name")
+    private String name;
+
+    @Column(name = "description")
+    private String description;
 
     public Measurement() {
         super();
     }
 
-    public Long getEventId() {
-        return eventId;
+    public Measurement(Event event, Goal goal, GoalType type, String name, String description) {
+        super();
+        this.event = event;
+        this.goal = goal;
+        this.type = type;
+        this.name = name;
+        this.description = description;
     }
 
-    public void setEventId(Long eventId) {
-        this.eventId = eventId;
+    public Event getEvent() {
+        return event;
     }
 
-    public Long getGoalId() {
-        return goalId;
+    public void setEvent(Event event) {
+        this.event = event;
     }
 
-    public void setGoalId(Long goal) {
-        this.goalId = goal;
+    public Goal getGoal() {
+        return goal;
     }
 
-    public String getGoalName() {
-        Goals g = new Select().from(Goals.class).executeSingle();
-        return g.getName();
+    public void setGoal(Goal goal) {
+        this.goal = goal;
     }
 
-    public String getValue() {
-        return value;
+    public GoalType getType() {
+        return type;
     }
 
-    public void setValue(String value) {
-        this.value = value;
-    }
-
-    public String getDesc() {
-        return desc;
-    }
-
-    public void setDesc(String desc) {
-        this.desc = desc;
+    public void setType(GoalType type) {
+        this.type = type;
     }
 
     public String getName() {
@@ -95,11 +72,11 @@ public class Measurement extends Model {
         this.name = name;
     }
 
-    public GoalType getType() {
-        return type;
+    public String getDescription() {
+        return description;
     }
 
-    public void setType(GoalType type) {
-        this.type = type;
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

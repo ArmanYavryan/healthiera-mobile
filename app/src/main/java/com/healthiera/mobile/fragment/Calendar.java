@@ -1,38 +1,5 @@
 package com.healthiera.mobile.fragment;
 
-import android.content.ClipData;
-import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.EditText;
-import android.widget.ListView;
-import android.widget.TextView;
-
-import com.activeandroid.query.Delete;
-import com.healthiera.mobile.R;
-import com.healthiera.mobile.component.base.EventItem;
-import com.healthiera.mobile.entity.Doctor;
-import com.healthiera.mobile.entity.Event;
-import com.healthiera.mobile.entity.Measurement;
-import com.healthiera.mobile.entity.Medication;
-import com.healthiera.mobile.entity.Model.EventItemModel;
-import com.healthiera.mobile.entity.Procedure;
-import com.healthiera.mobile.entity.enumeration.EventType;
-import com.healthiera.mobile.entity.enumeration.GoalType;
-import com.healthiera.mobile.entity.enumeration.ScheduleType;
-import com.healthiera.mobile.fragment.Event.EventList;
-import com.healthiera.mobile.serivce.Event.Appointment;
-import com.healthiera.mobile.serivce.Event.EventBase;
-
-import java.text.ParseException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Date;
-
 /**
  * @author Davit Ter-Arakelyan
  * @date 19.08.2016

@@ -8,8 +8,8 @@ import com.activeandroid.annotation.Table;
  * @author Davit Ter-Arakelyan
  * @date 21.09.2016
  */
-@Table(name = "goals")
-public class Goals extends Model {
+@Table(name = "goal")
+public class Goal extends Model {
 
     @Column(name = "name")
     private String name;
@@ -17,13 +17,14 @@ public class Goals extends Model {
     @Column(name = "value")
     private String value;
 
-    public Goals(String name, String value) {
+    public Goal() {
+        super();
+    }
+
+    public Goal(String name, String value) {
         super();
         this.name = name;
         this.value = value;
-    }
-    public Goals() {
-        super();
     }
 
     public String getName() {

@@ -5,12 +5,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.healthiera.mobile.R;
-import com.healthiera.mobile.entity.Model.EventViewModel;
+import com.healthiera.mobile.entity.model.EventViewModel;
 
 import java.util.List;
 
@@ -20,9 +18,9 @@ import java.util.List;
 
 public class EventItemView  extends BaseAdapter {
 
+    private static LayoutInflater inflater = null;
     Context context;
     List<EventViewModel> data;
-    private static LayoutInflater inflater = null;
 
     public EventItemView(Context context, List<EventViewModel> data) {
         // TODO Auto-generated constructor stub
