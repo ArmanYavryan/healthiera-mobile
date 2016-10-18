@@ -11,10 +11,10 @@ import com.activeandroid.annotation.Table;
 @Table(name = "doctor")
 public class Doctor extends Model {
 
-    @Column(name = "specification")
+    @Column(name = "specification", notNull = true)
     private String specification;
 
-    @Column(name = "name")
+    @Column(name = "name", notNull = true)
     private String name;
 
     @Column(name = "phone")

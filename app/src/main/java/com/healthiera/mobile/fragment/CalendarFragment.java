@@ -4,7 +4,7 @@ package com.healthiera.mobile.fragment;
  * @author Davit Ter-Arakelyan
  * @date 19.08.2016
  */
-public class Calendar extends BaseFragment {
+public class CalendarFragment extends BaseFragment {
 //    @Nullable
 //
 //    ListView  listview;
@@ -16,22 +16,22 @@ public class Calendar extends BaseFragment {
 ////        TextTextView.setText(ap.getDoctorId().toString());
 //
 ////---------- T E S T ------------
-//        new Delete().from(Event.class).execute();
+//        new Delete().from(CalendarFragment.class).execute();
 //        new Delete().from(com.healthiera.mobile.entity.Procedure.class).execute();
 //        new Delete().from(Measurement.class).execute();
 //        new Delete().from(Medication.class).execute();
 //        new Delete().from(Doctor.class).execute();
 //        new Delete().from(com.healthiera.mobile.entity.Goals.class).execute();
 //
-//        Event ev1 =new Event("Event1 Desc", "AppointmEntvent1", "Event1 ststus", EventType.Appointment,  new Date("10/15/2016"), new Date("11/05/2016"), "111111111", ScheduleType.Type1, 111);
-//        Event ev2 =new Event("Event2 Desc", "MeasurementEvent2", "Event2 ststus", EventType.Measurement,  new Date("10/15/2016"), new Date("11/05/2016"), "222222222", ScheduleType.Type2, 111);
-//        Event ev3 =new Event("Event3 Desc", "MedicationEventTitle3", "Event3 ststus", EventType.Medication,  new Date("10/16/2016"), new Date("11/05/2016"), "33333333333", ScheduleType.Type3, 111);
-//        Event ev4 =new Event("Event4 Desc", "TreatmentEventTitle4", "Event4 ststus", EventType.Treatment,  new Date("10/16/2016"), new Date("11/05/2016"), "33333333333", ScheduleType.Type3, 111);
-//        Event ev5 =new Event("Event5 Desc", "MedicationEventTitle5", "Event5 ststus", EventType.Medication,  new Date("10/15/2016"), new Date("11/05/2016"), "33333333333", ScheduleType.Type3, 111);
-//        Event ev6 =new Event("Event6 Desc", "MedicationEventTitle6", "Event6 ststus", EventType.Medication,  new Date("10/16/2016"), new Date("11/05/2016"), "33333333333", ScheduleType.Type3, 111);
+//        CalendarFragment ev1 =new CalendarFragment("Event1 Desc", "AppointmEntvent1", "Event1 ststus", EventType.Appointment,  new Date("10/15/2016"), new Date("11/05/2016"), "111111111", ScheduleType.Type1, 111);
+//        CalendarFragment ev2 =new CalendarFragment("Event2 Desc", "MeasurementEvent2", "Event2 ststus", EventType.Measurement,  new Date("10/15/2016"), new Date("11/05/2016"), "222222222", ScheduleType.Type2, 111);
+//        CalendarFragment ev3 =new CalendarFragment("Event3 Desc", "MedicationEventTitle3", "Event3 ststus", EventType.Medication,  new Date("10/16/2016"), new Date("11/05/2016"), "33333333333", ScheduleType.Type3, 111);
+//        CalendarFragment ev4 =new CalendarFragment("Event4 Desc", "TreatmentEventTitle4", "Event4 ststus", EventType.Treatment,  new Date("10/16/2016"), new Date("11/05/2016"), "33333333333", ScheduleType.Type3, 111);
+//        CalendarFragment ev5 =new CalendarFragment("Event5 Desc", "MedicationEventTitle5", "Event5 ststus", EventType.Medication,  new Date("10/15/2016"), new Date("11/05/2016"), "33333333333", ScheduleType.Type3, 111);
+//        CalendarFragment ev6 =new CalendarFragment("Event6 Desc", "MedicationEventTitle6", "Event6 ststus", EventType.Medication,  new Date("10/16/2016"), new Date("11/05/2016"), "33333333333", ScheduleType.Type3, 111);
 //
 //        Procedure md1 =new Procedure(ev1.save(), new Doctor("Armen", "Ortoped","armen@xx.xx","05555555").save(), 10, "sdf2ss","Nerarkum");
-//        Measurement md2=new Measurement(ev2.save(),new com.healthiera.mobile.entity.Goals("Mass","85").save(),"80","Qashi chapum","chapum", GoalType.Type1);
+//        Measurement md2=new Measurement(ev2.save(),new com.healthiera.mobile.entity.Goals("Mass","85").save(),"80","Qashi chapum","chapum", MeasurementType.Type1);
 //        Medication md3=new Medication(ev3.save(),10,"Alfa Farm","Aspirin","G65HD9");
 //        Medication md5=new Medication(ev5.save(),8,"Beta Farm","Pinicilin","sd4f5");
 //        Medication md6=new Medication(ev6.save(),2,"Gama Farm","Insulin","6sdf6d");
@@ -71,7 +71,7 @@ public class Calendar extends BaseFragment {
 //        //EnumSet.allOf( EventType.class );
 //        int index = 0;
 //        for (EventType dir : EventType.values()) {
-//            items[index]=new EventItemModel(dir.getEvent(), dir.getEventName(), dir.getEventIcon());
+//            items[index]=new EventItemModel(dir.getCalendar(), dir.getEventName(), dir.getEventIcon());
 //            index++;
 //        }
 //        return items;

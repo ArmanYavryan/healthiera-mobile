@@ -11,10 +11,10 @@ import com.activeandroid.annotation.Table;
 @Table(name = "goal")
 public class Goal extends Model {
 
-    @Column(name = "name")
+    @Column(name = "name", notNull = true)
     private String name;
 
-    @Column(name = "value")
+    @Column(name = "value", notNull = true)
     private String value;
 
     public Goal() {

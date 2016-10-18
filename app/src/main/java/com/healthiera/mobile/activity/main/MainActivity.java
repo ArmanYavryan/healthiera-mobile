@@ -9,7 +9,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.TextView;
 
 import com.healthiera.mobile.R;
 import com.healthiera.mobile.fragment.CarePlan;
@@ -19,7 +18,7 @@ import com.healthiera.mobile.fragment.HealthData;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
-    //    private EventService eventService = new EventService();
+    //    private CalendarService eventService = new CalendarService();
 /*
 
     հին oncreate -մեթոդը
@@ -29,10 +28,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-//        final Event event = new Event();
+//        final CalendarFragment event = new CalendarFragment();
 //        event.setStartDateTime(new Date());
 //        final Long eventId = eventService.createAppointment(event);
-//        final Event foundEvent = eventService.findEventById(eventId);
+//        final CalendarFragment foundEvent = eventService.findEventById(eventId);
         final Doctor doc1 = new Doctor("Andranik", "Ortoped", "099112233", "andrani@gmail.com");
         Doctor doc2 = new Doctor("Karen", "Ginekolog", "099569874", "Karen@gmail.com");
         Doctor doc3 = new Doctor("Hayk", "Dentist", "055693214", "Hayk@gmail.com");
@@ -178,13 +177,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             getSupportFragmentManager().beginTransaction().replace(R.id.Content_id_, goals).commit();
             toolbarText.setText("Goals");
         } else if (position == 3) {
-            Calendar calendar = new Calendar();
+            CalendarFragment calendar = new CalendarFragment();
             getSupportFragmentManager().beginTransaction().replace(R.id.Content_id_, calendar).commit();
-            toolbarText.setText("Calendar");
+            toolbarText.setText("CalendarFragment");
         } else if (position == 4) {
-            Calendar calendar = new Calendar();
+            CalendarFragment calendar = new CalendarFragment();
             getSupportFragmentManager().beginTransaction().replace(R.id.Content_id_, calendar).commit();
-            toolbarText.setText("Calendar");
+            toolbarText.setText("CalendarFragment");
         }
 
         return true;

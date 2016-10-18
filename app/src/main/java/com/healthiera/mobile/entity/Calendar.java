@@ -3,44 +3,120 @@ package com.healthiera.mobile.entity;
 import com.activeandroid.Model;
 import com.activeandroid.annotation.Column;
 import com.activeandroid.annotation.Table;
+import com.healthiera.mobile.entity.enumeration.EventType;
+import com.healthiera.mobile.entity.enumeration.ScheduleType;
 
 import java.util.Date;
 
 /**
- * Created by Davit on 05.08.2016.
+ * @author Yengibar Manasyan
+ * @date 17.10.2016
  */
 @Table(name = "calendar")
 public class Calendar extends Model {
 
-    @Column(name = "event_id")
-    private Long eventId;
+    @Column(name = "start_date_time", notNull = true)
+    private Date startDateTime;
 
-    @Column(name = "date_time")
-    private Date dateTime;
+    @Column(name = "end_date_time", notNull = true)
+    private Date endDateTime;
 
-    public Calendar(Date dateTime, Long eventId) {
-        super();
-        this.dateTime = dateTime;
-        this.eventId = eventId;
-    }
+    @Column(name = "type", notNull = true)
+    private EventType type;
+
+    @Column(name = "schedule_type", notNull = true)
+    private ScheduleType scheduleType;
+
+    @Column(name = "title")
+    private String title;
+
+    @Column(name = "description")
+    private String description;
+
+    @Column(name = "location")
+    private String location;
+
+    @Column(name = "remind_before_minutes", notNull = true)
+    private Integer remindBeforeMinutes;
 
     public Calendar() {
         super();
     }
 
-    public Date getDateTime() {
-        return dateTime;
+    public Calendar(Date startDateTime, Date endDateTime, EventType type, ScheduleType scheduleType,
+                    String title, String description, String location, Integer remindBeforeMinutes) {
+        super();
+        this.startDateTime = startDateTime;
+        this.endDateTime = endDateTime;
+        this.type = type;
+        this.scheduleType = scheduleType;
+        this.title = title;
+        this.description = description;
+        this.location = location;
+        this.remindBeforeMinutes = remindBeforeMinutes;
     }
 
-    public void setDateTime(Date dateTime) {
-        this.dateTime = dateTime;
+    public Date getStartDateTime() {
+        return startDateTime;
     }
 
-    public Long getEventId() {
-        return eventId;
+    public void setStartDateTime(Date startDateTime) {
+        this.startDateTime = startDateTime;
     }
 
-    public void setEventId(Long eventId) {
-        this.eventId = eventId;
+    public Date getEndDateTime() {
+        return endDateTime;
+    }
+
+    public void setEndDateTime(Date endDateTime) {
+        this.endDateTime = endDateTime;
+    }
+
+    public EventType getType() {
+        return type;
+    }
+
+    public void setType(EventType type) {
+        this.type = type;
+    }
+
+    public ScheduleType getScheduleType() {
+        return scheduleType;
+    }
+
+    public void setScheduleType(ScheduleType scheduleType) {
+        this.scheduleType = scheduleType;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
+    public Integer getRemindBeforeMinutes() {
+        return remindBeforeMinutes;
+    }
+
+    public void setRemindBeforeMinutes(Integer remindBeforeMinutes) {
+        this.remindBeforeMinutes = remindBeforeMinutes;
     }
 }

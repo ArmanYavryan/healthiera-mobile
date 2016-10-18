@@ -1,16 +1,15 @@
 package com.healthiera.mobile.component.base;
 
 import android.content.Context;
-import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+
 import com.healthiera.mobile.R;
-import com.healthiera.mobile.entity.Event;
-import com.healthiera.mobile.entity.enumeration.StatusType;
+import com.healthiera.mobile.entity.Calendar;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -23,17 +22,27 @@ import java.util.concurrent.TimeUnit;
 
 public class EventListItem extends BaseAdapter {
 
-    Context context;
-    Event[] data;
     private static LayoutInflater inflater = null;
+    Context context;
+    Calendar[] data;
     DateFormat df = new SimpleDateFormat("HH:mm");
 
-    public EventListItem(Context context, Event[] data) {
+    public EventListItem(Context context, Calendar[] data) {
         // TODO Auto-generated constructor stub
         this.context = context;
         this.data = data;
         inflater = (LayoutInflater) context
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+    }
+
+    public static String getDateDiff(Date date1, Date date2) {
+        TimeUnit timeUnit = TimeUnit.MINUTES;
+        long diffInMillies = date2.getTime() - date1.getTime();
+        Long t = timeUnit.convert(diffInMillies, TimeUnit.MILLISECONDS);
+        if (t < 60)
+            return t.toString() + " min";
+        else
+            return new Long(t / 60 - 2).toString() + " hr";
     }
 
     @Override
@@ -73,32 +82,23 @@ public class EventListItem extends BaseAdapter {
         }
         ImageView ivEventStatus = (ImageView) vi.findViewById(R.id.ivEventStatus);
 
-        switch (data[position].getStatus())
-        {
-            case Active:
-               // ivEventStatus.setImageBitmap(BitmapFactory.decodeResource(vi.getResources(), 10));
-                break;
-            case Done:
-                break;
-            case Deleted:
-                break;
-            case Delayed:
-                break;
-            case Cancelled:
-                break;
-
-        }
+        // TODO add service call
+//        switch (data[position].getStatus())
+//        {
+//            case Active:
+//               // ivEventStatus.setImageBitmap(BitmapFactory.decodeResource(vi.getResources(), 10));
+//                break;
+//            case Done:
+//                break;
+//            case Deleted:
+//                break;
+//            case Delayed:
+//                break;
+//            case Cancelled:
+//                break;
+//
+//        }
 
         return vi;
-    }
-
-    public static String getDateDiff(Date date1, Date date2) {
-        TimeUnit timeUnit=TimeUnit.MINUTES;
-        long diffInMillies = date2.getTime() - date1.getTime();
-        Long t=timeUnit.convert(diffInMillies, TimeUnit.MILLISECONDS);
-        if(t<60)
-            return t.toString()+" min";
-        else
-            return new Long(t/60-2).toString()+" hr";
     }
 }

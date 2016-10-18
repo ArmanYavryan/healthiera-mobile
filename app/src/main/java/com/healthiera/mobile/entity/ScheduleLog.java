@@ -3,7 +3,7 @@ package com.healthiera.mobile.entity;
 import com.activeandroid.Model;
 import com.activeandroid.annotation.Column;
 import com.activeandroid.annotation.Table;
-import com.healthiera.mobile.entity.enumeration.EventStatus;
+import com.healthiera.mobile.entity.enumeration.ScheduleStatus;
 
 import java.util.Date;
 
@@ -18,7 +18,7 @@ public class ScheduleLog extends Model {
     private Schedule schedule;
 
     @Column(name = "status", notNull = true)
-    private EventStatus eventStatus;
+    private ScheduleStatus scheduleStatus;
 
     @Column(name = "date_time", notNull = true)
     private Date dateTime;
@@ -30,10 +30,10 @@ public class ScheduleLog extends Model {
         super();
     }
 
-    public ScheduleLog(Schedule schedule, EventStatus eventStatus, Date dateTime, String reason) {
+    public ScheduleLog(Schedule schedule, ScheduleStatus scheduleStatus, Date dateTime, String reason) {
         super();
         this.schedule = schedule;
-        this.eventStatus = eventStatus;
+        this.scheduleStatus = scheduleStatus;
         this.dateTime = dateTime;
         this.reason = reason;
     }
@@ -46,12 +46,12 @@ public class ScheduleLog extends Model {
         this.schedule = schedule;
     }
 
-    public EventStatus getEventStatus() {
-        return eventStatus;
+    public ScheduleStatus getScheduleStatus() {
+        return scheduleStatus;
     }
 
-    public void setEventStatus(EventStatus eventStatus) {
-        this.eventStatus = eventStatus;
+    public void setScheduleStatus(ScheduleStatus scheduleStatus) {
+        this.scheduleStatus = scheduleStatus;
     }
 
     public Date getDateTime() {

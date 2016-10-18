@@ -41,17 +41,17 @@ public class EventItemModel {
 //        int d = 0;
 //        DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
 //        Date date = new Date();
-//        List<Event> events = new Select()
-//                .from(Event.class)
+//        List<CalendarFragment> events = new Select()
+//                .from(CalendarFragment.class)
 //                .where("type = ?", eventName)
 //                .execute();
-//        for (Event e : events) {
+//        for (CalendarFragment e : events) {
 //            if (dateFormat.format(e.getStartDateTime()).equals(dateFormat.format(date))) {
 //                d++;
 //            }
 //        }
 //        todayEventCount = (new Select()
-//                .from(Event.class)
+//                .from(CalendarFragment.class)
 //                .where("type = ?", eventName)
 //                .where("start_date_time >= ?", date)
 //                .execute()).size();
@@ -65,11 +65,11 @@ public class EventItemModel {
 //        int d = 0;
 //        DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
 //        Date date = new Date((new Date()).getTime() + (1000 * 60 * 60 * 24));
-//        List<Event> events = new Select()
-//                .from(Event.class)
+//        List<CalendarFragment> events = new Select()
+//                .from(CalendarFragment.class)
 //                .where("type = ?", eventName)
 //                .execute();
-//        for (Event e : events) {
+//        for (CalendarFragment e : events) {
 //            if (dateFormat.format(e.getStartDateTime()).equals(dateFormat.format(date))) {
 //                d++;
 //            }

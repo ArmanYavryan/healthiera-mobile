@@ -12,8 +12,8 @@ import com.healthiera.mobile.entity.enumeration.RepeatType;
 @Table(name = "schedule")
 public class Schedule extends Model {
 
-    @Column(name = "event_id", notNull = true)
-    private Event event;
+    @Column(name = "calendar_id", notNull = true)
+    private Calendar calendar;
 
     @Column(name = "repeat_type", notNull = true)
     private RepeatType repeatType;
@@ -34,10 +34,10 @@ public class Schedule extends Model {
         super();
     }
 
-    public Schedule(Event event, RepeatType repeatType, Integer repeatCount, Integer interval,
+    public Schedule(Calendar calendar, RepeatType repeatType, Integer repeatCount, Integer interval,
                     Integer time, String weekdays) {
         super();
-        this.event = event;
+        this.calendar = calendar;
         this.repeatType = repeatType;
         this.repeatCount = repeatCount;
         this.interval = interval;
@@ -45,12 +45,12 @@ public class Schedule extends Model {
         this.weekdays = weekdays;
     }
 
-    public Event getEvent() {
-        return event;
+    public Calendar getCalendar() {
+        return calendar;
     }
 
-    public void setEvent(Event event) {
-        this.event = event;
+    public void setCalendar(Calendar calendar) {
+        this.calendar = calendar;
     }
 
     public RepeatType getRepeatType() {

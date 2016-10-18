@@ -3,7 +3,7 @@ package com.healthiera.mobile.entity;
 import com.activeandroid.Model;
 import com.activeandroid.annotation.Column;
 import com.activeandroid.annotation.Table;
-import com.healthiera.mobile.entity.enumeration.GoalType;
+import com.healthiera.mobile.entity.enumeration.MeasurementType;
 
 /**
  * @author Yengibar Manasyan
@@ -12,14 +12,14 @@ import com.healthiera.mobile.entity.enumeration.GoalType;
 @Table(name = "measurement")
 public class Measurement extends Model {
 
-    @Column(name = "event_id")
-    private Event event;
+    @Column(name = "calendar_id", notNull = true)
+    private Calendar calendar;
 
     @Column(name = "goal_id")
     private Goal goal;
 
-    @Column(name = "type")
-    private GoalType type;
+    @Column(name = "type", notNull = true)
+    private MeasurementType type;
 
     @Column(name = "name")
     private String name;
@@ -31,21 +31,21 @@ public class Measurement extends Model {
         super();
     }
 
-    public Measurement(Event event, Goal goal, GoalType type, String name, String description) {
+    public Measurement(Calendar calendar, Goal goal, MeasurementType type, String name, String description) {
         super();
-        this.event = event;
+        this.calendar = calendar;
         this.goal = goal;
         this.type = type;
         this.name = name;
         this.description = description;
     }
 
-    public Event getEvent() {
-        return event;
+    public Calendar getCalendar() {
+        return calendar;
     }
 
-    public void setEvent(Event event) {
-        this.event = event;
+    public void setCalendar(Calendar calendar) {
+        this.calendar = calendar;
     }
 
     public Goal getGoal() {
@@ -56,11 +56,11 @@ public class Measurement extends Model {
         this.goal = goal;
     }
 
-    public GoalType getType() {
+    public MeasurementType getType() {
         return type;
     }
 
-    public void setType(GoalType type) {
+    public void setType(MeasurementType type) {
         this.type = type;
     }
 
