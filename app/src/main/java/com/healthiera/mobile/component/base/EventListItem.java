@@ -9,7 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.healthiera.mobile.R;
-import com.healthiera.mobile.entity.Calendar;
+import com.healthiera.mobile.entity.Schedule;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -24,10 +24,10 @@ public class EventListItem extends BaseAdapter {
 
     private static LayoutInflater inflater = null;
     Context context;
-    Calendar[] data;
+    Schedule[] data;
     DateFormat df = new SimpleDateFormat("HH:mm");
 
-    public EventListItem(Context context, Calendar[] data) {
+    public EventListItem(Context context, Schedule[] data) {
         // TODO Auto-generated constructor stub
         this.context = context;
         this.data = data;
@@ -42,7 +42,7 @@ public class EventListItem extends BaseAdapter {
         if (t < 60)
             return t.toString() + " min";
         else
-            return new Long(t / 60 - 2).toString() + " hr";
+            return Long.toString(t / 60 - 2) + " hr";
     }
 
     @Override
@@ -74,11 +74,10 @@ public class EventListItem extends BaseAdapter {
         TextView tvEventListItemDesc = (TextView) vi.findViewById(R.id.tvEventListItemDesc);
         tvEventListItemDesc.setText(data[position].getDescription());
         TextView tvEventListItemTime = (TextView) vi.findViewById(R.id.tvEventListItemTime);
-        tvEventListItemTime.setText(df.format(data[position].getStartDateTime()));
+        tvEventListItemTime.setText(df.format(data[position].getStartDate()));
         TextView tvEventListItemRemainedTime = (TextView) vi.findViewById(R.id.tvEventListItemRemainedTime);
-        if(data[position].getStartDateTime().before(new Date()))
-        {
-            tvEventListItemRemainedTime.setText(getDateDiff(data[position].getStartDateTime(),new Date()));
+        if (data[position].getStartDate().before(new Date())) {
+            tvEventListItemRemainedTime.setText(getDateDiff(data[position].getStartDate(), new Date()));
         }
         ImageView ivEventStatus = (ImageView) vi.findViewById(R.id.ivEventStatus);
 

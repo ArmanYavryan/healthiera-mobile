@@ -11,8 +11,8 @@ import com.activeandroid.annotation.Table;
 @Table(name = "medication")
 public class Medication extends Model {
 
-    @Column(name = "calendar_id", notNull = true)
-    private Calendar calendar;
+    @Column(name = "schedule_id", notNull = true)
+    private Schedule schedule;
 
     @Column(name = "dose")
     private Integer dose;
@@ -30,21 +30,21 @@ public class Medication extends Model {
         super();
     }
 
-    public Medication(Calendar calendar, Integer dose, String manufacturer, String name, String code) {
+    public Medication(Schedule schedule, Integer dose, String manufacturer, String name, String code) {
         super();
-        this.calendar = calendar;
+        this.schedule = schedule;
         this.dose = dose;
         this.manufacturer = manufacturer;
         this.name = name;
         this.code = code;
     }
 
-    public Calendar getCalendar() {
-        return calendar;
+    public Schedule getSchedule() {
+        return schedule;
     }
 
-    public void setCalendar(Calendar calendar) {
-        this.calendar = calendar;
+    public void setSchedule(Schedule schedule) {
+        this.schedule = schedule;
     }
 
     public Integer getDose() {

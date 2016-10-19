@@ -18,7 +18,7 @@ import com.healthiera.mobile.fragment.HealthData;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
-    //    private CalendarService eventService = new CalendarService();
+    //    private ScheduleService eventService = new ScheduleService();
 /*
 
     հին oncreate -մեթոդը

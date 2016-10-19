@@ -11,10 +11,10 @@ import android.widget.ListView;
 import com.activeandroid.query.Delete;
 import com.healthiera.mobile.R;
 import com.healthiera.mobile.component.base.EventItem;
-import com.healthiera.mobile.entity.Calendar;
 import com.healthiera.mobile.entity.Doctor;
 import com.healthiera.mobile.entity.Measurement;
 import com.healthiera.mobile.entity.Medication;
+import com.healthiera.mobile.entity.Schedule;
 import com.healthiera.mobile.entity.enumeration.EventType;
 import com.healthiera.mobile.entity.model.EventItemModel;
 import com.healthiera.mobile.fragment.Event.EventList;
@@ -47,19 +47,19 @@ public class CarePlan extends BaseFragment {
         View rootView = inflater.inflate(R.layout.calendar, container, false);
 
 //---------- T E S T ------------
-        new Delete().from(Calendar.class).execute();
+        new Delete().from(Schedule.class).execute();
         new Delete().from(com.healthiera.mobile.entity.Procedure.class).execute();
         new Delete().from(Measurement.class).execute();
         new Delete().from(Medication.class).execute();
         new Delete().from(Doctor.class).execute();
         new Delete().from(com.healthiera.mobile.entity.Goal.class).execute();
 
-//        CalendarFragment ev1 = new CalendarFragment("Event1 Desc", "AppointmEntvent1", StatusType.Active, EventType.Appointment, new Date("10/15/2016"), new Date("11/05/2016"), "111111111", ScheduleType.CONTINOUS, 111);
-//        CalendarFragment ev2 = new CalendarFragment("Event2 Desc", "MeasurementEvent2", StatusType.Active, EventType.Measurement, new Date("10/15/2016"), new Date("11/05/2016"), "222222222", ScheduleType.Type2, 111);
-//        CalendarFragment ev3 = new CalendarFragment("Event3 Desc", "MedicationEventTitle3", StatusType.Active, EventType.Medication, new Date("10/16/2016"), new Date("11/05/2016"), "33333333333", ScheduleType.Type3, 111);
-//        CalendarFragment ev4 = new CalendarFragment("Event4 Desc", "TreatmentEventTitle4", StatusType.Active, EventType.Treatment, new Date("10/16/2016"), new Date("11/05/2016"), "33333333333", ScheduleType.Type3, 111);
-//        CalendarFragment ev5 = new CalendarFragment("Event5 Desc", "MedicationEventTitle5", StatusType.Active, EventType.Medication, new Date("10/15/2016"), new Date("11/05/2016"), "33333333333", ScheduleType.Type3, 111);
-//        CalendarFragment ev6 = new CalendarFragment("Event6 Desc", "MedicationEventTitle6", StatusType.Active, EventType.Medication, new Date("10/16/2016"), new Date("11/05/2016"), "33333333333", ScheduleType.Type3, 111);
+//        CalendarFragment ev1 = new CalendarFragment("Event1 Desc", "AppointmEntvent1", StatusType.Active, EventType.Appointment, new Date("10/15/2016"), new Date("11/05/2016"), "111111111", DurationType.CONTINOUS, 111);
+//        CalendarFragment ev2 = new CalendarFragment("Event2 Desc", "MeasurementEvent2", StatusType.Active, EventType.Measurement, new Date("10/15/2016"), new Date("11/05/2016"), "222222222", DurationType.Type2, 111);
+//        CalendarFragment ev3 = new CalendarFragment("Event3 Desc", "MedicationEventTitle3", StatusType.Active, EventType.Medication, new Date("10/16/2016"), new Date("11/05/2016"), "33333333333", DurationType.Type3, 111);
+//        CalendarFragment ev4 = new CalendarFragment("Event4 Desc", "TreatmentEventTitle4", StatusType.Active, EventType.Treatment, new Date("10/16/2016"), new Date("11/05/2016"), "33333333333", DurationType.Type3, 111);
+//        CalendarFragment ev5 = new CalendarFragment("Event5 Desc", "MedicationEventTitle5", StatusType.Active, EventType.Medication, new Date("10/15/2016"), new Date("11/05/2016"), "33333333333", DurationType.Type3, 111);
+//        CalendarFragment ev6 = new CalendarFragment("Event6 Desc", "MedicationEventTitle6", StatusType.Active, EventType.Medication, new Date("10/16/2016"), new Date("11/05/2016"), "33333333333", DurationType.Type3, 111);
 //
 //        Procedure md1 = new Procedure(ev1.save(), new Doctor("Armen", "Ortoped", "armen@xx.xx", "05555555").save(), "sdf2ss", "Nerarkum");
 //        Measurement md2 = new Measurement(ev2.save(), new Goals("Mass", "85").save(), "80", "Qashi chapum", "chapum", MeasurementType.Type1);

@@ -5,7 +5,7 @@ package com.healthiera.mobile.entity.enumeration;
  * @date 04.10.2016
  */
 
-public enum ScheduleType {
+public enum DurationType {
 
     CONTINOUS, NUMBER_OF_DAYS
 }

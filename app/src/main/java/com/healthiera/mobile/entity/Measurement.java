@@ -12,8 +12,8 @@ import com.healthiera.mobile.entity.enumeration.MeasurementType;
 @Table(name = "measurement")
 public class Measurement extends Model {
 
-    @Column(name = "calendar_id", notNull = true)
-    private Calendar calendar;
+    @Column(name = "schedule_id", notNull = true)
+    private Schedule schedule;
 
     @Column(name = "goal_id")
     private Goal goal;
@@ -31,21 +31,21 @@ public class Measurement extends Model {
         super();
     }
 
-    public Measurement(Calendar calendar, Goal goal, MeasurementType type, String name, String description) {
+    public Measurement(Schedule schedule, Goal goal, MeasurementType type, String name, String description) {
         super();
-        this.calendar = calendar;
+        this.schedule = schedule;
         this.goal = goal;
         this.type = type;
         this.name = name;
         this.description = description;
     }
 
-    public Calendar getCalendar() {
-        return calendar;
+    public Schedule getSchedule() {
+        return schedule;
     }
 
-    public void setCalendar(Calendar calendar) {
-        this.calendar = calendar;
+    public void setSchedule(Schedule schedule) {
+        this.schedule = schedule;
     }
 
     public Goal getGoal() {

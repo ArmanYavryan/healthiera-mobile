@@ -11,11 +11,11 @@ import java.util.Date;
  * @author Yengibar Manasyan
  * @date 10/17/16
  */
-@Table(name = "schedule_log")
-public class ScheduleLog extends Model {
+@Table(name = "schedule_time_log")
+public class ScheduleTimeLog extends Model {
 
-    @Column(name = "schedule_id", notNull = true)
-    private Schedule schedule;
+    @Column(name = "schedule_time_id", notNull = true)
+    private ScheduleTime scheduleTime;
 
     @Column(name = "status", notNull = true)
     private ScheduleStatus scheduleStatus;
@@ -26,24 +26,24 @@ public class ScheduleLog extends Model {
     @Column(name = "reason")
     private String reason;
 
-    public ScheduleLog() {
+    public ScheduleTimeLog() {
         super();
     }
 
-    public ScheduleLog(Schedule schedule, ScheduleStatus scheduleStatus, Date dateTime, String reason) {
+    public ScheduleTimeLog(ScheduleTime scheduleTime, ScheduleStatus scheduleStatus, Date dateTime, String reason) {
         super();
-        this.schedule = schedule;
+        this.scheduleTime = scheduleTime;
         this.scheduleStatus = scheduleStatus;
         this.dateTime = dateTime;
         this.reason = reason;
     }
 
-    public Schedule getSchedule() {
-        return schedule;
+    public ScheduleTime getScheduleTime() {
+        return scheduleTime;
     }
 
-    public void setSchedule(Schedule schedule) {
-        this.schedule = schedule;
+    public void setScheduleTime(ScheduleTime scheduleTime) {
+        this.scheduleTime = scheduleTime;
     }
 
     public ScheduleStatus getScheduleStatus() {

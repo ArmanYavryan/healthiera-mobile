@@ -26,7 +26,11 @@
             android:value="1" />
         <meta-data
             android:name="AA_MODELS"
-            android:value="com.healthiera.mobile.entity.Procedure, com.healthiera.mobile.entity.Calendar,com.healthiera.mobile.entity.Doctor,com.healthiera.mobile.entity.Event,com.healthiera.mobile.entity.Measurement,com.healthiera.mobile.entity.Medication,com.healthiera.mobile.entity.Profile,com.healthiera.mobile.entity.Schedule,com.healthiera.mobile.entity.Setting, com.healthiera.mobile.entity.Goals" />
+            android:value="com.healthiera.mobile.entity.Doctor,com.healthiera.mobile.entity.Goal,
+            com.healthiera.mobile.entity.Measurement,com.healthiera.mobile.entity.MeasurementLog,
+            com.healthiera.mobile.entity.Procedure,com.healthiera.mobile.entity.Profile,
+            com.healthiera.mobile.entity.Schedule,com.healthiera.mobile.entity.ScheduleTime,
+            com.healthiera.mobile.entity.ScheduleTimeLog,com.healthiera.mobile.entity.Settings" />
 
         <!-- AHBottomNavigation credential -->
         <com.aurelhubert.ahbottomnavigation.AHBottomNavigation
