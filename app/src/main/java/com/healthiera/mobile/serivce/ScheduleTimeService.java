@@ -51,10 +51,10 @@ public class ScheduleTimeService {
         return scheduleTimes;
     }
 
-    public List<ScheduleTime> getTodayScheduleTimes() {
+    public List<ScheduleTime> getDateNotDoneScheduleTimes(LocalDate date) {
+        assertThat(date).isNotNull();
         final List<Schedule> schedules = SCHEDULE_SERVICE.getAllSchedules();
         final List<ScheduleTime> todayScheduleTimes = new ArrayList<>();
-        final LocalDate todayDate = LocalDate.now();
         for (Schedule schedule : schedules) {
             final LocalDate startDate = new LocalDate(schedule.getStartDate());
             if (schedule.getDurationType().equals(DurationType.NUMBER_OF_DAYS)) {
@@ -66,7 +66,7 @@ public class ScheduleTimeService {
                 } else {
                     daysToAdd = schedule.getNumberOfRepetition() * WEEK_DAYS_COUNT;
                 }
-                if (startDate.plusDays(daysToAdd).isAfter(todayDate)) {
+                if (startDate.plusDays(daysToAdd).isAfter(date)) {
                     continue;
                 }
             }
@@ -76,13 +76,13 @@ public class ScheduleTimeService {
                 checkTime = true;
             } else if (schedule.getRepeatType().equals(RepeatType.DAYS_INTERVAL)) {
                 for (int i = 0; i < schedule.getNumberOfRepetition(); i++) {
-                    if (startDate.plusDays(i * schedule.getDaysInterval()).isEqual(todayDate)) {
+                    if (startDate.plusDays(i * schedule.getDaysInterval()).isEqual(date)) {
                         checkTime = true;
                     }
                 }
             } else {
                 final String[] weekDays = schedule.getDaysOfWeek().split(",");
-                if (Arrays.asList(weekDays).contains(String.valueOf(todayDate.getDayOfWeek()))) {
+                if (Arrays.asList(weekDays).contains(String.valueOf(date.getDayOfWeek()))) {
                     checkTime = true;
                 }
             }
@@ -91,11 +91,11 @@ public class ScheduleTimeService {
                 final List<ScheduleTime> scheduleTimes = getByScheduleId(schedule.getId());
                 final DateTime currentTime = DateTime.now();
                 for (ScheduleTime scheduleTime : scheduleTimes) {
-                    if (currentTime.isBefore(todayDate.toDateTimeAtStartOfDay().plusMinutes(scheduleTime.getTime()))) {
+                    if (currentTime.isBefore(date.toDateTimeAtStartOfDay().plusMinutes(scheduleTime.getTime()))) {
                         todayScheduleTimes.add(scheduleTime);
                     } else {
                         final List<ScheduleTimeLog> scheduleTimeLogs = SCHEDULE_TIME_LOG_SERVICE
-                                .getByScheduleTimeIdAndDate(scheduleTime.getId(), todayDate);
+                                .getByScheduleTimeIdAndDate(scheduleTime.getId(), date);
                         boolean addToList = true;
                         for (ScheduleTimeLog scheduleTimeLog : scheduleTimeLogs) {
                             final ScheduleStatus scheduleStatus = scheduleTimeLog.getScheduleStatus();
