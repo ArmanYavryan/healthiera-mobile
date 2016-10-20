@@ -5,21 +5,22 @@ import com.activeandroid.annotation.Column;
 import com.activeandroid.annotation.Table;
 
 /**
- * Created by Davit on 05.08.2016.
+ * @author Davit Ter-Arakelyan
+ * @date 05.08.2016
  */
 @Table(name = "profile")
 public class Profile extends Model {
 
-    @Column(name = "user_name")
+    @Column(name = "user_name", notNull = true)
     private String userName;
 
-    @Column(name = "password")
+    @Column(name = "password", notNull = true)
     private String password;
 
-    @Column(name = "name")
+    @Column(name = "name", notNull = true)
     private String name;
 
-    @Column(name = "last_name")
+    @Column(name = "last_name", notNull = true)
     private String lastName;
 
     @Column(name = "sex")

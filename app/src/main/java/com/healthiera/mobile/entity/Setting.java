@@ -5,15 +5,16 @@ import com.activeandroid.annotation.Column;
 import com.activeandroid.annotation.Table;
 
 /**
- * Created by Davit on 05.08.2016.
+ * @author Davit Ter-Arakelyan
+ * @date 05.08.2016
  */
 @Table(name = "setting")
 public class Setting extends Model {
 
-    @Column(name = "key", index = true)
+    @Column(name = "key", index = true, notNull = true)
     private String key;
 
-    @Column(name = "value")
+    @Column(name = "value", notNull = true)
     private String value;
 
     public Setting() {
