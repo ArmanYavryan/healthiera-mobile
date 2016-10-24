@@ -6,8 +6,8 @@
     android:viewportWidth="30">
     <path
         android:pathData="M15 8 H 3 V 25 H 20 V 12 "
-        android:strokeColor="#333333"
-        android:strokeWidth="2" />
+        android:strokeColor="#aab9af"
+        android:strokeWidth="1" />
     <path
         android:fillColor="#5f97e1"
         android:pathData="M 5 12 L 12 22 Q17 10 28 1 Q 15 8 11 16 z" />

@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#EFF0F1"
+    android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
     tools:context="com.healthiera.mobile.fragment.StatusGraph">
 
     <ScrollView
@@ -30,7 +31,7 @@
                     android:gravity="center"
                     android:padding="10dp"
                     android:text="Status Graphs"
-                    android:textColor="#90939B"
+                    android:textColor="#458495"
                     android:textSize="20dp" />
 
                 <LinearLayout
