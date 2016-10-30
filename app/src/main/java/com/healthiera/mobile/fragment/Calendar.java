@@ -3,20 +3,15 @@ package com.healthiera.mobile.fragment;
 
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
-import android.app.Dialog;
 import android.content.DialogInterface;
 import android.graphics.Color;
-import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.CardView;
 import android.view.Gravity;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
-import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.view.animation.LinearInterpolator;
@@ -25,7 +20,6 @@ import android.view.animation.Transformation;
 import android.view.animation.TranslateAnimation;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.DatePicker;
 import android.widget.FrameLayout;
@@ -33,24 +27,22 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.NumberPicker;
 import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
 
 import com.healthiera.mobile.R;
-import com.healthiera.mobile.activity.main.MainActivity;
 import com.healthiera.mobile.component.base.BaseToggleButton;
 
 import java.util.ArrayList;
 
+
 /**
  * A simple {@link Fragment} subclass.
  */
-public class Calendar extends Fragment implements View.OnClickListener, Animation.AnimationListener, AdapterView.OnItemSelectedListener, CompoundButton.OnCheckedChangeListener {
-    LinearLayout pill_take_time_fade_layout, test2, test, test2_2, schedule_fade_layout, card_fade;
-    Animation fadein, fadein2, rotatein, rotateout, rotate1;
-    Animation fadein_2, fadein2_2, rotatein_2, rotateout_2;
+public class Calendar extends Fragment implements View.OnClickListener, Animation.AnimationListener,
+        AdapterView.OnItemSelectedListener, CompoundButton.OnCheckedChangeListener {
+
     Animation fadein1, delay;
     ImageView iv, iv2;
     TextView sometext, sometext2;
@@ -58,6 +50,11 @@ public class Calendar extends Fragment implements View.OnClickListener, Animatio
     String Duration = "", days = "Every day";
     CardView cardView, cardView2;
     BaseToggleButton baseToggleButton;
+    private LinearLayout pill_take_time_fade_layout;
+    private LinearLayout test2;
+    private LinearLayout test, test2_2, schedule_fade_layout, card_fade;
+    private Animation fadein, fadein2, rotatein, rotateout, rotate1;
+    private Animation fadein_2, fadein2_2, rotatein_2, rotateout_2;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
