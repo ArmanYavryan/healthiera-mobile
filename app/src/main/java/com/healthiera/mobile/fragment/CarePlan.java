@@ -50,7 +50,7 @@ public class CarePlan extends BaseFragment {
         new Delete().from(Schedule.class).execute();
         new Delete().from(com.healthiera.mobile.entity.Procedure.class).execute();
         new Delete().from(Measurement.class).execute();
-        new Delete().from(Medication.class).execute();
+       // new Delete().from(Medication.class).execute();
         new Delete().from(Doctor.class).execute();
         new Delete().from(com.healthiera.mobile.entity.Goal.class).execute();
 

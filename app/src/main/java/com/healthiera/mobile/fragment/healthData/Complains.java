@@ -2,18 +2,13 @@ package com.healthiera.mobile.fragment.healthData;
 
 
 import android.os.Bundle;
-import android.os.CountDownTimer;
-import android.os.Handler;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.CardView;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
-import android.view.animation.AnimationSet;
 import android.view.animation.LinearInterpolator;
-import android.view.animation.ScaleAnimation;
 import android.view.animation.Transformation;
 import android.view.animation.TranslateAnimation;
 import android.widget.EditText;
@@ -21,232 +16,354 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
+import com.activeandroid.query.Select;
 import com.healthiera.mobile.R;
+import com.healthiera.mobile.entity.HealthDate;
+import com.healthiera.mobile.entity.enumeration.HealthDateType;
+import com.healthiera.mobile.serivce.HealthDateService;
+
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 public class Complains extends Fragment implements Animation.AnimationListener, View.OnClickListener {
 
-    private boolean obesty = false, obesty2 = false, obesty3 = false, obesty4 = false, obesty5 = false, obesty6 = false, obesty7 = false;
-    private Animation toggle_on, toggle_off, toggle_on2, toggle_off2, toggle_on3, toggle_off3, toggle_on4, toggle_off4, toggle_on5, toggle_off5,
-            toggle_on6, toggle_off6, toggle_on7, toggle_off7;
-    private ImageView thumb, track, thumb2, track2, thumb3, track3, thumb4, track4, thumb5, track5, thumb6, track6, thumb7, track7;
+    private boolean
+            obesty = false,
+            thirsty = false,
+            profuseSweating = false,
+            nocturia = false,
+            polyuria = false,
+            polydipsia = false,
+            bulimia = false;
+
+    private Animation
+            obesty_toggle_on,
+            obesty_toggle_off,
+            thirsty_toggle_on,
+            thirsty_toggle_off,
+            profuseSweating_toggle_on,
+            profuseSweating_toggle_off,
+            nocturia_toggle_on,
+            nocturia_toggle_off,
+            polyuria_toggle_on,
+            polyuria_toggle_off,
+            polydipsia_toggle_on,
+            polydipsia_toggle_off,
+            bulimia_toggle_on,
+            bulimia_toggle_off;
+
+    private ImageView
+            obesty_thumb,
+            obesty_track,
+            thirsty_thumb,
+            thirsty_track,
+            profuseSweating_thumb,
+            profuseSweating_track,
+            nocturia_thumb,
+            nocturia_track,
+            polyuria_thumb,
+            polyuria_track,
+            polydipsia_thumb,
+            polydipsia_track,
+            bulimia_thumb,
+            bulimia_track;
     LinearLayout urination;
+    EditText nocturia_text_input;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_complains, container, false);
 
-        function1(view);
+        initializeView(view);
 
-        ImageView add = (ImageView) view.findViewById(R.id.add);
-        final EditText text_input = (EditText) view.findViewById(R.id.text_input);
+        ImageView add = (ImageView) view.findViewById(R.id.nocturia_add);
+        nocturia_text_input = (EditText) view.findViewById(R.id.nocturia_text_input);
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 handlerForToggle4();
-                if (text_input.getText().toString().length() != 0) {
-                    if (!obesty4) {
-                        thumb4.startAnimation(toggle_on4);
-                        obesty4 = true;
+                if (nocturia_text_input.getText().toString().length() != 0) {
+                    if (!nocturia) {
+                        nocturia_thumb.startAnimation(nocturia_toggle_on);
+                        nocturia = true;
                     }
                 } else {
-                    if (obesty4) {
-                        thumb4.startAnimation(toggle_off4);
-                        obesty4 = false;
+                    if (nocturia) {
+                        nocturia_thumb.startAnimation(nocturia_toggle_off);
+                        nocturia = false;
+
                     }
                 }
+                HealthDate healthDate = new HealthDate();
+                healthDate.setHealthDateType(HealthDateType.Nocturia);
+                healthDate.setValue(nocturia_text_input.getText().toString());
+                healthDate.save();
             }
         });
 
         return view;
     }
 
-    private void function1(View view) {
+    private void initializeView(View view) {
 
         urination = (LinearLayout) view.findViewById(R.id.urination);
-        track = (ImageView) view.findViewById(R.id.track);
-        thumb = (ImageView) view.findViewById(R.id.thumb);
+        obesty_track = (ImageView) view.findViewById(R.id.obesty_track);
+        obesty_thumb = (ImageView) view.findViewById(R.id.obesty_thumb);
+        HealthDate hd = new HealthDateService().findHealthDatesByType(HealthDateType.Obesty);
+        if(hd!=null && hd.getValue().equals("true"))
+        {
+           obesty_track.setImageResource(R.drawable.switch_track);
+           obesty_thumb.setImageResource(R.drawable.switch_thumb);
+            FrameLayout.LayoutParams layout = (FrameLayout.LayoutParams) obesty_thumb.getLayoutParams();
+            layout.gravity = Gravity.RIGHT;
+            obesty = !obesty;
+        }
+        int toX = obesty_track.getLayoutParams().width - obesty_thumb.getLayoutParams().width;
+        int to_X = obesty_thumb.getLayoutParams().width - obesty_track.getLayoutParams().width;
 
-        int toX = track.getLayoutParams().width - thumb.getLayoutParams().width;
-        int to_X = thumb.getLayoutParams().width - track.getLayoutParams().width;
+        obesty_toggle_on = new TranslateAnimation(0, toX, 0, 0);
+        obesty_toggle_on.setInterpolator(new LinearInterpolator());
+        obesty_toggle_on.setFillAfter(true);
+        obesty_toggle_on.setDuration(200);
+        obesty_toggle_off = new TranslateAnimation(0, to_X, 0, 0);
+        obesty_toggle_off.setInterpolator(new LinearInterpolator());
+        obesty_toggle_off.setFillAfter(true);
+        obesty_toggle_off.setDuration(200);
+        obesty_toggle_on.setAnimationListener(this);
+        obesty_toggle_off.setAnimationListener(this);
+        obesty_track.setOnClickListener(this);
+        obesty_thumb.setOnClickListener(this);
+        ////
 
-        toggle_on = new TranslateAnimation(0, toX, 0, 0);
-        toggle_on.setInterpolator(new LinearInterpolator());
-        toggle_on.setFillAfter(true);
-        toggle_on.setDuration(200);
-        toggle_off = new TranslateAnimation(0, to_X, 0, 0);
-        toggle_off.setInterpolator(new LinearInterpolator());
-        toggle_off.setFillAfter(true);
-        toggle_off.setDuration(200);
-        toggle_on.setAnimationListener(this);
-        toggle_off.setAnimationListener(this);
-        track.setOnClickListener(this);
-        thumb.setOnClickListener(this);
+        thirsty_track = (ImageView) view.findViewById(R.id.thirsty_track);
+        thirsty_thumb = (ImageView) view.findViewById(R.id.thirsty_thumb);
+
+        hd = new HealthDateService().findHealthDatesByType(HealthDateType.Thirsty);
+        if(hd!=null && hd.getValue().equals("true"))
+        {
+            thirsty_track.setImageResource(R.drawable.switch_track);
+            thirsty_thumb.setImageResource(R.drawable.switch_thumb);
+            FrameLayout.LayoutParams layout = (FrameLayout.LayoutParams) thirsty_thumb.getLayoutParams();
+            layout.gravity = Gravity.RIGHT;
+            thirsty = !thirsty;
+        }
+
+        thirsty_toggle_on = new TranslateAnimation(0, toX, 0, 0);
+        thirsty_toggle_on.setInterpolator(new LinearInterpolator());
+        thirsty_toggle_on.setFillAfter(true);
+        thirsty_toggle_on.setDuration(200);
+        thirsty_toggle_off = new TranslateAnimation(0, to_X, 0, 0);
+        thirsty_toggle_off.setInterpolator(new LinearInterpolator());
+        thirsty_toggle_off.setFillAfter(true);
+        thirsty_toggle_off.setDuration(200);
+        thirsty_toggle_on.setAnimationListener(this);
+        thirsty_toggle_off.setAnimationListener(this);
+        thirsty_track.setOnClickListener(this);
+        thirsty_thumb.setOnClickListener(this);
         ////
-        track2 = (ImageView) view.findViewById(R.id.track2);
-        thumb2 = (ImageView) view.findViewById(R.id.thumb2);
-        toggle_on2 = new TranslateAnimation(0, toX, 0, 0);
-        toggle_on2.setInterpolator(new LinearInterpolator());
-        toggle_on2.setFillAfter(true);
-        toggle_on2.setDuration(200);
-        toggle_off2 = new TranslateAnimation(0, to_X, 0, 0);
-        toggle_off2.setInterpolator(new LinearInterpolator());
-        toggle_off2.setFillAfter(true);
-        toggle_off2.setDuration(200);
-        toggle_on2.setAnimationListener(this);
-        toggle_off2.setAnimationListener(this);
-        track2.setOnClickListener(this);
-        thumb2.setOnClickListener(this);
-        ////
-        track3 = (ImageView) view.findViewById(R.id.track3);
-        thumb3 = (ImageView) view.findViewById(R.id.thumb3);
-        toggle_on3 = new TranslateAnimation(0, toX, 0, 0);
-        toggle_on3.setInterpolator(new LinearInterpolator());
-        toggle_on3.setFillAfter(true);
-        toggle_on3.setDuration(200);
-        toggle_off3 = new TranslateAnimation(0, to_X, 0, 0);
-        toggle_off3.setInterpolator(new LinearInterpolator());
-        toggle_off3.setFillAfter(true);
-        toggle_off3.setDuration(200);
-        toggle_on3.setAnimationListener(this);
-        toggle_off3.setAnimationListener(this);
-        track3.setOnClickListener(this);
-        thumb3.setOnClickListener(this);
+        profuseSweating_track = (ImageView) view.findViewById(R.id.profuseSweating_track);
+        profuseSweating_thumb = (ImageView) view.findViewById(R.id.profuseSweating_thumb);
+        hd = new HealthDateService().findHealthDatesByType(HealthDateType.Profuse_Sweating);
+        if(hd!=null && hd.getValue().equals("true"))
+        {
+            profuseSweating_track.setImageResource(R.drawable.switch_track);
+            profuseSweating_thumb.setImageResource(R.drawable.switch_thumb);
+            FrameLayout.LayoutParams layout = (FrameLayout.LayoutParams) profuseSweating_thumb.getLayoutParams();
+            layout.gravity = Gravity.RIGHT;
+            profuseSweating = !profuseSweating;
+        }
+        profuseSweating_toggle_on = new TranslateAnimation(0, toX, 0, 0);
+        profuseSweating_toggle_on.setInterpolator(new LinearInterpolator());
+        profuseSweating_toggle_on.setFillAfter(true);
+        profuseSweating_toggle_on.setDuration(200);
+        profuseSweating_toggle_off = new TranslateAnimation(0, to_X, 0, 0);
+        profuseSweating_toggle_off.setInterpolator(new LinearInterpolator());
+        profuseSweating_toggle_off.setFillAfter(true);
+        profuseSweating_toggle_off.setDuration(200);
+        profuseSweating_toggle_on.setAnimationListener(this);
+        profuseSweating_toggle_off.setAnimationListener(this);
+        profuseSweating_track.setOnClickListener(this);
+        profuseSweating_thumb.setOnClickListener(this);
 ////
-        track4 = (ImageView) view.findViewById(R.id.track4);
-        thumb4 = (ImageView) view.findViewById(R.id.thumb4);
-        toggle_on4 = new TranslateAnimation(0, toX, 0, 0);
-        toggle_on4.setInterpolator(new LinearInterpolator());
-        toggle_on4.setFillAfter(true);
-        toggle_on4.setDuration(200);
-        toggle_off4 = new TranslateAnimation(0, to_X, 0, 0);
-        toggle_off4.setInterpolator(new LinearInterpolator());
-        toggle_off4.setFillAfter(true);
-        toggle_off4.setDuration(200);
-        toggle_on4.setAnimationListener(this);
-        toggle_off4.setAnimationListener(this);
-        track4.setOnClickListener(this);
-        thumb4.setOnClickListener(this);
+        nocturia_track = (ImageView) view.findViewById(R.id.nocturia_track);
+        nocturia_thumb = (ImageView) view.findViewById(R.id.nocturia_thumb);
+
+        hd = new HealthDateService().findHealthDatesByType(HealthDateType.Nocturia);
+        if(hd!=null && !hd.getValue().equals(""))
+        {
+            nocturia_track.setImageResource(R.drawable.switch_track);
+            nocturia_thumb.setImageResource(R.drawable.switch_thumb);
+            FrameLayout.LayoutParams layout = (FrameLayout.LayoutParams) nocturia_thumb.getLayoutParams();
+            layout.gravity = Gravity.RIGHT;
+            nocturia = !nocturia;
+            EditText nocturia_text_input= (EditText) view.findViewById(R.id.nocturia_text_input);
+            nocturia_text_input.setText(hd.getValue());
+        }
+
+        nocturia_toggle_on = new TranslateAnimation(0, toX, 0, 0);
+        nocturia_toggle_on.setInterpolator(new LinearInterpolator());
+        nocturia_toggle_on.setFillAfter(true);
+        nocturia_toggle_on.setDuration(200);
+        nocturia_toggle_off = new TranslateAnimation(0, to_X, 0, 0);
+        nocturia_toggle_off.setInterpolator(new LinearInterpolator());
+        nocturia_toggle_off.setFillAfter(true);
+        nocturia_toggle_off.setDuration(200);
+        nocturia_toggle_on.setAnimationListener(this);
+        nocturia_toggle_off.setAnimationListener(this);
+        nocturia_track.setOnClickListener(this);
+        nocturia_thumb.setOnClickListener(this);
 ////
-        track5 = (ImageView) view.findViewById(R.id.track5);
-        thumb5 = (ImageView) view.findViewById(R.id.thumb5);
-        toggle_on5 = new TranslateAnimation(0, toX, 0, 0);
-        toggle_on5.setInterpolator(new LinearInterpolator());
-        toggle_on5.setFillAfter(true);
-        toggle_on5.setDuration(200);
-        toggle_off5 = new TranslateAnimation(0, to_X, 0, 0);
-        toggle_off5.setInterpolator(new LinearInterpolator());
-        toggle_off5.setFillAfter(true);
-        toggle_off5.setDuration(200);
-        toggle_on5.setAnimationListener(this);
-        toggle_off5.setAnimationListener(this);
-        track5.setOnClickListener(this);
-        thumb5.setOnClickListener(this);
+        polyuria_track = (ImageView) view.findViewById(R.id.polyuria_track);
+        polyuria_thumb = (ImageView) view.findViewById(R.id.polyuria_thumb);
+        hd = new HealthDateService().findHealthDatesByType(HealthDateType.Polyuria);
+        if(hd!=null && hd.getValue().equals("true"))
+        {
+            polyuria_track.setImageResource(R.drawable.switch_track);
+            polyuria_thumb.setImageResource(R.drawable.switch_thumb);
+            FrameLayout.LayoutParams layout = (FrameLayout.LayoutParams) polyuria_thumb.getLayoutParams();
+            layout.gravity = Gravity.RIGHT;
+            polyuria = !polyuria;
+        }
+        polyuria_toggle_on = new TranslateAnimation(0, toX, 0, 0);
+        polyuria_toggle_on.setInterpolator(new LinearInterpolator());
+        polyuria_toggle_on.setFillAfter(true);
+        polyuria_toggle_on.setDuration(200);
+        polyuria_toggle_off = new TranslateAnimation(0, to_X, 0, 0);
+        polyuria_toggle_off.setInterpolator(new LinearInterpolator());
+        polyuria_toggle_off.setFillAfter(true);
+        polyuria_toggle_off.setDuration(200);
+        polyuria_toggle_on.setAnimationListener(this);
+        polyuria_toggle_off.setAnimationListener(this);
+        polyuria_track.setOnClickListener(this);
+        polyuria_thumb.setOnClickListener(this);
 ////
-        track6 = (ImageView) view.findViewById(R.id.track6);
-        thumb6 = (ImageView) view.findViewById(R.id.thumb6);
-        toggle_on6 = new TranslateAnimation(0, toX, 0, 0);
-        toggle_on6.setInterpolator(new LinearInterpolator());
-        toggle_on6.setFillAfter(true);
-        toggle_on6.setDuration(200);
-        toggle_off6 = new TranslateAnimation(0, to_X, 0, 0);
-        toggle_off6.setInterpolator(new LinearInterpolator());
-        toggle_off6.setFillAfter(true);
-        toggle_off6.setDuration(200);
-        toggle_on6.setAnimationListener(this);
-        toggle_off6.setAnimationListener(this);
-        track6.setOnClickListener(this);
-        thumb6.setOnClickListener(this);
+        polydipsia_track = (ImageView) view.findViewById(R.id.polydipsia_track);
+        polydipsia_thumb = (ImageView) view.findViewById(R.id.polydipsia_thumb);
+
+        hd = new HealthDateService().findHealthDatesByType(HealthDateType.Polydipsia);
+        if(hd!=null && hd.getValue().equals("true"))
+        {
+            polydipsia_track.setImageResource(R.drawable.switch_track);
+            polydipsia_thumb.setImageResource(R.drawable.switch_thumb);
+            FrameLayout.LayoutParams layout = (FrameLayout.LayoutParams) polydipsia_thumb.getLayoutParams();
+            layout.gravity = Gravity.RIGHT;
+            polydipsia = !polydipsia;
+        }
+        polydipsia_toggle_on = new TranslateAnimation(0, toX, 0, 0);
+        polydipsia_toggle_on.setInterpolator(new LinearInterpolator());
+        polydipsia_toggle_on.setFillAfter(true);
+        polydipsia_toggle_on.setDuration(200);
+        polydipsia_toggle_off = new TranslateAnimation(0, to_X, 0, 0);
+        polydipsia_toggle_off.setInterpolator(new LinearInterpolator());
+        polydipsia_toggle_off.setFillAfter(true);
+        polydipsia_toggle_off.setDuration(200);
+        polydipsia_toggle_on.setAnimationListener(this);
+        polydipsia_toggle_off.setAnimationListener(this);
+        polydipsia_track.setOnClickListener(this);
+        polydipsia_thumb.setOnClickListener(this);
 ////
-        track7 = (ImageView) view.findViewById(R.id.track7);
-        thumb7 = (ImageView) view.findViewById(R.id.thumb7);
-        toggle_on7 = new TranslateAnimation(0, toX, 0, 0);
-        toggle_on7.setInterpolator(new LinearInterpolator());
-        toggle_on7.setFillAfter(true);
-        toggle_on7.setDuration(200);
-        toggle_off7 = new TranslateAnimation(0, to_X, 0, 0);
-        toggle_off7.setInterpolator(new LinearInterpolator());
-        toggle_off7.setFillAfter(true);
-        toggle_off7.setDuration(200);
-        toggle_on7.setAnimationListener(this);
-        toggle_off7.setAnimationListener(this);
-        track7.setOnClickListener(this);
-        thumb7.setOnClickListener(this);
+        bulimia_track = (ImageView) view.findViewById(R.id.bulimia_track);
+        bulimia_thumb = (ImageView) view.findViewById(R.id.bulimia_thumb);
+
+        hd = new HealthDateService().findHealthDatesByType(HealthDateType.Bulimia);
+        if(hd!=null && hd.getValue().equals("true"))
+        {
+            bulimia_track.setImageResource(R.drawable.switch_track);
+            bulimia_thumb.setImageResource(R.drawable.switch_thumb);
+            FrameLayout.LayoutParams layout = (FrameLayout.LayoutParams) bulimia_thumb.getLayoutParams();
+            layout.gravity = Gravity.RIGHT;
+            bulimia = !bulimia;
+        }
+
+        bulimia_toggle_on = new TranslateAnimation(0, toX, 0, 0);
+        bulimia_toggle_on.setInterpolator(new LinearInterpolator());
+        bulimia_toggle_on.setFillAfter(true);
+        bulimia_toggle_on.setDuration(200);
+        bulimia_toggle_off = new TranslateAnimation(0, to_X, 0, 0);
+        bulimia_toggle_off.setInterpolator(new LinearInterpolator());
+        bulimia_toggle_off.setFillAfter(true);
+        bulimia_toggle_off.setDuration(200);
+        bulimia_toggle_on.setAnimationListener(this);
+        bulimia_toggle_off.setAnimationListener(this);
+        bulimia_track.setOnClickListener(this);
+        bulimia_thumb.setOnClickListener(this);
     }
 
     @Override
     public void onAnimationStart(Animation animation) {
-        if (animation == toggle_on) {
-            thumb.setClickable(false);
-            track.setClickable(false);
-            thumb.setImageResource(R.drawable.switch_thumb);
-            track.setImageResource(R.drawable.switch_track);
-        } else if (animation == toggle_off) {
-            thumb.setClickable(false);
-            track.setClickable(false);
-            thumb.setImageResource(R.drawable.switch_thumb_off);
-            track.setImageResource(R.drawable.switch_track_off);
-        } else if (animation == toggle_on2) {
-            thumb2.setClickable(false);
-            track2.setClickable(false);
-            thumb2.setImageResource(R.drawable.switch_thumb);
-            track2.setImageResource(R.drawable.switch_track);
-        } else if (animation == toggle_off2) {
-            thumb2.setClickable(false);
-            track2.setClickable(false);
-            thumb2.setImageResource(R.drawable.switch_thumb_off);
-            track2.setImageResource(R.drawable.switch_track_off);
-        } else if (animation == toggle_on3) {
-            thumb3.setClickable(false);
-            track3.setClickable(false);
-            thumb3.setImageResource(R.drawable.switch_thumb);
-            track3.setImageResource(R.drawable.switch_track);
-        } else if (animation == toggle_off3) {
-            thumb3.setClickable(false);
-            track3.setClickable(false);
-            thumb3.setImageResource(R.drawable.switch_thumb_off);
-            track3.setImageResource(R.drawable.switch_track_off);
-        } else if (animation == toggle_on4) {
-            thumb4.setClickable(false);
-            track4.setClickable(false);
-            thumb4.setImageResource(R.drawable.switch_thumb);
-            track4.setImageResource(R.drawable.switch_track);
-        } else if (animation == toggle_off4) {
-            thumb4.setClickable(false);
-            track4.setClickable(false);
-            thumb4.setImageResource(R.drawable.switch_thumb_off);
-            track4.setImageResource(R.drawable.switch_track_off);
-        } else if (animation == toggle_on5) {
-            thumb5.setClickable(false);
-            track5.setClickable(false);
-            thumb5.setImageResource(R.drawable.switch_thumb);
-            track5.setImageResource(R.drawable.switch_track);
-        } else if (animation == toggle_off5) {
-            thumb5.setClickable(false);
-            track5.setClickable(false);
-            thumb5.setImageResource(R.drawable.switch_thumb_off);
-            track5.setImageResource(R.drawable.switch_track_off);
-        } else if (animation == toggle_on6) {
-            thumb6.setClickable(false);
-            track6.setClickable(false);
-            thumb6.setImageResource(R.drawable.switch_thumb);
-            track6.setImageResource(R.drawable.switch_track);
-        } else if (animation == toggle_off6) {
-            thumb6.setClickable(false);
-            track6.setClickable(false);
-            thumb6.setImageResource(R.drawable.switch_thumb_off);
-            track6.setImageResource(R.drawable.switch_track_off);
+        if (animation == obesty_toggle_on) {
+            obesty_thumb.setClickable(false);
+            obesty_track.setClickable(false);
+            obesty_thumb.setImageResource(R.drawable.switch_thumb);
+            obesty_track.setImageResource(R.drawable.switch_track);
+        } else if (animation == obesty_toggle_off) {
+            obesty_thumb.setClickable(false);
+            obesty_track.setClickable(false);
+            obesty_thumb.setImageResource(R.drawable.switch_thumb_off);
+            obesty_track.setImageResource(R.drawable.switch_track_off);
+        } else if (animation == thirsty_toggle_on) {
+            thirsty_thumb.setClickable(false);
+            thirsty_track.setClickable(false);
+            thirsty_thumb.setImageResource(R.drawable.switch_thumb);
+            thirsty_track.setImageResource(R.drawable.switch_track);
+        } else if (animation == thirsty_toggle_off) {
+            thirsty_thumb.setClickable(false);
+            thirsty_track.setClickable(false);
+            thirsty_thumb.setImageResource(R.drawable.switch_thumb_off);
+            thirsty_track.setImageResource(R.drawable.switch_track_off);
+        } else if (animation == profuseSweating_toggle_on) {
+            profuseSweating_thumb.setClickable(false);
+            profuseSweating_track.setClickable(false);
+            profuseSweating_thumb.setImageResource(R.drawable.switch_thumb);
+            profuseSweating_track.setImageResource(R.drawable.switch_track);
+        } else if (animation == profuseSweating_toggle_off) {
+            profuseSweating_thumb.setClickable(false);
+            profuseSweating_track.setClickable(false);
+            profuseSweating_thumb.setImageResource(R.drawable.switch_thumb_off);
+            profuseSweating_track.setImageResource(R.drawable.switch_track_off);
+        } else if (animation == nocturia_toggle_on) {
+            nocturia_thumb.setClickable(false);
+            nocturia_track.setClickable(false);
+            nocturia_thumb.setImageResource(R.drawable.switch_thumb);
+            nocturia_track.setImageResource(R.drawable.switch_track);
+        } else if (animation == nocturia_toggle_off) {
+            nocturia_thumb.setClickable(false);
+            nocturia_track.setClickable(false);
+            nocturia_thumb.setImageResource(R.drawable.switch_thumb_off);
+            nocturia_track.setImageResource(R.drawable.switch_track_off);
+        } else if (animation == polyuria_toggle_on) {
+            polyuria_thumb.setClickable(false);
+            polyuria_track.setClickable(false);
+            polyuria_thumb.setImageResource(R.drawable.switch_thumb);
+            polyuria_track.setImageResource(R.drawable.switch_track);
+        } else if (animation == polyuria_toggle_off) {
+            polyuria_thumb.setClickable(false);
+            polyuria_track.setClickable(false);
+            polyuria_thumb.setImageResource(R.drawable.switch_thumb_off);
+            polyuria_track.setImageResource(R.drawable.switch_track_off);
+        } else if (animation == polydipsia_toggle_on) {
+            polydipsia_thumb.setClickable(false);
+            polydipsia_track.setClickable(false);
+            polydipsia_thumb.setImageResource(R.drawable.switch_thumb);
+            polydipsia_track.setImageResource(R.drawable.switch_track);
+        } else if (animation == polydipsia_toggle_off) {
+            polydipsia_thumb.setClickable(false);
+            polydipsia_track.setClickable(false);
+            polydipsia_thumb.setImageResource(R.drawable.switch_thumb_off);
+            polydipsia_track.setImageResource(R.drawable.switch_track_off);
         }
-        else if (animation == toggle_on7) {
-            thumb7.setClickable(false);
-            track7.setClickable(false);
-            thumb7.setImageResource(R.drawable.switch_thumb);
-            track7.setImageResource(R.drawable.switch_track);
-        } else if (animation == toggle_off7) {
-            thumb7.setClickable(false);
-            track7.setClickable(false);
-            thumb7.setImageResource(R.drawable.switch_thumb_off);
-            track7.setImageResource(R.drawable.switch_track_off);
+        else if (animation == bulimia_toggle_on) {
+            bulimia_thumb.setClickable(false);
+            bulimia_track.setClickable(false);
+            bulimia_thumb.setImageResource(R.drawable.switch_thumb);
+            bulimia_track.setImageResource(R.drawable.switch_track);
+        } else if (animation == bulimia_toggle_off) {
+            bulimia_thumb.setClickable(false);
+            bulimia_track.setClickable(false);
+            bulimia_thumb.setImageResource(R.drawable.switch_thumb_off);
+            bulimia_track.setImageResource(R.drawable.switch_track_off);
         }
 
     }
@@ -254,111 +371,111 @@ public class Complains extends Fragment implements Animation.AnimationListener, 
     @Override
     public void onAnimationEnd(Animation animation) {
 
-        if (animation == toggle_on) {
-            FrameLayout.LayoutParams layout = (FrameLayout.LayoutParams) thumb.getLayoutParams();
+        if (animation == obesty_toggle_on) {
+            FrameLayout.LayoutParams layout = (FrameLayout.LayoutParams) obesty_thumb.getLayoutParams();
             layout.gravity = Gravity.RIGHT;
-            thumb.setLayoutParams(layout);
-            thumb.clearAnimation();
-            thumb.setClickable(true);
-            track.setClickable(true);
+            obesty_thumb.setLayoutParams(layout);
+            obesty_thumb.clearAnimation();
+            obesty_thumb.setClickable(true);
+            obesty_track.setClickable(true);
 
-        } else if (animation == toggle_off) {
-            FrameLayout.LayoutParams layout = (FrameLayout.LayoutParams) thumb.getLayoutParams();
+        } else if (animation == obesty_toggle_off) {
+            FrameLayout.LayoutParams layout = (FrameLayout.LayoutParams) obesty_thumb.getLayoutParams();
             layout.gravity = Gravity.LEFT;
-            thumb.setLayoutParams(layout);
-            thumb.clearAnimation();
-            thumb.setClickable(true);
-            track.setClickable(true);
-        } else if (animation == toggle_on2) {
-            FrameLayout.LayoutParams layout = (FrameLayout.LayoutParams) thumb2.getLayoutParams();
+            obesty_thumb.setLayoutParams(layout);
+            obesty_thumb.clearAnimation();
+            obesty_thumb.setClickable(true);
+            obesty_track.setClickable(true);
+        } else if (animation == thirsty_toggle_on) {
+            FrameLayout.LayoutParams layout = (FrameLayout.LayoutParams) thirsty_thumb.getLayoutParams();
             layout.gravity = Gravity.RIGHT;
-            thumb2.setLayoutParams(layout);
-            thumb2.clearAnimation();
-            thumb2.setClickable(true);
-            track2.setClickable(true);
+            thirsty_thumb.setLayoutParams(layout);
+            thirsty_thumb.clearAnimation();
+            thirsty_thumb.setClickable(true);
+            thirsty_track.setClickable(true);
 
-        } else if (animation == toggle_off2) {
-            FrameLayout.LayoutParams layout = (FrameLayout.LayoutParams) thumb2.getLayoutParams();
+        } else if (animation == thirsty_toggle_off) {
+            FrameLayout.LayoutParams layout = (FrameLayout.LayoutParams) thirsty_thumb.getLayoutParams();
             layout.gravity = Gravity.LEFT;
-            thumb2.setLayoutParams(layout);
-            thumb2.clearAnimation();
-            thumb2.setClickable(true);
-            track2.setClickable(true);
-        } else if (animation == toggle_on3) {
-            FrameLayout.LayoutParams layout = (FrameLayout.LayoutParams) thumb3.getLayoutParams();
+            thirsty_thumb.setLayoutParams(layout);
+            thirsty_thumb.clearAnimation();
+            thirsty_thumb.setClickable(true);
+            thirsty_track.setClickable(true);
+        } else if (animation == profuseSweating_toggle_on) {
+            FrameLayout.LayoutParams layout = (FrameLayout.LayoutParams) profuseSweating_thumb.getLayoutParams();
             layout.gravity = Gravity.RIGHT;
-            thumb3.setLayoutParams(layout);
-            thumb3.clearAnimation();
-            thumb3.setClickable(true);
-            track3.setClickable(true);
+            profuseSweating_thumb.setLayoutParams(layout);
+            profuseSweating_thumb.clearAnimation();
+            profuseSweating_thumb.setClickable(true);
+            profuseSweating_track.setClickable(true);
 
-        } else if (animation == toggle_off3) {
-            FrameLayout.LayoutParams layout = (FrameLayout.LayoutParams) thumb3.getLayoutParams();
+        } else if (animation == profuseSweating_toggle_off) {
+            FrameLayout.LayoutParams layout = (FrameLayout.LayoutParams) profuseSweating_thumb.getLayoutParams();
             layout.gravity = Gravity.LEFT;
-            thumb3.setLayoutParams(layout);
-            thumb3.clearAnimation();
-            thumb3.setClickable(true);
-            track3.setClickable(true);
-        } else if (animation == toggle_on4) {
-            FrameLayout.LayoutParams layout = (FrameLayout.LayoutParams) thumb4.getLayoutParams();
+            profuseSweating_thumb.setLayoutParams(layout);
+            profuseSweating_thumb.clearAnimation();
+            profuseSweating_thumb.setClickable(true);
+            profuseSweating_track.setClickable(true);
+        } else if (animation == nocturia_toggle_on) {
+            FrameLayout.LayoutParams layout = (FrameLayout.LayoutParams) nocturia_thumb.getLayoutParams();
             layout.gravity = Gravity.RIGHT;
-            thumb4.setLayoutParams(layout);
-            thumb4.clearAnimation();
-            thumb4.setClickable(true);
-            track4.setClickable(true);
+            nocturia_thumb.setLayoutParams(layout);
+            nocturia_thumb.clearAnimation();
+            nocturia_thumb.setClickable(true);
+            nocturia_track.setClickable(true);
 
-        } else if (animation == toggle_off4) {
-            FrameLayout.LayoutParams layout = (FrameLayout.LayoutParams) thumb4.getLayoutParams();
+        } else if (animation == nocturia_toggle_off) {
+            FrameLayout.LayoutParams layout = (FrameLayout.LayoutParams) nocturia_thumb.getLayoutParams();
             layout.gravity = Gravity.LEFT;
-            thumb4.setLayoutParams(layout);
-            thumb4.clearAnimation();
-            thumb4.setClickable(true);
-            track4.setClickable(true);
-        } else if (animation == toggle_on5) {
-            FrameLayout.LayoutParams layout = (FrameLayout.LayoutParams) thumb5.getLayoutParams();
+            nocturia_thumb.setLayoutParams(layout);
+            nocturia_thumb.clearAnimation();
+            nocturia_thumb.setClickable(true);
+            nocturia_track.setClickable(true);
+        } else if (animation == polyuria_toggle_on) {
+            FrameLayout.LayoutParams layout = (FrameLayout.LayoutParams) polyuria_thumb.getLayoutParams();
             layout.gravity = Gravity.RIGHT;
-            thumb5.setLayoutParams(layout);
-            thumb5.clearAnimation();
-            thumb5.setClickable(true);
-            track5.setClickable(true);
+            polyuria_thumb.setLayoutParams(layout);
+            polyuria_thumb.clearAnimation();
+            polyuria_thumb.setClickable(true);
+            polyuria_track.setClickable(true);
 
-        } else if (animation == toggle_off5) {
-            FrameLayout.LayoutParams layout = (FrameLayout.LayoutParams) thumb5.getLayoutParams();
+        } else if (animation == polyuria_toggle_off) {
+            FrameLayout.LayoutParams layout = (FrameLayout.LayoutParams) polyuria_thumb.getLayoutParams();
             layout.gravity = Gravity.LEFT;
-            thumb5.setLayoutParams(layout);
-            thumb5.clearAnimation();
-            thumb5.setClickable(true);
-            track5.setClickable(true);
-        } else if (animation == toggle_on6) {
-            FrameLayout.LayoutParams layout = (FrameLayout.LayoutParams) thumb6.getLayoutParams();
+            polyuria_thumb.setLayoutParams(layout);
+            polyuria_thumb.clearAnimation();
+            polyuria_thumb.setClickable(true);
+            polyuria_track.setClickable(true);
+        } else if (animation == polydipsia_toggle_on) {
+            FrameLayout.LayoutParams layout = (FrameLayout.LayoutParams) polydipsia_thumb.getLayoutParams();
             layout.gravity = Gravity.RIGHT;
-            thumb6.setLayoutParams(layout);
-            thumb6.clearAnimation();
-            thumb6.setClickable(true);
-            track6.setClickable(true);
+            polydipsia_thumb.setLayoutParams(layout);
+            polydipsia_thumb.clearAnimation();
+            polydipsia_thumb.setClickable(true);
+            polydipsia_track.setClickable(true);
 
-        } else if (animation == toggle_off6) {
-            FrameLayout.LayoutParams layout = (FrameLayout.LayoutParams) thumb6.getLayoutParams();
+        } else if (animation == polydipsia_toggle_off) {
+            FrameLayout.LayoutParams layout = (FrameLayout.LayoutParams) polydipsia_thumb.getLayoutParams();
             layout.gravity = Gravity.LEFT;
-            thumb6.setLayoutParams(layout);
-            thumb6.clearAnimation();
-            thumb6.setClickable(true);
-            track6.setClickable(true);
-        } else if (animation == toggle_on7) {
-            FrameLayout.LayoutParams layout = (FrameLayout.LayoutParams) thumb7.getLayoutParams();
+            polydipsia_thumb.setLayoutParams(layout);
+            polydipsia_thumb.clearAnimation();
+            polydipsia_thumb.setClickable(true);
+            polydipsia_track.setClickable(true);
+        } else if (animation == bulimia_toggle_on) {
+            FrameLayout.LayoutParams layout = (FrameLayout.LayoutParams) bulimia_thumb.getLayoutParams();
             layout.gravity = Gravity.RIGHT;
-            thumb7.setLayoutParams(layout);
-            thumb7.clearAnimation();
-            thumb7.setClickable(true);
-            track7.setClickable(true);
+            bulimia_thumb.setLayoutParams(layout);
+            bulimia_thumb.clearAnimation();
+            bulimia_thumb.setClickable(true);
+            bulimia_track.setClickable(true);
 
-        } else if (animation == toggle_off7) {
-            FrameLayout.LayoutParams layout = (FrameLayout.LayoutParams) thumb7.getLayoutParams();
+        } else if (animation == bulimia_toggle_off) {
+            FrameLayout.LayoutParams layout = (FrameLayout.LayoutParams) bulimia_thumb.getLayoutParams();
             layout.gravity = Gravity.LEFT;
-            thumb7.setLayoutParams(layout);
-            thumb7.clearAnimation();
-            thumb7.setClickable(true);
-            track7.setClickable(true);
+            bulimia_thumb.setLayoutParams(layout);
+            bulimia_thumb.clearAnimation();
+            bulimia_thumb.setClickable(true);
+            bulimia_track.setClickable(true);
         }
     }
 
@@ -369,61 +486,75 @@ public class Complains extends Fragment implements Animation.AnimationListener, 
 
     @Override
     public void onClick(View v) {
+        HealthDate healthDate = new HealthDate();
         switch (v.getId()) {
-            case R.id.track:
-            case R.id.thumb:
+            case R.id.obesty_track:
+            case R.id.obesty_thumb:
                 if (!obesty) {
-                    thumb.startAnimation(toggle_on);
+                    obesty_thumb.startAnimation(obesty_toggle_on);
                 } else
-                    thumb.startAnimation(toggle_off);
+                    obesty_thumb.startAnimation(obesty_toggle_off);
                 obesty = !obesty;
+                healthDate.setValue(String.valueOf(obesty));
+                healthDate.setHealthDateType(HealthDateType.Obesty);
                 break;
-            case R.id.track2:
-            case R.id.thumb2:
-                if (!obesty2)
-                    thumb2.startAnimation(toggle_on2);
+            case R.id.thirsty_track:
+            case R.id.thirsty_thumb:
+                if (!thirsty)
+                    thirsty_thumb.startAnimation(thirsty_toggle_on);
                 else
-                    thumb2.startAnimation(toggle_off2);
-                obesty2 = !obesty2;
+                    thirsty_thumb.startAnimation(thirsty_toggle_off);
+                thirsty=!thirsty;
+                healthDate.setValue(String.valueOf(thirsty));
+                healthDate.setHealthDateType(HealthDateType.Thirsty);
                 break;
-            case R.id.track3:
-            case R.id.thumb3:
-                if (!obesty3)
-                    thumb3.startAnimation(toggle_on3);
+            case R.id.profuseSweating_track:
+            case R.id.profuseSweating_thumb:
+                if (!profuseSweating)
+                    profuseSweating_thumb.startAnimation(profuseSweating_toggle_on);
                 else
-                    thumb3.startAnimation(toggle_off3);
-                obesty3 = !obesty3;
+                    profuseSweating_thumb.startAnimation(profuseSweating_toggle_off);
+                profuseSweating = !profuseSweating;
+                healthDate.setValue(String.valueOf(profuseSweating));
+                healthDate.setHealthDateType(HealthDateType.Profuse_Sweating);
                 break;
-            case R.id.track4:
-            case R.id.thumb4:
+            case R.id.nocturia_track:
+            case R.id.nocturia_thumb:
                 handlerForToggle4();
                 break;
-            case R.id.track5:
-            case R.id.thumb5:
-                if (!obesty5)
-                    thumb5.startAnimation(toggle_on5);
+            case R.id.polyuria_track:
+            case R.id.polyuria_thumb:
+                if (!polyuria)
+                    polyuria_thumb.startAnimation(polyuria_toggle_on);
                 else
-                    thumb5.startAnimation(toggle_off5);
-                obesty5 = !obesty5;
+                    polyuria_thumb.startAnimation(polyuria_toggle_off);
+                polyuria = !polyuria;
+                healthDate.setValue(String.valueOf(polyuria));
+                healthDate.setHealthDateType(HealthDateType.Polyuria);
                 break;
-            case R.id.track6:
-            case R.id.thumb6:
-                if (!obesty6)
-                    thumb6.startAnimation(toggle_on6);
+            case R.id.polydipsia_track:
+            case R.id.polydipsia_thumb:
+                if (!polydipsia)
+                    polydipsia_thumb.startAnimation(polydipsia_toggle_on);
                 else
-                    thumb6.startAnimation(toggle_off6);
-                obesty6 = !obesty6;
+                    polydipsia_thumb.startAnimation(polydipsia_toggle_off);
+                polydipsia = !polydipsia;
+                healthDate.setValue(String.valueOf(polydipsia));
+                healthDate.setHealthDateType(HealthDateType.Polydipsia);
                 break;
 
-            case R.id.track7:
-            case R.id.thumb7:
-                if (!obesty7)
-                    thumb7.startAnimation(toggle_on7);
+            case R.id.bulimia_track:
+            case R.id.bulimia_thumb:
+                if (!bulimia)
+                    bulimia_thumb.startAnimation(bulimia_toggle_on);
                 else
-                    thumb7.startAnimation(toggle_off7);
-                obesty7 = !obesty7;
+                    bulimia_thumb.startAnimation(bulimia_toggle_off);
+                bulimia = !bulimia;
+                healthDate.setValue(String.valueOf(bulimia));
+                healthDate.setHealthDateType(HealthDateType.Bulimia);
                 break;
         }
+            new HealthDateService().createHealthDate(healthDate);
     }
 
     private void handlerForToggle4() {
@@ -493,5 +624,17 @@ public class Complains extends Fragment implements Animation.AnimationListener, 
         // 1dp/ms
         a.setDuration((int) (initialHeight / v.getContext().getResources().getDisplayMetrics().density));
         v.startAnimation(a);
+    }
+
+    private List<HealthDate> getLastRecord(List<HealthDate> healthDate,HealthDateType type)
+    {
+        List<HealthDate> healthDateObesty = new ArrayList<>();
+        for(HealthDate h :healthDate)
+        {
+            if(h.getHealthDateType()==type)
+                healthDateObesty.add(h);
+        }
+
+        return healthDateObesty;
     }
 }

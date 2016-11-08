@@ -96,6 +96,70 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:elevation="2dp"
+                    android:paddingRight="5dp"
+                    app:cardBackgroundColor="#ffffff"
+                    app:cardCornerRadius="3dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:paddingRight="5dp">
+
+                        <ImageView
+                            android:id="@+id/imageView5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="bottom"
+                            android:layout_marginRight="15dp"
+                            android:adjustViewBounds="true"
+                            android:baselineAlignBottom="true"
+                            android:focusable="false"
+                            android:paddingBottom="10dp"
+                            android:paddingTop="10dp"
+                            android:src="@drawable/complains" />
+
+                        <TextView
+                            android:id="@+id/tv5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight="1"
+                            android:paddingBottom="15dp"
+                            android:paddingTop="15dp"
+                            android:shadowColor="#a0ffffff"
+                            android:shadowDx="1"
+                            android:shadowDy="1"
+                            android:shadowRadius="1"
+                            android:text="Anamnesis Vitae"
+                            android:textColor="#666666"
+                            android:textSize="17dp" />
+
+                        <ImageView
+                            android:id="@+id/iv5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:adjustViewBounds="true"
+                            android:baselineAlignBottom="false"
+                            android:cropToPadding="false"
+                            android:focusableInTouchMode="false"
+                            android:forceHasOverlappingRendering="false"
+                            android:maxHeight="15dp"
+                            android:src="@drawable/arrow_right" />
+                    </LinearLayout>
+                </android.support.v7.widget.CardView>
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp">
+
+                <android.support.v7.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:elevation="2dp"
                     app:cardBackgroundColor="#ffffff"
                     app:cardCornerRadius="3dp">
 

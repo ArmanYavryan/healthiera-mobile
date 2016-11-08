@@ -14,24 +14,67 @@ import android.widget.LinearLayout;
 
 import com.healthiera.mobile.R;
 import com.healthiera.mobile.component.base.BaseToggleButton;
+import com.healthiera.mobile.entity.HealthDate;
+import com.healthiera.mobile.entity.enumeration.HealthDateType;
+import com.healthiera.mobile.serivce.HealthDateService;
+
+import java.util.List;
 
 public class Heredity extends Fragment implements CompoundButton.OnCheckedChangeListener {
 
     boolean switched1 = false, switched2 = false;
     LinearLayout bulimia;
     LinearLayout diabetes_melitus;
-    CheckBox checkBox1, checkBox2, checkBox3, checkBox4;
-    BaseToggleButton b1, b2;
+    CheckBox checkBoxF,
+             checkBoxM,
+             checkBoxGM,
+             checkBoxGF;
+
+    CheckBox checkBoxF2,
+            checkBoxM2,
+            checkBoxGM2,
+            checkBoxGF2;
+    BaseToggleButton b1,
+                     b2;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_heredity, container, false);
+        checkBoxF = (CheckBox) view.findViewById(R.id.checkBoxF);
+        checkBoxM = (CheckBox) view.findViewById(R.id.checkBoxM);
+        checkBoxGM = (CheckBox) view.findViewById(R.id.checkBoxGM);
+        checkBoxGF = (CheckBox) view.findViewById(R.id.checkBoxGF);
+
+        checkBoxF2 = (CheckBox) view.findViewById(R.id.checkBoxF2);
+        checkBoxM2 = (CheckBox) view.findViewById(R.id.checkBoxM2);
+        checkBoxGM2 = (CheckBox) view.findViewById(R.id.checkBoxGM2);
+        checkBoxGF2 = (CheckBox) view.findViewById(R.id.checkBoxGF2);
+
         bulimia = (LinearLayout) view.findViewById(R.id.bulimia);
         diabetes_melitus = (LinearLayout) view.findViewById(R.id.diabetes_melitus);
-
         LinearLayout ln = (LinearLayout) view.findViewById(R.id.ln1);
         b1 = new BaseToggleButton(getContext());
+        //////////
+        HealthDate hd;
+        hd= new HealthDateService().findHealthDatesByType(HealthDateType.Bulimia_Father);
+        if(hd!=null) checkBoxF.setChecked(Boolean.valueOf(hd.getValue()));
+        hd= new HealthDateService().findHealthDatesByType(HealthDateType.Bulimia_Mother);
+        if(hd!=null) checkBoxM.setChecked(Boolean.valueOf(hd.getValue()));
+        hd= new HealthDateService().findHealthDatesByType(HealthDateType.Bulimia_GF);
+        if(hd!=null) checkBoxGF.setChecked(Boolean.valueOf(hd.getValue()));
+        hd= new HealthDateService().findHealthDatesByType(HealthDateType.Bulimia_GM);
+        if(hd!=null) checkBoxGM.setChecked(Boolean.valueOf(hd.getValue()));
+
+        hd= new HealthDateService().findHealthDatesByType(HealthDateType.Diabet_Melitus_Father);
+        if(hd!=null) checkBoxF2.setChecked(Boolean.valueOf(hd.getValue()));
+        hd= new HealthDateService().findHealthDatesByType(HealthDateType.Diabet_Melitus_Mother);
+        if(hd!=null) checkBoxM2.setChecked(Boolean.valueOf(hd.getValue()));
+        hd= new HealthDateService().findHealthDatesByType(HealthDateType.Diabet_Melitus_GF);
+        if(hd!=null) checkBoxGF2.setChecked(Boolean.valueOf(hd.getValue()));
+        hd= new HealthDateService().findHealthDatesByType(HealthDateType.Diabet_Melitus_GM);
+        if(hd!=null) checkBoxGM2.setChecked(Boolean.valueOf(hd.getValue()));
+        //////////
         ln.addView(b1);
         b1.thumb.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,20 +105,16 @@ public class Heredity extends Fragment implements CompoundButton.OnCheckedChange
             }
         });
 
-        LinearLayout ln3 = (LinearLayout) view.findViewById(R.id.ln3);
-        ln3.addView(new BaseToggleButton(getContext()));
 
-        LinearLayout ln4 = (LinearLayout) view.findViewById(R.id.ln4);
-        ln4.addView(new BaseToggleButton(getContext()));
+        checkBoxF.setOnCheckedChangeListener(this);
+        checkBoxM.setOnCheckedChangeListener(this);
+        checkBoxGM.setOnCheckedChangeListener(this);
+        checkBoxGF.setOnCheckedChangeListener(this);
 
-        checkBox1 = (CheckBox) view.findViewById(R.id.checkBoxF);
-        checkBox2 = (CheckBox) view.findViewById(R.id.checkBoxM);
-        checkBox3 = (CheckBox) view.findViewById(R.id.checkBoxGM);
-        checkBox4 = (CheckBox) view.findViewById(R.id.checkBoxGF);
-        checkBox1.setOnCheckedChangeListener(this);
-        checkBox2.setOnCheckedChangeListener(this);
-        checkBox3.setOnCheckedChangeListener(this);
-        checkBox4.setOnCheckedChangeListener(this);
+        checkBoxF2.setOnCheckedChangeListener(this);
+        checkBoxM2.setOnCheckedChangeListener(this);
+        checkBoxGM2.setOnCheckedChangeListener(this);
+        checkBoxGF2.setOnCheckedChangeListener(this);
 
         return view;
     }
@@ -158,12 +197,68 @@ public class Heredity extends Fragment implements CompoundButton.OnCheckedChange
 
     @Override
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-        if (checkBox1.isChecked() || checkBox2.isChecked() || checkBox3.isChecked() || checkBox4.isChecked()) {
+        if (checkBoxF.isChecked() || checkBoxM.isChecked() || checkBoxGM.isChecked() || checkBoxGF.isChecked()) {
             if (!b1.selected)
                 b1.switchToggle();
+            HealthDate healthDate = new HealthDate();
+            switch (buttonView.getId())
+            {
+                case R.id.checkBoxF:
+                    healthDate.setValue(String.valueOf(isChecked));
+                    healthDate.setHealthDateType(HealthDateType.Bulimia_Father);
+                    new HealthDateService().createHealthDate(healthDate);
+                    break;
+                case R.id.checkBoxM:
+                    healthDate.setValue(String.valueOf(isChecked));
+                    healthDate.setHealthDateType(HealthDateType.Bulimia_Mother);
+                    new HealthDateService().createHealthDate(healthDate);
+                    break;
+                case R.id.checkBoxGF:
+                    healthDate.setValue(String.valueOf(isChecked));
+                    healthDate.setHealthDateType(HealthDateType.Bulimia_GF);
+                    new HealthDateService().createHealthDate(healthDate);
+                    break;
+                case R.id.checkBoxGM:
+                    healthDate.setValue(String.valueOf(isChecked));
+                    healthDate.setHealthDateType(HealthDateType.Bulimia_GM);
+                    new HealthDateService().createHealthDate(healthDate);
+                    break;
+            }
         }
         else
         if (b1.selected)
             b1.switchToggle();
+
+    if (checkBoxF2.isChecked() || checkBoxM2.isChecked() || checkBoxGM2.isChecked() || checkBoxGF2.isChecked()) {
+        if (!b2.selected)
+            b2.switchToggle();
+        HealthDate healthDate = new HealthDate();
+        switch (buttonView.getId())
+        {
+            case R.id.checkBoxF2:
+                healthDate.setValue(String.valueOf(isChecked));
+                healthDate.setHealthDateType(HealthDateType.Diabet_Melitus_Father);
+                new HealthDateService().createHealthDate(healthDate);
+                break;
+            case R.id.checkBoxM2:
+                healthDate.setValue(String.valueOf(isChecked));
+                healthDate.setHealthDateType(HealthDateType.Diabet_Melitus_Mother);
+                new HealthDateService().createHealthDate(healthDate);
+                break;
+            case R.id.checkBoxGF2:
+                healthDate.setValue(String.valueOf(isChecked));
+                healthDate.setHealthDateType(HealthDateType.Diabet_Melitus_GF);
+                new HealthDateService().createHealthDate(healthDate);
+                break;
+            case R.id.checkBoxGM2:
+                healthDate.setValue(String.valueOf(isChecked));
+                healthDate.setHealthDateType(HealthDateType.Diabet_Melitus_GM);
+                new HealthDateService().createHealthDate(healthDate);
+                break;
+        }
     }
+    else
+            if (b2.selected)
+            b2.switchToggle();
+}
 }

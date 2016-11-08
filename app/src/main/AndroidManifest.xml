@@ -30,7 +30,8 @@
             com.healthiera.mobile.entity.Measurement,com.healthiera.mobile.entity.MeasurementLog,
             com.healthiera.mobile.entity.Procedure,com.healthiera.mobile.entity.Profile,
             com.healthiera.mobile.entity.Schedule,com.healthiera.mobile.entity.ScheduleTime,
-            com.healthiera.mobile.entity.ScheduleTimeLog,com.healthiera.mobile.entity.Settings" />
+            com.healthiera.mobile.entity.ScheduleTimeLog,com.healthiera.mobile.entity.Settings,
+            com.healthiera.mobile.entity.HealthDate" />
 
         <!-- AHBottomNavigation credential -->
         <com.aurelhubert.ahbottomnavigation.AHBottomNavigation

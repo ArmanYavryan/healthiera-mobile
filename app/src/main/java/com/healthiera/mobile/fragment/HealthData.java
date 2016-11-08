@@ -12,6 +12,7 @@ import android.view.animation.TranslateAnimation;
 import android.widget.TextView;
 
 import com.healthiera.mobile.R;
+import com.healthiera.mobile.fragment.healthData.AnamnesisVitae;
 import com.healthiera.mobile.fragment.healthData.Complains;
 import com.healthiera.mobile.fragment.healthData.Devices;
 import com.healthiera.mobile.fragment.healthData.Heredity;
@@ -38,6 +39,9 @@ public class HealthData extends BaseFragment {
                 case R.id.tv4:
                     getFragmentManager().beginTransaction().replace(R.id.Content_id_, new Devices()).addToBackStack("HD-D").commit();
                     break;
+                case R.id.tv5:
+                    getFragmentManager().beginTransaction().replace(R.id.Content_id_, new AnamnesisVitae()).addToBackStack("HD-A").commit();
+                    break;
             }
         }
     };
@@ -52,12 +56,14 @@ public class HealthData extends BaseFragment {
         TextView tv2 = (TextView) rootView.findViewById(R.id.tv2);
         TextView tv3 = (TextView) rootView.findViewById(R.id.tv3);
         TextView tv4 = (TextView) rootView.findViewById(R.id.tv4);
+        TextView tv5 = (TextView) rootView.findViewById(R.id.tv5);
 
 
         tv1.setOnClickListener(onClickListener);
         tv2.setOnClickListener(onClickListener);
         tv3.setOnClickListener(onClickListener);
         tv4.setOnClickListener(onClickListener);
+        tv5.setOnClickListener(onClickListener);
         return rootView;
     }
 

@@ -5,5 +5,8 @@ package com.healthiera.mobile.entity.enumeration;
  * @date 02.11.2016
  */
 
-public class Hormone {
+public enum Hormone {
+    Prednizalone,
+    Dexamethazone,
+    Hydrocortizone
 }
