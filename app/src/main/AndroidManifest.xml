@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.healthiera.mobile">
+          package="com.healthiera.mobile">
 
     <application
         android:name="com.activeandroid.app.Application"
@@ -11,36 +11,41 @@
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         <activity android:name=".activity.main.MainActivity">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
 
         <!-- DB credential -->
         <meta-data
             android:name="AA_DB_NAME"
-            android:value="healthiera.db" />
+            android:value="healthiera.db"/>
         <meta-data
             android:name="AA_DB_VERSION"
-            android:value="1" />
+            android:value="1"/>
         <meta-data
             android:name="AA_MODELS"
-            android:value="com.healthiera.mobile.entity.Doctor,com.healthiera.mobile.entity.Goal,
-            com.healthiera.mobile.entity.Measurement,com.healthiera.mobile.entity.MeasurementLog,
-            com.healthiera.mobile.entity.Procedure,com.healthiera.mobile.entity.Profile,
-            com.healthiera.mobile.entity.Schedule,com.healthiera.mobile.entity.ScheduleTime,
-            com.healthiera.mobile.entity.ScheduleTimeLog,com.healthiera.mobile.entity.Settings" />
+            android:value="com.healthiera.mobile.entity.Doctor,com.healthiera.mobile.entity.Goal,             com.healthiera.mobile.entity.Measurement,com.healthiera.mobile.entity.MeasurementLog,             com.healthiera.mobile.entity.Procedure,com.healthiera.mobile.entity.Profile,             com.healthiera.mobile.entity.Schedule,com.healthiera.mobile.entity.ScheduleTime,             com.healthiera.mobile.entity.ScheduleTimeLog,com.healthiera.mobile.entity.Settings"/>
 
         <!-- AHBottomNavigation credential -->
         <com.aurelhubert.ahbottomnavigation.AHBottomNavigation
             android:id="@+id/bottom_navigation"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"/>
 
-        <activity android:name=".fragment.BaseFragment$ProviderDescription" />
-
-
+        <activity android:name=".fragment.BaseFragment$ProviderDescription"/>
+        <activity android:name=".fragment.Schedule.Treatment">
+        </activity>
+        <activity android:name=".fragment.Schedule.Appointment">
+        </activity>
+        <activity
+            android:name=".fragment.Schedule.Medication"
+            android:label="@string/title_activity_medication"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        </activity>
+        <activity android:name=".fragment.Schedule.Measurement">
+        </activity>
     </application>
 
 </manifest>

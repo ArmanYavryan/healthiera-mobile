@@ -20,10 +20,6 @@
             android:title="Care Plan" />
 
         <item
-            android:id="@+id/schedule"
-            android:icon="@drawable/calendar_icon"
-            android:title="Schedule" />
-        <item
             android:id="@+id/medical_id"
             android:icon="@drawable/medical_icon"
             android:title="Medical Id" />

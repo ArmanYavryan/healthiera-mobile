@@ -1,0 +1,532 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="#EFF0F1"
+              android:orientation="vertical"
+              android:weightSum="4">
+
+    <android.support.v7.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#0FB1AC">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="6dp"
+            android:rotation="45"
+            android:src="@drawable/ic_add"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Appointment"
+            android:textColor="#ffffff"
+            android:textSize="20dp"/>
+
+    </android.support.v7.widget.Toolbar>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="5dp">
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                app:cardBackgroundColor="#ffffff"
+                app:cardCornerRadius="4dp">
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Name"
+                    android:paddingLeft="10dp"
+                    android:textColorHint="#EF686A"
+                    app:hintTextAppearance="@style/TextHintStyle">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/etSearchQuestions"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/transparent"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:paddingBottom="12dp"
+                        android:textColor="#696969"
+                        android:textSize="16dp"
+                        android:textStyle="italic"/>
+                </android.support.design.widget.TextInputLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/pill_date_cv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/background_gray"
+                android:baselineAligned="false"
+                app:cardBackgroundColor="#ffffff"
+                app:cardCornerRadius="5dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="10dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:paddingLeft="5dp"
+                        android:paddingRight="5dp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight="1"
+                            android:text="Reminder Times"
+                            android:textColor="#607d8b"
+                            android:textSize="20dp"/>
+
+
+                        <ImageView
+                            android:id="@+id/pill_take_time"
+                            android:layout_width="15dp"
+                            android:layout_height="15dp"
+                            android:layout_gravity="center_vertical"
+                            android:rotation="-90"
+                            android:src="@drawable/arrow_right"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/pill_take_time_fade_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:orientation="vertical"
+                        android:paddingLeft="5dp"
+                        android:paddingRight="5dp">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:id="@+id/sometext"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="08:00(Принять 1)"
+                                android:textColor="#d6d13e"/>
+
+                            <LinearLayout
+                                android:id="@+id/test2"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+
+
+                                <LinearLayout
+                                    android:id="@+id/test"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:background="#ffffff"
+                                    android:orientation="vertical">
+
+                                </LinearLayout>
+
+                                <com.getbase.floatingactionbutton.FloatingActionButton
+                                    android:id="@+id/fab_add_reminder"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="right|bottom"
+                                    app:fab_colorNormal="#607d8b"
+                                    app:fab_colorPressed="#455a64"
+                                    app:fab_icon="@drawable/ic_add"
+                                    app:fab_size="mini"
+                                    />
+
+                            </LinearLayout>
+
+                        </RelativeLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/schedule_cv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/background_gray"
+                android:baselineAligned="false"
+                android:visibility="visible"
+                app:cardBackgroundColor="#ffffff"
+                app:cardCornerRadius="5dp">
+
+                <LinearLayout
+                    android:id="@+id/card_fade"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:paddingLeft="5dp"
+                        android:paddingRight="5dp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight="1"
+                            android:text="Schedule"
+                            android:textColor="#607d8b"
+                            android:textSize="20dp"/>
+
+
+                        <ImageView
+                            android:id="@+id/iv_schedule"
+                            android:layout_width="15dp"
+                            android:layout_height="15dp"
+                            android:layout_gravity="center_vertical"
+                            android:rotation="-90"
+                            android:src="@drawable/arrow_right"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/schedule_fade_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:orientation="vertical"
+                        android:paddingLeft="5dp"
+                        android:paddingRight="5dp">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:id="@+id/sometext_2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="some text"
+                                android:textColor="#d6d13e"/>
+
+                            <LinearLayout
+                                android:id="@+id/test2_2"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentLeft="true"
+                                android:layout_alignParentStart="true"
+                                android:layout_alignParentTop="true"
+                                android:orientation="vertical">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:background="#ffffff"
+                                    android:orientation="horizontal"
+                                    android:paddingBottom="1dp">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:padding="10dp"
+                                        android:text="Start date:"
+                                        android:textColor="#0FB1AC"
+                                        android:textSize="18dp"/>
+
+                                    <TextView
+                                        android:id="@+id/tvDate"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="match_parent"
+                                        android:gravity="center"
+                                        android:paddingRight="30dp"
+                                        android:text="Oct 21, 2016"
+                                        android:textColor="#f95223"
+                                        android:textSize="18dp"/>
+
+                                </LinearLayout>
+
+                                <TableRow
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:background="@drawable/bottom_border2"/>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical"
+                                    android:paddingBottom="1dp">
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:background="#ffffff"
+                                        android:padding="10dp"
+                                        android:text="Duration"
+                                        android:textColor="#0FB1AC"
+                                        android:textSize="18dp"/>
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:orientation="vertical">
+
+                                        <RadioGroup
+                                            android:id="@+id/rgroup1"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+
+                                            <RadioButton
+                                                android:id="@+id/b1"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:checked="true"
+                                                android:paddingBottom="10dp"
+                                                android:paddingTop="10dp"
+                                                android:text="Continuous"
+                                                android:textColor="#666666"
+                                                android:textSize="16dp"/>
+
+                                            <RadioButton
+                                                android:id="@+id/b2"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:paddingBottom="10dp"
+                                                android:paddingTop="10dp"
+                                                android:text="Number of days"
+                                                android:textColor="#666666"
+                                                android:textSize="16dp"/>
+                                        </RadioGroup>
+                                    </LinearLayout>
+
+                                </LinearLayout>
+
+                                <TableRow
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:background="@drawable/bottom_border2"></TableRow>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+
+                                    android:orientation="vertical"
+                                    android:paddingBottom="1dp">
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:background="#ffffff"
+                                        android:padding="10dp"
+                                        android:text="Days"
+                                        android:textColor="#0FB1AC"
+                                        android:textSize="18dp"/>
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:orientation="vertical">
+
+                                        <RadioGroup
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content">
+
+                                            <RadioButton
+                                                android:id="@+id/rb1"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:checked="true"
+                                                android:paddingBottom="10dp"
+                                                android:paddingTop="10dp"
+                                                android:text="Every day"
+                                                android:textColor="#666666"
+                                                android:textSize="16dp"/>
+
+                                            <RadioButton
+                                                android:id="@+id/rb2"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:paddingBottom="10dp"
+                                                android:paddingTop="10dp"
+                                                android:text="Specific days of week"
+                                                android:textColor="#666666"
+                                                android:textSize="16dp"/>
+
+
+                                            <RadioButton
+                                                android:id="@+id/rb3"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:paddingBottom="10dp"
+                                                android:paddingTop="10dp"
+                                                android:text="Days interval"
+                                                android:textColor="#666666"
+                                                android:textSize="16dp"/>
+                                        </RadioGroup>
+
+                                    </LinearLayout>
+
+                                </LinearLayout>
+
+                            </LinearLayout>
+
+                        </RelativeLayout>
+                    </LinearLayout>
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/doctor_name_cv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/background_gray"
+                android:baselineAligned="false"
+                app:cardBackgroundColor="#ffffff"
+                app:cardCornerRadius="5dp">
+
+                <LinearLayout
+                    android:id="@+id/doctor_name_fade"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginBottom="10dp"
+                        android:layout_weight="1"
+                        android:text="Doctor Name"
+                        android:textColor="#607d8b"
+                        android:textSize="20dp"/>
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+
+
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/code_text_cv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/background_gray"
+                android:baselineAligned="false"
+                app:cardBackgroundColor="#ffffff"
+                app:cardCornerRadius="5dp">
+
+                <LinearLayout
+                    android:id="@+id/code_text_fade"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginBottom="10dp"
+                        android:layout_weight="1"
+                        android:text="Code text"
+                        android:textColor="#607d8b"
+                        android:textSize="20dp"/>
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+
+
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/description_cv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/background_gray"
+                android:baselineAligned="false"
+                app:cardBackgroundColor="#ffffff"
+                app:cardCornerRadius="5dp">
+
+                <LinearLayout
+                    android:id="@+id/description_fade"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginBottom="10dp"
+                        android:layout_weight="1"
+                        android:text="Description"
+                        android:textColor="#607d8b"
+                        android:textSize="20dp"/>
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+
+
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp">
+
+                <android.support.v7.widget.CardView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    app:cardBackgroundColor="#0FB1AC"
+                    app:cardCornerRadius="4dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingBottom="10dp"
+                        android:paddingLeft="20dp"
+                        android:paddingRight="20dp"
+                        android:paddingTop="10dp"
+                        android:text="done"
+                        android:textColor="#ffffff"
+                        android:textSize="16dp"/>
+
+                </android.support.v7.widget.CardView>
+            </FrameLayout>
+
+
+        </TableLayout>
+    </ScrollView>
+</LinearLayout>

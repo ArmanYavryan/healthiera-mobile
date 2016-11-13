@@ -1,0 +1,82 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/framelayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#ffffff"
+    >
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/hello_blank_fragment"/>
+
+    <com.getbase.floatingactionbutton.FloatingActionsMenu
+        android:id="@+id/floating_action_menu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_margin="16dp"
+        app:fab_addButtonColorNormal="#009789"
+        app:fab_addButtonColorPressed="#0b6b62"
+        app:fab_addButtonSize="normal"
+        app:fab_labelStyle="@style/MyFloatingActionLabel"
+        app:fab_labelsPosition="left"
+        >
+
+        <com.getbase.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab_treatment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:fab_addButtonStrokeVisible="true"
+            app:fab_colorNormal="#03a9f4"
+            app:fab_colorPressed="#0277bd"
+            app:fab_icon="@drawable/treatment"
+            app:fab_size="mini"
+            app:fab_title="Treatment"
+            />
+
+
+        <com.getbase.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab_appointment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:fab_addButtonStrokeVisible="true"
+            app:fab_colorNormal="#e53935"
+            app:fab_colorPressed="#b71c1c"
+            app:fab_icon="@drawable/appointment"
+            app:fab_size="mini"
+            app:fab_title="Appointment"
+            />
+
+        <com.getbase.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab_medication"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:fab_addButtonStrokeVisible="true"
+            app:fab_colorNormal="#00bfa5"
+            app:fab_colorPressed="#00897b"
+            app:fab_icon="@drawable/medication"
+            app:fab_size="mini"
+            app:fab_title="Medication"
+            />
+
+        <com.getbase.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab_measurement"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:fab_addButtonStrokeVisible="true"
+            app:fab_colorNormal="#ffc107"
+            app:fab_colorPressed="#f9a825"
+            app:fab_icon="@drawable/messurment"
+            app:fab_size="mini"
+            app:fab_title="Measurement"
+            />
+
+    </com.getbase.floatingactionbutton.FloatingActionsMenu>
+
+
+</RelativeLayout>

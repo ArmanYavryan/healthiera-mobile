@@ -8,11 +8,22 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-    <style name="AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="MyFloatingActionButton" parent="Theme.AppCompat.Light">
+        <item name="colorAccent">#44beff</item>
+    </style>
 
-    <style name="PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    <style name="MyFloatingActionLabel" parent="Theme.AppCompat.Light">
+        <item name="android:padding">5dp</item>
+        <item name="android:radius">4dp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">#ffab91</item>
+    </style>
 
-    <style name="TextHintStyle" >
+    <style name="AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
+
+    <style name="PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
+
+    <style name="TextHintStyle">
         <item name="android:textColor">#1fbba6</item>
         <item name="android:textSize">12dp</item>
     </style>

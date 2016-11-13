@@ -6,9 +6,6 @@ import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
-import android.view.animation.TranslateAnimation;
 import android.widget.TextView;
 
 import com.healthiera.mobile.R;
@@ -16,6 +13,7 @@ import com.healthiera.mobile.fragment.healthData.Complains;
 import com.healthiera.mobile.fragment.healthData.Devices;
 import com.healthiera.mobile.fragment.healthData.Heredity;
 import com.healthiera.mobile.fragment.healthData.Status;
+
 
 /**
  * Created by Davit on 11.09.2016.
@@ -27,16 +25,26 @@ public class HealthData extends BaseFragment {
             switch (view.getId()) {
                 case R.id.tv1:
                     FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                    transaction.replace(R.id.Content_id_, new Complains()).addToBackStack("HD-C").commit();
+                    transaction
+                            .addToBackStack("HD-C")
+                            .setCustomAnimations(R.anim.slide_left, R.anim.slide_right)
+                            .replace(R.id.Content_id_, new Complains())
+                            .commit();
                     break;
                 case R.id.tv2:
-                    getFragmentManager().beginTransaction().replace(R.id.Content_id_, new Heredity()).addToBackStack("HD-H").commit();
+                    getFragmentManager().beginTransaction()
+                            .setCustomAnimations(R.anim.slide_left, R.anim.slide_right)
+                            .replace(R.id.Content_id_, new Heredity()).addToBackStack("HD-H").commit();
                     break;
                 case R.id.tv3:
-                    getFragmentManager().beginTransaction().replace(R.id.Content_id_, new Status()).addToBackStack("HD-S").commit();
+                    getFragmentManager().beginTransaction()
+                            .setCustomAnimations(R.anim.slide_left, R.anim.slide_right)
+                            .replace(R.id.Content_id_, new Status()).addToBackStack("HD-S").commit();
                     break;
                 case R.id.tv4:
-                    getFragmentManager().beginTransaction().replace(R.id.Content_id_, new Devices()).addToBackStack("HD-D").commit();
+                    getFragmentManager().beginTransaction()
+                            .setCustomAnimations(R.anim.slide_left, R.anim.slide_right)
+                            .replace(R.id.Content_id_, new Devices()).addToBackStack("HD-D").commit();
                     break;
             }
         }

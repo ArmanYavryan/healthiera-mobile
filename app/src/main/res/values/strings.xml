@@ -5,6 +5,7 @@
     <string name="goals">Goals</string>
     <string name="healthData">Health Data</string>
     <string name="medical">Medical</string>
+
     <string-array name="diabet_types">
         <item>Unset</item>
         <item>Type1</item>
@@ -12,6 +13,7 @@
         <item>Gestational</item>
         <item>Other</item>
     </string-array>
+
     <string-array name="dayofweek">
         <item>Sun</item>
         <item>Mon</item>
@@ -20,6 +22,22 @@
         <item>Thu</item>
         <item>Fri</item>
         <item>Sat</item>
+    </string-array>
+
+    <string-array name="measurement_goals">
+        <item>Hight</item>
+        <item>Weight</item>
+        <item>Pulse</item>
+        <item>Pressure</item>
+        <item>Other</item>
+    </string-array>
+
+    <string-array name="measurement_types">
+        <item>Hight</item>
+        <item>Weight</item>
+        <item>Pulse</item>
+        <item>Pressure</item>
+        <item>Other</item>
     </string-array>
 
     <string name="title_activity_navigation_drawer">NavigationDrawerActivity</string>
@@ -31,5 +49,6 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_medication">Medication</string>
 
 </resources>
