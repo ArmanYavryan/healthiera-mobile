@@ -13,10 +13,10 @@
     </style>
 
     <style name="MyFloatingActionLabel" parent="Theme.AppCompat.Light">
+        <item name="android:background">@drawable/background_gray</item>
         <item name="android:padding">5dp</item>
-        <item name="android:radius">4dp</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:textColor">#ffab91</item>
+        <item name="android:textColor">#ffffff</item>
     </style>
 
     <style name="AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>

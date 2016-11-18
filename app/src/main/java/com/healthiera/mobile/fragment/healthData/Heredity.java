@@ -20,17 +20,59 @@ import android.widget.TextView;
 import com.healthiera.mobile.R;
 import com.healthiera.mobile.component.base.BaseToggleButton;
 
+
 public class Heredity extends Fragment implements CompoundButton.OnCheckedChangeListener, AdapterView.OnItemSelectedListener, View.OnTouchListener {
 
-    LinearLayout bulimia;
-    LinearLayout diabetes_melitus;
-    CheckBox checkBox1, checkBox2, checkBox3, checkBox4;
-    BaseToggleButton b1, b2;
-    Spinner spDiabetTypeFather, spDiabetTypeMother, spDiabetTypeGrandMother, spDiabetTypeGrandFather;
-    TextView age_downF, age_upF, age_downM, age_upM, age_downGF, age_upGF, age_downGM, age_upGM;
-    EditText et_ageF, et_ageM, et_ageGF, et_ageGM;
+    private LinearLayout bulimia;
+
+    private LinearLayout diabetes_melitus;
+
+    private CheckBox checkBox1;
+
+    private CheckBox checkBox2;
+
+    private CheckBox checkBox3;
+
+    private CheckBox checkBox4;
+
+    private BaseToggleButton b1;
+
+    private BaseToggleButton b2;
+
+    private Spinner spDiabetTypeFather;
+
+    private Spinner spDiabetTypeMother;
+
+    private Spinner spDiabetTypeGrandMother;
+
+    private Spinner spDiabetTypeGrandFather;
+
+    private TextView age_downF;
+
+    private TextView age_upF;
+
+    private TextView age_downM;
+
+    private TextView age_upM;
+
+    private TextView age_downGF;
+
+    private TextView age_upGF;
+
+    private TextView age_downGM;
+
+    private TextView age_upGM;
+
+    private EditText et_ageF;
+
+    private EditText et_ageM;
+
+    private EditText et_ageGF;
+
+    private EditText et_ageGM;
 
     public static void expand(final View v) {
+
         v.measure(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
         final int targetHeight = v.getMeasuredHeight();
 

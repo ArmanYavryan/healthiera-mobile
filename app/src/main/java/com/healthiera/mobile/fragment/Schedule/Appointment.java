@@ -42,7 +42,6 @@ public class Appointment extends AppCompatActivity implements View.OnClickListen
     private TextView sometext;
     private TextView sometext2;
 
-    private View view;
     private ImageView iv, iv2;
 
     private CardView cardView;
